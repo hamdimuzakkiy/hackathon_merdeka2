@@ -7,6 +7,7 @@ class user extends MY_Controller {
 		parent::__construct();
 		$this->load->model('bencana');
 		$this->load->model('kebutuhan');
+                $this->load->model('users');
 	}
 
 	public function index(){		
@@ -42,7 +43,20 @@ class user extends MY_Controller {
 		$this->load->view('user/list_bencana');
 
 	}
-
+        
+        public function coba(){
+                
+        }
+        public function detail_bencana($id_bencana){
+                $this->get_header();
+                $temp['id']=$id_bencana;
+                $data['detail_bencana'] = $this->bencana->get_where($temp);
+                foreach ($data['detail_bencana'] as $temp) $id_koor['id'] = $temp->id_user;
+                $data['detail_koor'] = $this->users->get_where($id_koor);
+                
+                $this->load->view('user/detail_bencana',$data);
+        }
+        
 	private function pagination(){
 		$config['base_url'] = 'http://localhost/busanaqueenzee/index.php/umum/kategori';
 		$config['first_url'] = $config['base_url'];

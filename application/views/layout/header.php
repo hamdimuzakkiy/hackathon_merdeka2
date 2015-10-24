@@ -54,9 +54,9 @@
                   </ul>
                 </li>
               </ul>
-              <form class="navbar-form navbar-left" role="search">
+                <form class="navbar-form navbar-left" action="<?php echo base_url(); ?>user/search" method="GET">
                 <div class="form-group">
-                  <input type="text" class="form-control" id="navbar-search-input" placeholder="Search">
+                  <input type="text" class="form-control" id="navbar-search-input" placeholder="Search" name="sch">
                 </div>
               </form>
             </div><!-- /.navbar-collapse -->

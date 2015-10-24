@@ -54,8 +54,8 @@
           </div>
         </form>
 
-        <a href="#">I forgot my password</a><br>
-        <a href="<?php echo base_url() ?>/auth/signup" class="text-center">Register a new membership</a>
+        <a href="<?php echo base_url() ?>auth/do_login/guest" class="text-center">Login as Guest</a>
+        <br><a href="<?php echo base_url() ?>auth/signup" class="text-center">Register a new membership</a>
 
       </div><!-- /.login-box-body -->
     </div><!-- /.login-box -->

@@ -45,7 +45,7 @@ CREATE TABLE `kebutuhan` (
   `nama` varchar(111) NOT NULL,
   `jumlah` varchar(33) DEFAULT NULL,
   `id_bencana` int(11) DEFAULT NULL,
-  `terpenuhi` int(11) DEFAULT NULL,
+  `terpenuhi` int(11) DEFAULT '0',
   `satuan` varchar(22) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;

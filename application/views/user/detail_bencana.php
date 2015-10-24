@@ -71,10 +71,14 @@
                       <form class='form-horizontal'>
                         <div class='form-group margin-bottom-none'>
                           <div class='col-sm-9'>
-                            <input class="form-control input-sm" placeholder="Response">
+                            <?php if($id!='guest')
+                                echo  '<input class="form-control input-sm" placeholder="Response">';
+                            ?>
                           </div>                          
                           <div class='col-sm-3'>
-                            <button class='btn btn-danger pull-right btn-block btn-sm'>Sumbang</button>
+                              <?php if($id!='guest')
+                                echo  '<button class="btn btn-danger pull-right btn-block btn-sm">Sumbang</button>';
+                              ?>
                           </div>                          
                         </div>                        
                       </form>

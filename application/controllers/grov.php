@@ -11,8 +11,8 @@ class grov extends MY_Controller {
 
 	}
 
-	public function list(){
-		
+	public function list_supdem(){
+
 	}
 
 

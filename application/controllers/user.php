@@ -49,7 +49,7 @@ class user extends MY_Controller {
 		$config['suffix'] = '';
 		$configs = $this->pagination($config);
 		$data['list'] = $this->bencana->get_lim($configs);
-		$this->load->view('user/list_bencana');
+		$this->load->view('user/list_bencana',$data);
 	}
 
 	public function search(){
@@ -72,7 +72,7 @@ class user extends MY_Controller {
 		$config['suffix'] = $data['suffix'];
 		$config['first_url'] = $config['base_url'].$data['suffix'];
 		$config['total_rows'] = $data['total_rows'];
-		$config['per_page'] = 2;
+		$config['per_page'] = 4;
 		$config['num_links'] = 20;		
 		$config['full_tag_open'] = "<ul class='pagination'>";
 		$config['full_tag_close'] ="</ul>";

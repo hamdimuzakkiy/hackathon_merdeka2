@@ -41,6 +41,11 @@
 			$query = $this->db->get('bencana',$config['per_page'],$this->uri->segment(3));	
 			return $query->result();
 		}
+		function get_where_lim($config,$data){
+			$this->db->where($data);
+			$query = $this->db->get('bencana',$config['per_page'],$this->uri->segment(3));	
+			return $query->result();
+		}
 
 		function insert($data)
 		{

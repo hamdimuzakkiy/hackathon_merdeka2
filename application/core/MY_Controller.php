@@ -34,8 +34,19 @@ class MY_Controller extends CI_Controller {
 		$res['role'] = $this->session->userdata('role');
 		$res['id'] = $this->session->userdata('id');
 		$res['nama']= $this->session->userdata('nama');
+
         $res['email']= $this->session->userdata('email');
         $res['id_wilayah']= $this->session->userdata('id_wilayah');
         return $res;
 	}	
+
+	 protected function get_header($data){
+	 	$res = $this->get_session();		
+	 	$role = $res['role'];		
+	 	return $this->load->view('layout/'.$role.'_header.php',$data);
+	 }
+	 protected function get_footer(){		
+	 	return $this->load->view('layout/pelapor_footer.php');
+	 }
+	
 }

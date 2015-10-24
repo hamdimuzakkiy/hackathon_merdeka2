@@ -16,6 +16,17 @@
                         return $query->result();
 		}
 		
+
+		function get(){
+			$q = $this->db->get('bencana');
+			return $q->result();
+		}
+
+		function get_lim($config){
+			$query = $this->db->get('bencana',$config['per_page'],$this->uri->segment(3));	
+			return $query->result();
+		}
+
 		function insert($data)
 		{
 			$this->db->insert('bencana',$data);
@@ -23,10 +34,10 @@
    			return  $insert_id;			
 		}
         
-                function delete($id_bencana){
-                        $data['soft_delete']=1;
-                        $this->db->where('bencana.id',$id_bencana);
-                        $this->db->update('bencana',$data);                        
-                }
+        function delete($id_bencana){
+                $data['soft_delete']=1;
+                $this->db->where('bencana.id',$id_bencana);
+                $this->db->update('bencana',$data);                        
+        }
 	}
 

@@ -1,0 +1,12 @@
+tekan escape
+:
+q!
+
+===========================PROSUDURE PUSH===============================
+git add
+git commit -m "KEterangan"
+git checkout master
+git pull
+git merge --no-ff nama_branch
+git push
+========================================================================

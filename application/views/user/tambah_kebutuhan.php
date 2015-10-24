@@ -24,62 +24,29 @@
                     <img class="profile-user-img img-responsive img-circle" src="<?php echo base_url().'../'.$bencana->url_img; ?>" alt="User profile picture">
                   <h3 class="profile-username text-center"><?php echo $bencana->nama?></h3>
                     <?php } ?>
-                  <?php foreach ($detail_kebutuhan as $kebutuhan) {?>
-                  <p class="text-muted text-center"><?php print $kebutuhan->nama;?></p>
-
-                  <ul class="list-group list-group-unbordered">
-                    <li class="list-group-item">
-                    <?php
-                    $a = $kebutuhan->jumlah;
-                    $b = $kebutuhan->terpenuhi;
-                    $c = $a-$b;
-                    if($c <= 0) $c = 0;
-                    ?>
-                      <b>Kekurangan</b> <a class="pull-right"><?php print $c?> </a>
-                    </li>
-                    
-      
-                  </ul>
-                </div><!-- /.box-body -->
-                <?php } ?>
+                  
               </div><!-- /.box -->
 
               <!-- About Me Box -->
               
             </div><!-- /.col -->
+            </div>
             <div class="col-md-9">
               <div class="nav-tabs-custom">
                 
                <div class="tab-pane" id="settings">
             
-               <form action="<?php print base_url() ?>user/do_tambah_sumbang" class="form-horizontal" method = 'post'>
+               <form action="<?php print base_url() ?>user/do_tambah_kebutuhan" class="form-horizontal" method = 'post'>
                    <div class="row"  style="padding-left: 10px;">
                        <div class="col-md-9">
-                           <h1>Kelola Kebutuhan</h1>
+                           <h1>Tambah Kebutuhan</h1>
                        </div>
-                       <div class="col-md-9">
-                           <div class="form-group">
-                                <label for="inputName" class="col-sm-2 control-label">Jumlah Diterima</label>
-                                <div class="col-sm-10">
-                                    <!-- <input type="number" class="form-control" name="jumlah" placeholder="Jumlah"> -->
-                                    <input type="text" name = "terpenuhi" class="form-control" placeholder="Jumlah Diterima">
-                                </div>
-                            </div>
-                       </div>
-                       <div class="col-md-9">
-                           <div class="form-group">
-                                <label for="inputEmail" class="col-sm-2 control-label">Kebutuhan Tambahan</label>
-                                <div class="col-sm-10">
-                                    <input type="text" class="form-control" name="jumlah" placeholder="Kebutuhan Tambahan">
-                                </div>
-                            </div>
-                       </div>
-                       <span hidden>
-                       <?php foreach ($detail_bencana as $bencana) {?>
-                       		<input name = "id_bencana" value="<?php print $bencana->id; ?>">
-                       	<?php } ?>
-                       </span>
-                      <input type="hidden" name = "id" value = "<?php print $id_kebutuhan; ?>">
+                       
+
+                       <span class = 'adds'>
+                     <td><a class = "btn btn-block btn-sm btn-success" id = "button">Tambah Kebutuhan</a></td>
+                 </div>
+                      <input type="hidden" name = 'id' value="<?php print $id; ?>">
                       <div class="form-group">
                         <div class="col-sm-offset-2 col-sm-10">
                           <button type="submit" class="btn btn-primary">Submit</button>
@@ -111,6 +78,21 @@
     <script src="<?php echo base_url(); ?>../assets/bootsrap/dist/js/demo.js"></script>
   </body>
 </html>
+<script>
+  $('#button').click(function(){                
+        $('.adds').append('<tr><td><select name="nama[]"><option value="Obat-Obatan">Obat-Obatan</option><option value="Dokter">Dokter</option><option value="Paramedis">Paramedis</option><option value="Masker">Masker</option><option value="Pakaian Dewasa">Pakaian Dewasa</option><option value="Pakaian Anak">Pakaian Anak</option><option value="Makanan Instan">Makanan Instan</option><option value="Mie Instan">Mie Instan</option><option value="Sabun dan Shampo">Sabun dan Shampo</option></select></td>        <td><input  type="Text" name="jumlah[]"></td>           <td><a  class = "remove" style = "display:inline; text-decoration:none; cursor:pointer; color: red;"><i class="fa fa-times"></i>Hapus</a></td></tr><tr></tr>');              
+        //$('.adds').append($( "#dpd" ).html());
+        $('.remove').click(function () {
+            $(this).parents().eq(1).remove();            
+        });                                            
+    });
+
+    // remove laporan KIT 
+    $('.removes').click(function () {
+        $(this).parents().eq(1).remove();                                    
+    });
+</script>
+
 
 
 

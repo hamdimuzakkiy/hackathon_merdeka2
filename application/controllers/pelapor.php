@@ -21,5 +21,6 @@ class pelapor extends MY_Controller {
                 $data['bantuan_list'] = $this->permintaan->get_data_permintaan($data_parse['id_wilayah']);
                 $data['wilayah_ket'] = $this->wilayah->get_where($data_parse['id_wilayah']);
                 $this->load->view('pelapor/list_bantuan',$data);
+                $this->get_footer();
         }
 }

@@ -48,6 +48,9 @@ class MY_Controller extends CI_Controller {
 	 	$role = $res['role'];		
 	 	return $this->load->view('layout/'.$role.'_header.php',$data);
 	 }
+	 protected function get_footer(){		
+	 	return $this->load->view('layout/pelapor_footer.php');
+	 }
 
 	// protected function get_footer(){
 	// 	$res = $this->get_session();

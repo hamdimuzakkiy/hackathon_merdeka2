@@ -63,16 +63,15 @@
       
       <footer class="main-footer">
         <div class="pull-right hidden-xs">
-          <b>Version</b> 2.3.0
         </div>
-        <strong>Copyright &copy; 2014-2015 <a href="http://almsaeedstudio.com">Almsaeed Studio</a>.</strong> All rights reserved.
+
       </footer>
 
       <!-- Control Sidebar -->
 </div><!-- ./wrapper -->
 <script src="<?php echo base_url(); ?>../assets/bootsrap/plugins/jQuery/jQuery-2.1.4.min.js"></script>
-<script src="<?php echo base_url(); ?>../plugin/datatables/jquery.dataTables.min.js"></script>
-    <script src="<?php echo base_url(); ?>../plugin/datatables/dataTables.bootstrap.min.js"></script>
+<script src="<?php echo base_url(); ?>../plugins/datatables/jquery.dataTables.min.js"></script>
+    <script src="<?php echo base_url(); ?>../plugins/datatables/dataTables.bootstrap.min.js"></script>
      <script>
       $(function () {
         $("#example1").DataTable();

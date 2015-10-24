@@ -26,6 +26,7 @@
                       <?php if($id!='guest')
                           echo  '<li><a href="'.base_url().'user/tambah_bencana"><i class="fa fa-ambulance"></i>Galang Bantuan</a></li>';
                       ?>
+                      <li><a href="<?php echo base_url() ?>user/list_my_bencana"><i class="fa fa-server"></i>Kelola Galang Bantuan</a></li>
                   </ul>
                 </div><!-- /.box-body -->
               </div><!-- /. box -->

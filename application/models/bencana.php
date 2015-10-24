@@ -11,17 +11,22 @@
                         $this->db->select('*');
                         $this->db->from('bencana');
 			$this->db->like('lower(nama)',$data);
+                        $this->db->where('bencana.soft_delete',0);
 			$query = $this->db->get();
                         return $query->result();
 		}
 		
-
 		function insert($data)
 		{
 			$this->db->insert('bencana',$data);
 			$insert_id = $this->db->insert_id();
    			return  $insert_id;			
 		}
-					
+        
+                function delete($id_bencana){
+                        $data['soft_delete']=1;
+                        $this->db->where('bencana.id',$id_bencana);
+                        $this->db->update('bencana',$data);                        
+                }
 	}
 

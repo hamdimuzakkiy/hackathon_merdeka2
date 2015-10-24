@@ -45,28 +45,28 @@ class MY_Controller extends CI_Controller {
 		return $res;
 	}
 
-	// protected function get_header($data){
-	// 	$res = $this->get_session();		
-	// 	$role = $res['role'];		
-	// 	return $this->load->view('layout/'.$role.'_header.php',$data);
-	// }
+	protected function get_header($data){
+		$res = $this->get_session();		
+		$role = $res['role'];		
+		return $this->load->view('layout/'.$role.'_header.php',$data);
+	}
 
-	// protected function get_footer(){
-	// 	$res = $this->get_session();
-	// 	$role = $res['role'];
-	// 	return $this->load->view('layout/'.$role.'_footer.php');
-	// }
+	protected function get_footer(){
+		$res = $this->get_session();
+		$role = $res['role'];
+		return $this->load->view('layout/'.$role.'_footer.php');
+	}
 
-	// protected function get_periode(){
-	// 	$res = $this->periode->get();
-	// 	foreach ($res as $row) {
-	// 		return $param['periode'] = $row->tahun;
-	// 	}
+	protected function get_periode(){
+		$res = $this->periode->get();
+		foreach ($res as $row) {
+			return $param['periode'] = $row->tahun;
+		}
 		
-	// }
+	}
 
-	// protected function get_guru($data){
-	// 	$this->guru->getWhere($data);
-	// 	return ;
-	// }
+	protected function get_guru($data){
+		$this->guru->getWhere($data);
+		return ;
+	}
 }

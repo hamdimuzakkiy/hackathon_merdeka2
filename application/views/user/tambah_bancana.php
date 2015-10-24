@@ -93,7 +93,7 @@
 <script>
 
   $('#button').click(function(){                
-        $('.adds').append('<tr><td><select name="nama[]"><option value="Obat-Obatan">Obat-Obatan</option><option value="Dokter">Dokter</option><option value="Paramedis">Paramedis</option><option value="Masker">Masker</option><option value="Pakaian Dewasa">Pakaian Dewasa</option><option value="Pakaian Anak">Pakaian Anak</option><option value="Makanan Instan">Makanan Instan</option><option value="Mie Instan">Mie Instan</option><option value="Sabun dan Shampo">Sabun dan Shampo</option></select></td>        <td><input  type="Text" name="jumlah[]"></td>           <td><a  class = "remove" style = "display:inline; text-decoration:none; cursor:pointer; color: red;"><i class="fa fa-times"></i>Hapus</a></td></tr><tr></tr>');              
+        $('.adds').append('<tr><td class="pull-right" style="padding-right:10px;padding-top:10px;"><select class="form-control" name="nama[]"><option value="Obat-Obatan">Obat-Obatan</option><option value="Dokter">Dokter</option><option value="Paramedis">Paramedis</option><option value="Masker">Masker</option><option value="Pakaian Dewasa">Pakaian Dewasa</option><option value="Pakaian Anak">Pakaian Anak</option><option value="Makanan Instan">Makanan Instan</option><option value="Mie Instan">Mie Instan</option><option value="Sabun dan Shampo">Sabun dan Shampo</option></select></td><td><input  type="Text" class="form-control" name="jumlah[]"></td>           <td><a  class = "remove" style = "display:inline; text-decoration:none; cursor:pointer; color: red;padding-left:7px;">Hapus</a></td></tr><tr></tr>');              
         //$('.adds').append($( "#dpd" ).html());
         $('.remove').click(function () {
             $(this).parents().eq(1).remove();            

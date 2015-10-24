@@ -15,8 +15,20 @@ class user extends MY_Controller {
 		
 	}
 
-	public function tampil(){
+	public function tambah_sumbangan($id_kebutuhan = 0){
+		$param['id_kebutuhan'] = $id_kebutuhan;
+    	$param['status'] = 1;
+		$data['list_penyumbang'] = $this->sumbang->get_where($param);
+		$param2['id'] = $param['id_kebutuhan'];
+		$data['detail_kebutuhan'] = $this->kebutuhan->get_where($param2);
+		$data['id_kebutuhan'] = $id_kebutuhan;
+		$this->load->view('user/tambah_sumbangan',$data);
+	}
 
+	public function do_tambah_sumbang(){
+    	$where['id'] = $_POST['id'];
+    	$data['terpenuhi'] = $_POST['terpenuhi'];    	    	
+    	$this->kebutuhan->update($where,$data);
 	}
 
 	public function tambah_bencana(){
@@ -75,15 +87,14 @@ class user extends MY_Controller {
         $this->get_header();
         $param['id']=$id_bencana;
         $data['detail_bencana'] = $this->bencana->get_where($param);
-        foreach ($data['detail_bencana'] as $temp) 
+        foreach ($data['detail_bencana'] as $temp)
         	$id_koor['id'] = $temp->id_user;
-        $data['detail_koor'] = $this->users->get_where($id_koor);        
-        $data['detail_kebutuhan'] = $this->kebutuhan->get_where($param);        
+        $data['detail_koor'] = $this->users->get_where($id_koor);
+        $data['detail_kebutuhan'] = $this->kebutuhan->get_where($param);
         $this->load->view('user/detail_bencana',$data);
     }
-       
 
-    public function sumbang_bencana($id_kebutuhan=0){
+    public function sumbang_bencana($id_kebutuhan=0){    	
     	$param['id_kebutuhan'] = $id_kebutuhan;
     	$param['status'] = 1;
 		$data['list_penyumbang'] = $this->sumbang->get_where($param);

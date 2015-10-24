@@ -7,7 +7,8 @@ class main extends MY_Controller {
 		parent::__construct();
 	}
 
-	public function index(){		
-		redirect(base_url().'grov');
+	public function index(){
+		if ($this->session->userdata('role') == 'pelapor')		
+		redirect(base_url().'pelapor');
 	}
 }

@@ -9,44 +9,53 @@ class auth extends CI_Controller {
 		$this->load->model('user');
 	}
 
+	#ok
 	private function cek_session(){
 		if ($this->session->userdata('id') == '')
 		return false;
 		return true;
 	}
 	
+	#ok
 	private function no_cache(){
 		header("Cache-Control: no-cache, no-store, must-revalidate"); // HTTP 1.1.
         header("Pragma: no-cache"); // HTTP 1.0.
         header("Expires: 0"); // Proxies.
 	}
 
+	#ok
 	public function login(){
 		if ($this->cek_session())
 			redirect(base_url());
         $this->load->view('auth/login.php');
 	}
 
+	#ok
 	public function do_login(){
 		$data['email'] = $_POST['email'];
 		$data['password'] = md5($_POST['password']);			
-		$result = $this->user->getWhere($data);
+		$result = $this->user->get_where($data);
 		
 		foreach ($result as $row) {			
 			$this->session->set_userdata(array(
                     'role' => $row->role,
                     'id' => $row->id,
                     'nama' =>$row->nama,
-                    'email' => $row->email                                                                           
+                    'email' => $row->email                                                                          
             ));	
 		}
 		
 		redirect(base_url());
     }
 
+    #ok
     public function logout(){
     	$this->session->unset_userdata('role');
     	$this->session->unset_userdata('id');    
     	redirect(base_url());
+    }
+
+    function testMD5($data){
+    	print md5($data);
     }
 }

@@ -9,12 +9,12 @@ class main extends MY_Controller {
 	}
 
 	public function index(){		
-		redirect(base_url().$this->session->userdata('role'));
+		redirect(base_url().'user');
 	}
         
-        public function do_search($nama){
-                $data['list_result']=$this->bencana->get_by_name(strtolower($nama));
-                
-                $this->load->view('main/dashboard',$data);
-        }
+    public function do_search($nama){
+            $data['list_result']=$this->bencana->get_by_name(strtolower($nama));
+            
+            $this->load->view('main/dashboard',$data);
+    }
 }

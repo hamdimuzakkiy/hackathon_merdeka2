@@ -34,9 +34,7 @@ class MY_Controller extends CI_Controller {
 		$res['role'] = $this->session->userdata('role');
 		$res['id'] = $this->session->userdata('id');
 		$res['nama']= $this->session->userdata('nama');
-
-        $res['email']= $this->session->userdata('email');
-        $res['id_wilayah']= $this->session->userdata('id_wilayah');
+        $res['email']= $this->session->userdata('email');        
         return $res;
 	}	
 

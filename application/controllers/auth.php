@@ -6,7 +6,8 @@ class auth extends CI_Controller {
 	public function __construct(){		
 		parent::__construct();
 		$this->no_cache();		
-		$this->load->model('user');
+		$this->load->model('user');		
+
 	}
 
 	#ok
@@ -40,13 +41,18 @@ class auth extends CI_Controller {
 			$this->session->set_userdata(array(
                     'role' => $row->role,
                     'id' => $row->id,
-                    'nama' =>$row->nama,
-                    'id_wilayah' =>$row->id_wilayah,
+                    'nama' =>$row->nama,                    
                     'email' => $row->email                                                                          
             ));	
-		}
-		
+		}		
 		redirect(base_url());
+    }
+
+    #ok
+    public function logout(){
+    	$this->session->unset_userdata('role');
+    	$this->session->unset_userdata('id');    
+    	redirect(base_url());
     }
 
     public function signup(){
@@ -61,13 +67,6 @@ class auth extends CI_Controller {
     	$data['alamat'] = $_POST['alamat'];
         $this->user->insert($data);
         redirect(base_url().'main');
-    }
-
-    #ok
-    public function logout(){
-    	$this->session->unset_userdata('role');
-    	$this->session->unset_userdata('id');    
-    	redirect(base_url());
     }
     
     function md5($data){

@@ -5,13 +5,7 @@
 		{
 			parent::__construct();
 			$this->load->database();
-		}
-                
-		function insert($data)
-		{
-			$this->db->insert('user',$data);
-			return;
-		}
+		}		                
                 
 		function get_by_name($data){
                         $this->db->select('*');
@@ -21,5 +15,13 @@
                         return $query->result();
 		}
 		
+
+		function insert($data)
+		{
+			$this->db->insert('bencana',$data);
+			$insert_id = $this->db->insert_id();
+   			return  $insert_id;			
+		}
+					
 	}
 

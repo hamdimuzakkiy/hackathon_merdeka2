@@ -27,7 +27,7 @@
                   <h3 class="box-title">Penggalangan Bantuan Baru</h3>
                 </div><!-- /.box-header -->
                 <div class="box-body">
-                <form action="<?php print base_url()?>user/do_tambah_bencana" method = "post"> 
+                <form action="<?php print base_url()?>user/do_tambah_bencana" method = "post" enctype="multipart/form-data"> 
                   <div class="form-group">
                    <input type="text" class="form-control" placeholder="Nama Bencana" name="namas">
                   </div>
@@ -48,7 +48,7 @@
                    <label>Masukan Gambar Bencana</label>
                     <div class="btn btn-default btn-file">
                       <i class="fa fa-image"></i> Image
-                      <input type="file" name="pfile">
+                      <input type="file" name = "pfile" id = "pfiles"  accept="image/gif, image/jpeg, image/png">
                     </div>
                     <p class="help-block">Hanya Bisa Satu Gambar</p>
                  </div>

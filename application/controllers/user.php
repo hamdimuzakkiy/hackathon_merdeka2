@@ -74,6 +74,22 @@ class user extends MY_Controller {
 		$data['list'] = $this->bencana->get_lim($configs);
 		$this->load->view('user/list_bencana',$data);
 	}
+	public function list_my_bencana(){
+		 $this->get_header();
+		 $data['session'] = $this->get_session()['nama'];
+		 //$data['session'] = $this->get_session()['id'];
+		 $cnfg['soft_delete'] = 0;
+		 $cnfg['id_user'] = $this->get_session()['id'];
+		 $config['total_rows'] = sizeof($this->bencana->get_where($cnfg));
+		 $this->bencana->get_where($cnfg);
+		 $config['base_url'] = base_url().'user/list_my_bencana';
+		 $config['suffix'] = '';
+		$configs = $this->pagination($config);
+		$data['list'] = $this->bencana->get_where_lim($configs,$cnfg);
+		$this->load->view('user/my_bencana',$data);
+
+	}
+
         
 	public function search(){
                 $this->get_header();
@@ -94,6 +110,20 @@ class user extends MY_Controller {
     }
 
     public function detail_bencana($id_bencana=0){
+       $this->get_header();
+        $param['id']=$id_bencana;
+        $data['detail_bencana'] = $this->bencana->get_where($param);
+        foreach ($data['detail_bencana'] as $temp)
+        	$id_koor['id'] = $temp->id_user;
+        $data['detail_koor'] = $this->users->get_where($id_koor);
+        $params['id_bencana'] = $id_bencana;
+        $data['detail_kebutuhan'] = $this->kebutuhan->get_where($params);
+       // print $this->db->last_query();
+       // print sizeof($data['detail_kebutuhan']);
+       $this->load->view('user/detail_bencana',$data);
+    }
+
+    public function detail_my_bencana($id_bencana=0){
        $this->get_header();
         $param['id']=$id_bencana;
         $data['detail_bencana'] = $this->bencana->get_where($param);

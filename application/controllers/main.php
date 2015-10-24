@@ -14,7 +14,11 @@ class main extends MY_Controller {
         
         public function do_search($nama){
                 $data['list_result']=$this->bencana->get_by_name(strtolower($nama));
-                
                 $this->load->view('main/dashboard',$data);
+        }
+        
+        public function delete_bencana($id_bencana){
+                $this->bencana->delete($id_bencana);
+                //$this->index();
         }
 }

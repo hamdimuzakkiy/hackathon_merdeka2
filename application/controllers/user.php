@@ -49,7 +49,7 @@ class user extends MY_Controller {
 		$config['suffix'] = '';
 		$configs = $this->pagination($config);
 		$data['list'] = $this->bencana->get_lim($configs);
-		$this->load->view('user/list_bencana',$data);
+		$this->load->view('user/list_bencana');
 	}
 
 	public function search(){
@@ -60,8 +60,7 @@ class user extends MY_Controller {
 
 		$sch = $config['suffix'];
 
-		$config['total_rows'] = sizeof($this->bencana->get_by_name(strtolower($sch)));
-		
+		$config['total_rows'] = sizeof($this->bencana->get_by_name(strtolower($sch)));		
 		$config['base_url'] = base_url().'user/list_bencana';
 		$config['suffix'] = '?sch='.$config['suffix'];		
 		$configs = $this->pagination($config);
@@ -72,7 +71,7 @@ class user extends MY_Controller {
 		$config['suffix'] = $data['suffix'];
 		$config['first_url'] = $config['base_url'].$data['suffix'];
 		$config['total_rows'] = $data['total_rows'];
-		$config['per_page'] = 4;
+		$config['per_page'] = 2;
 		$config['num_links'] = 20;		
 		$config['full_tag_open'] = "<ul class='pagination'>";
 		$config['full_tag_close'] ="</ul>";
@@ -90,6 +89,10 @@ class user extends MY_Controller {
 		$config['last_tagl_close'] = "</li>";
 		$this->pagination->initialize($config); 
 		return $config;
+	}
+
+	public function sumbang(){
+		
 	}
 
 }

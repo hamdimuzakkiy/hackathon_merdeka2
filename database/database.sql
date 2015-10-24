@@ -66,6 +66,7 @@ CREATE TABLE `user` (
   `role` varchar(22) DEFAULT NULL,
   `email` varchar(111) DEFAULT NULL,
   `tlp` varchar(33) DEFAULT NULL,
+  `id_wilayah` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 

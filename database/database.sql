@@ -68,11 +68,13 @@ CREATE TABLE `user` (
   `tlp` varchar(33) DEFAULT NULL,
   `id_wilayah` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
 /*Data for the table `user` */
 
 LOCK TABLES `user` WRITE;
+
+insert  into `user`(`id`,`nama`,`username`,`password`,`role`,`email`,`tlp`,`id_wilayah`) values (1,'wahyu','123','202cb962ac59075b964b07152d234b70','pelapor','wahyu@pelapor.com',NULL,1);
 
 UNLOCK TABLES;
 

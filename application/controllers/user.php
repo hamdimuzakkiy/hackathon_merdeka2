@@ -39,14 +39,20 @@ class user extends MY_Controller {
 	}
 
 	public function list_bencana(){
-		$this->pagination();
-		$this->load->view('user/list_bencana');
+		$cnfg['soft_delete'] = 0;
+		$this->bencana->get_where($cnfg);
+		$config['total_rows'] = sizeof($this->bencana->get_where($cnfg));		
 
+		$this->db->last_query();		
+
+		$config['base_url'] = base_url().'user/list_bencana';
+		// $config['suffix'] = '?src=hamdi';
+		$config['suffix'] = '';
+		$configs = $this->pagination($config);
+		$data['list'] = $this->bencana->get_lim($configs);
+		$this->load->view('user/list_bencana',$data);
 	}
-        
-        public function coba(){
-                
-        }
+
         public function detail_bencana($id_bencana){
                 $this->get_header();
                 $temp['id']=$id_bencana;
@@ -56,12 +62,28 @@ class user extends MY_Controller {
                 
                 $this->load->view('user/detail_bencana',$data);
         }
-        
-	private function pagination(){
-		$config['base_url'] = 'http://localhost/busanaqueenzee/index.php/umum/kategori';
-		$config['first_url'] = $config['base_url'];
-		$config['total_rows'] = $this->db->get('bencana')->num_rows();
-		$config['per_page'] = 2; 
+
+	public function search(){
+		if (!isset($_GET['sch']))
+			$config['suffix'] = '';
+		else
+			$config['suffix'] = $_GET['sch'];
+
+		$sch = $config['suffix'];
+
+		$config['total_rows'] = sizeof($this->bencana->get_by_name(strtolower($sch)));
+		
+		$config['base_url'] = base_url().'user/list_bencana';
+		$config['suffix'] = '?sch='.$config['suffix'];		
+		$configs = $this->pagination($config);
+    }
+
+	private function pagination($data){
+		$config['base_url'] = $data['base_url'];
+		$config['suffix'] = $data['suffix'];
+		$config['first_url'] = $config['base_url'].$data['suffix'];
+		$config['total_rows'] = $data['total_rows'];
+		$config['per_page'] = 4;
 		$config['num_links'] = 20;		
 		$config['full_tag_open'] = "<ul class='pagination'>";
 		$config['full_tag_close'] ="</ul>";
@@ -78,6 +100,7 @@ class user extends MY_Controller {
 		$config['last_tag_open'] = "<li>";
 		$config['last_tagl_close'] = "</li>";
 		$this->pagination->initialize($config); 
+		return $config;
 	}
 
 }

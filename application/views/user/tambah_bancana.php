@@ -116,7 +116,7 @@
                 <div class="box-body">
                 <form action="<?php print base_url()?>user/do_tambah_bencana" method = "post"> 
                   <div class="form-group">
-                   <input type="text" class="form-control" placeholder="Nama Bencana" name="nama">
+                   <input type="text" class="form-control" placeholder="Nama Bencana" name="namas">
                   </div>
                   <div class="form-group">
                   <input type="text" class="form-control" placeholder="Lokasi Bencana" name="lokasi">

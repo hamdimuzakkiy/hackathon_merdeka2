@@ -34,7 +34,7 @@ CREATE TABLE `bencana` (
 
 LOCK TABLES `bencana` WRITE;
 
-insert  into `bencana`(`id`,`nama`,`lokasi`,`deskripsi`,`id_user`,`tanggal_berakhir`,`url_img`,`soft_delete`) values (1,'Gunung Merapi Meletus','Yogyakarta','Terjadi pada tahun 2013 yang menelan banyak korban jiwa',2,NULL,'',0),(2,'Tsunami Aceh','Aceh','Gelombang besar tsunami yang meluluh lantakkan Aceh pada Tahun 2012 karena gempa tektonik',2,NULL,NULL,0),(3,'Kabut Asap Kalimantan Timur','Kalimantan Timur','Saya berharap bahwa foto-foto ini membuat orang merasakan apa yang saya rasakan ketika memotretnya. Kehancuran, kesedihan, dan harapan. Saya harap sejumlah gambar ini bisa meningkatkan kesadaran dan mungkin bisa membuat orang tergerak - sama seperti foto-foto ini menggerakan saya - sehingga ini tak lagi terjadi',2,NULL,'assets/img/Kabut Asap Kalimantan Timur.jpg',0),(4,'Kerusuhan Aceh','Aceh','Terjadi Kerusuhan di Aceh pada tahun 22035',2,NULL,NULL,0),(5,'Gempa Aceh Darussalam','Aceh','Gempa di Aceh ini juga mempunyai kedalam dengan titik 48 kilometer (KM) dan berada pada koordinat 1.97 derajat Lintang selatan, 138.38 bujur Timur dan dengan jarak lokasi sekitar 42 km (kilometer).',2,NULL,'assets/img/Gempa Aceh Darussalam.jpg',1);
+insert  into `bencana`(`id`,`nama`,`lokasi`,`deskripsi`,`id_user`,`tanggal_berakhir`,`url_img`,`soft_delete`) values (1,'Gunung Merapi Meletus','Yogyakarta','Hingga pukul 15.30 WIB, jumlah korban meninggal akibat erupsi Gunung Merapi sudah mencapai 205 orang. Jumlah  itu termasuk korban pada erupsi pertama pada Selasa 26 Okobober 2010.Korban meninggal di daerah Jogyakarta mencapai 171 orang, dengan korban luka bakar 149 orang dan non luka bakar 22 orang. Sementara korban meninggal di daerah Jawa Tengah sudah 34 orang, dan korban luka bakar delapan orang dan luka non bakar 26 orang',2,NULL,'assets/img/Gunung Merapi Meletus.jpg',0),(2,'Tsunami Aceh','Aceh','Gempa yang mengakibatkan tsunami menyebabkan sekitar 230.000 orang tewas di 8 negara. Ombak tsunami setinggi 9 meter. Bencana ini merupakan kematian terbesar sepanjang sejarah. Indonesia, Sri Lanka, India, dan Thailand merupakan negara dengan jumlah kematian terbesar. Kekuatan gempa pada awalnya dilaporkan mencapai magnitude 9.0. Pada Februari 2005 dilaporkan gempa berkekuatan magnitude 9.3. Meskipun Pacific Tsunami Warning Center telah menyetujui angka tersebut. Namun, United States Geological Survey menetapkan magnitude 9.2. atau bila menggunakan satuan seismik momen (Mw) sebesar 9.3.',2,NULL,'assets/img/Tsunami Aceh.jpg',0),(3,'Kabut Asap Kalimantan Timur','Kalimantan Timur','Saya berharap bahwa foto-foto ini membuat orang merasakan apa yang saya rasakan ketika memotretnya. Kehancuran, kesedihan, dan harapan. Saya harap sejumlah gambar ini bisa meningkatkan kesadaran dan mungkin bisa membuat orang tergerak - sama seperti foto-foto ini menggerakan saya - sehingga ini tak lagi terjadi',2,NULL,'assets/img/Kabut Asap Kalimantan Timur.jpg',0),(5,'Gempa Aceh Darussalam','Aceh','Gempa di Aceh ini juga mempunyai kedalam dengan titik 48 kilometer (KM) dan berada pada koordinat 1.97 derajat Lintang selatan, 138.38 bujur Timur dan dengan jarak lokasi sekitar 42 km (kilometer).',2,NULL,'assets/img/Gempa Aceh Darussalam.jpg',0);
 
 UNLOCK TABLES;
 
@@ -45,6 +45,8 @@ CREATE TABLE `kebutuhan` (
   `nama` varchar(111) NOT NULL,
   `jumlah` varchar(33) DEFAULT NULL,
   `id_bencana` int(11) DEFAULT NULL,
+  `terpenuhi` int(11) DEFAULT NULL,
+  `satuan` varchar(22) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -61,6 +63,7 @@ CREATE TABLE `sumbang` (
   `id_kebutuhan` int(11) DEFAULT NULL,
   `jumlah` int(11) DEFAULT NULL,
   `bukti` varchar(111) DEFAULT NULL,
+  `status` varchar(55) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 

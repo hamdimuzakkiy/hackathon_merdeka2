@@ -34,8 +34,8 @@ class MY_Controller extends CI_Controller {
 		$res['role'] = $this->session->userdata('role');
 		$res['id'] = $this->session->userdata('id');
 		$res['nama']= $this->session->userdata('nama');
-        $res['email']= $this->session->userdata('email');        
-        return $res;
+                $res['email']= $this->session->userdata('email');        
+                return $res;
 	}	
 
 	 protected function get_header(){

@@ -50,7 +50,7 @@ class user extends MY_Controller {
 		$data['list'] = $this->bencana->get_lim($configs);
 		$this->load->view('user/list_bencana');
 	}
-
+        
 	public function search(){
 		if (!isset($_GET['sch']))
 			$config['suffix'] = '';
@@ -93,8 +93,7 @@ class user extends MY_Controller {
     	$data['status'] = 0;
     	$this->sumbang->insert($data);
 	}
-
-
+        
 	private function pagination($data){
 		$config['base_url'] = $data['base_url'];
 		$config['suffix'] = $data['suffix'];

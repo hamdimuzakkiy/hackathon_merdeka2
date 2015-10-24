@@ -22,8 +22,8 @@
               <div class="box box-solid">
                 <div class="box-body no-padding">
                   <ul class="nav nav-pills nav-stacked">
-                    <li><a href="mailbox.html"><i class="fa fa-home"></i> Menu Utama</a></li>
-                   
+                      <li><a href="<?php echo base_url() ?>user/list_bencana"><i class="fa fa-home"></i>Menu Utama</a></li>
+                      <li><a href="<?php echo base_url() ?>user/tambah_bencana"><i class="fa fa-ambulance"></i>Galang Bantuan</a></li>
                   </ul>
                 </div><!-- /.box-body -->
               </div><!-- /. box -->

@@ -34,14 +34,19 @@ class MY_Controller extends CI_Controller {
 		$res['role'] = $this->session->userdata('role');
 		$res['id'] = $this->session->userdata('id');
 		$res['nama']= $this->session->userdata('nama');
-                $res['email']= $this->session->userdata('email');        
+                $res['email']= $this->session->userdata('email');   
+                $res['alamat']= $this->session->userdata('alamat');  
                 return $res;
 	}	
 
 	 protected function get_header(){
 	 	//$res = $this->get_session();		
 	 	//$role = $res['role'];		
-	 	return $this->load->view('layout/header.php');
+                $data['id']=$this->get_session()['id'];
+                $data['nama']=$this->get_session()['nama'];
+                $data['email']=$this->get_session()['email'];
+                $data['alamat']=$this->get_session()['alamat'];
+	 	return $this->load->view('layout/header.php',$data);
 	 }
 	 protected function get_footer(){		
 	 	return $this->load->view('layout/footer.php');

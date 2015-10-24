@@ -28,13 +28,13 @@ CREATE TABLE `bencana` (
   `url_img` varchar(222) DEFAULT NULL,
   `soft_delete` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
 
 /*Data for the table `bencana` */
 
 LOCK TABLES `bencana` WRITE;
 
-insert  into `bencana`(`id`,`nama`,`lokasi`,`deskripsi`,`id_user`,`tanggal_berakhir`,`url_img`,`soft_delete`) values (1,'Gunung Merapi Meletus','Yogyakarta','Hingga pukul 15.30 WIB, jumlah korban meninggal akibat erupsi Gunung Merapi sudah mencapai 205 orang. Jumlah  itu termasuk korban pada erupsi pertama pada Selasa 26 Okobober 2010.Korban meninggal di daerah Jogyakarta mencapai 171 orang, dengan korban luka bakar 149 orang dan non luka bakar 22 orang. Sementara korban meninggal di daerah Jawa Tengah sudah 34 orang, dan korban luka bakar delapan orang dan luka non bakar 26 orang',2,NULL,'assets/img/Gunung Merapi Meletus.jpg',0),(2,'Tsunami Aceh','Aceh','Gempa yang mengakibatkan tsunami menyebabkan sekitar 230.000 orang tewas di 8 negara. Ombak tsunami setinggi 9 meter. Bencana ini merupakan kematian terbesar sepanjang sejarah. Indonesia, Sri Lanka, India, dan Thailand merupakan negara dengan jumlah kematian terbesar. Kekuatan gempa pada awalnya dilaporkan mencapai magnitude 9.0. Pada Februari 2005 dilaporkan gempa berkekuatan magnitude 9.3. Meskipun Pacific Tsunami Warning Center telah menyetujui angka tersebut. Namun, United States Geological Survey menetapkan magnitude 9.2. atau bila menggunakan satuan seismik momen (Mw) sebesar 9.3.',2,NULL,'assets/img/Tsunami Aceh.jpg',0),(3,'Kabut Asap Kalimantan Timur','Kalimantan Timur','Saya berharap bahwa foto-foto ini membuat orang merasakan apa yang saya rasakan ketika memotretnya. Kehancuran, kesedihan, dan harapan. Saya harap sejumlah gambar ini bisa meningkatkan kesadaran dan mungkin bisa membuat orang tergerak - sama seperti foto-foto ini menggerakan saya - sehingga ini tak lagi terjadi',2,NULL,'assets/img/Kabut Asap Kalimantan Timur.jpg',0),(5,'Gempa Aceh Darussalam','Aceh','Gempa di Aceh ini juga mempunyai kedalam dengan titik 48 kilometer (KM) dan berada pada koordinat 1.97 derajat Lintang selatan, 138.38 bujur Timur dan dengan jarak lokasi sekitar 42 km (kilometer).',2,NULL,'assets/img/Gempa Aceh Darussalam.jpg',0);
+insert  into `bencana`(`id`,`nama`,`lokasi`,`deskripsi`,`id_user`,`tanggal_berakhir`,`url_img`,`soft_delete`) values (1,'Gunung Merapi Meletus','Yogyakarta','Hingga pukul 15.30 WIB, jumlah korban meninggal akibat erupsi Gunung Merapi sudah mencapai 205 orang. Jumlah  itu termasuk korban pada erupsi pertama pada Selasa 26 Okobober 2010.Korban meninggal di daerah Jogyakarta mencapai 171 orang, dengan korban luka bakar 149 orang dan non luka bakar 22 orang. Sementara korban meninggal di daerah Jawa Tengah sudah 34 orang, dan korban luka bakar delapan orang dan luka non bakar 26 orang',2,NULL,'assets/img/Gunung Merapi Meletus.jpg',0),(2,'Tsunami Aceh','Aceh','Gempa yang mengakibatkan tsunami menyebabkan sekitar 230.000 orang tewas di 8 negara. Ombak tsunami setinggi 9 meter. Bencana ini merupakan kematian terbesar sepanjang sejarah. Indonesia, Sri Lanka, India, dan Thailand merupakan negara dengan jumlah kematian terbesar. Kekuatan gempa pada awalnya dilaporkan mencapai magnitude 9.0. Pada Februari 2005 dilaporkan gempa berkekuatan magnitude 9.3. Meskipun Pacific Tsunami Warning Center telah menyetujui angka tersebut. Namun, United States Geological Survey menetapkan magnitude 9.2. atau bila menggunakan satuan seismik momen (Mw) sebesar 9.3.',2,NULL,'assets/img/Tsunami Aceh.jpg',0),(3,'Kabut Asap Kalimantan Timur','Kalimantan Timur','Saya berharap bahwa foto-foto ini membuat orang merasakan apa yang saya rasakan ketika memotretnya. Kehancuran, kesedihan, dan harapan. Saya harap sejumlah gambar ini bisa meningkatkan kesadaran dan mungkin bisa membuat orang tergerak - sama seperti foto-foto ini menggerakan saya - sehingga ini tak lagi terjadi',2,NULL,'assets/img/Kabut Asap Kalimantan Timur.jpg',0),(5,'Gempa Aceh Darussalam','Aceh','Gempa di Aceh ini juga mempunyai kedalam dengan titik 48 kilometer (KM) dan berada pada koordinat 1.97 derajat Lintang selatan, 138.38 bujur Timur dan dengan jarak lokasi sekitar 42 km (kilometer).',2,NULL,'assets/img/Gempa Aceh Darussalam.jpg',0),(8,'mencari cinta','cinta buta','                    apaan sih',1,'0000-00-00',NULL,0);
 
 UNLOCK TABLES;
 
@@ -48,7 +48,7 @@ CREATE TABLE `kebutuhan` (
   `terpenuhi` int(11) DEFAULT NULL,
   `satuan` varchar(22) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
 /*Data for the table `kebutuhan` */
 

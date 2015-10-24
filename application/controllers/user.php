@@ -7,7 +7,8 @@ class user extends MY_Controller {
 		parent::__construct();
 		$this->load->model('bencana');
 		$this->load->model('kebutuhan');
-                $this->load->model('users');
+		$this->load->model('sumbang');
+        $this->load->model('users');
 	}
 
 	public function index(){		
@@ -41,12 +42,9 @@ class user extends MY_Controller {
 	public function list_bencana(){
 		$cnfg['soft_delete'] = 0;
 		$this->bencana->get_where($cnfg);
-		$config['total_rows'] = sizeof($this->bencana->get_where($cnfg));		
+		$config['total_rows'] = sizeof($this->bencana->get_where($cnfg));			
 
-		$this->db->last_query();		
-
-		$config['base_url'] = base_url().'user/list_bencana';
-		// $config['suffix'] = '?src=hamdi';
+		$config['base_url'] = base_url().'user/list_bencana';		
 		$config['suffix'] = '';
 		$configs = $this->pagination($config);
 		$data['list'] = $this->bencana->get_lim($configs);
@@ -67,16 +65,35 @@ class user extends MY_Controller {
 		$configs = $this->pagination($config);
     }
 
-        public function detail_bencana($id_bencana){
-                $this->get_header();
-                $temp['id']=$id_bencana;
-                $data['detail_bencana'] = $this->bencana->get_where($temp);
-                foreach ($data['detail_bencana'] as $temp) $id_koor['id'] = $temp->id_user;
-                $data['detail_koor'] = $this->users->get_where($id_koor);
-                
-                $this->load->view('user/detail_bencana',$data);
-        }
-        
+    public function detail_bencana($id_bencana=0){
+        $this->get_header();
+        $param['id']=$id_bencana;
+        $data['detail_bencana'] = $this->bencana->get_where($param);
+        foreach ($data['detail_bencana'] as $temp) 
+        	$id_koor['id'] = $temp->id_user;
+        $data['detail_koor'] = $this->users->get_where($id_koor);        
+        $data['detail_kebutuhan'] = $this->kebutuhan->get_where($param);        
+        $this->load->view('user/detail_bencana',$data);
+    }
+       
+
+    public function sumbang_bencana($id_kebutuhan=0){
+    	$param['id_kebutuhan'] = $id_kebutuhan;
+    	$param['status'] = 1;
+		$data['list_penyumbang'] = $this->sumbang->get_where($param);
+		$param2['id'] = $param['id_kebutuhan'];
+		$data['detail_kebutuhan'] = $this->kebutuhan->get_where($param2);
+		$data['id_kebutuhan'] = $id_kebutuhan;
+		$this->load->view('user/sumbang_bencana',$data);
+	}
+
+	public function do_sumbang_bencana(){
+    	$data['id_kebutuhan'] = $_POST['id_kebutuhan'];
+    	$data['jumlah'] = $_POST['jumlah'];
+    	$data['status'] = 0;
+    	$this->sumbang->insert($data);
+	}
+
 
 	private function pagination($data){
 		$config['base_url'] = $data['base_url'];
@@ -101,10 +118,6 @@ class user extends MY_Controller {
 		$config['last_tagl_close'] = "</li>";
 		$this->pagination->initialize($config); 
 		return $config;
-	}
-
-	public function sumbang(){
-		
 	}
 
 }

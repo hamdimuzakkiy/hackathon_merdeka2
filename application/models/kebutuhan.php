@@ -11,6 +11,11 @@
 			$this->db->insert_batch('kebutuhan',$data);
 			return 0;
 		}	
+
+		function get_where($data){			
+			$q = $this->db->get_where('kebutuhan',$data);
+			return $q->result();
+		}
 		
 	}
 

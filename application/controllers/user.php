@@ -17,7 +17,7 @@ class user extends MY_Controller {
 
 	public function tambah_sumbangan($id_kebutuhan = 0){
 		$param['id_kebutuhan'] = $id_kebutuhan;
-    	$param['status'] = 1;
+                $param['status'] = 1;
 		$data['list_penyumbang'] = $this->sumbang->get_where($param);
 		$param2['id'] = $param['id_kebutuhan'];
 		$data['detail_kebutuhan'] = $this->kebutuhan->get_where($param2);
@@ -26,12 +26,13 @@ class user extends MY_Controller {
 	}
 
 	public function do_tambah_sumbang(){
-    	$where['id'] = $_POST['id'];
-    	$data['terpenuhi'] = $_POST['terpenuhi'];    	    	
-    	$this->kebutuhan->update($where,$data);
+            $where['id'] = $_POST['id'];
+            $data['terpenuhi'] = $_POST['terpenuhi'];    	    	
+            $this->kebutuhan->update($where,$data);
 	}
 
 	public function tambah_bencana(){
+                $this->get_header();
 		$this->load->view('user/tambah_bancana');
 	}
 

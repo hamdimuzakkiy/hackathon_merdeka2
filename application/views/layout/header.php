@@ -30,7 +30,7 @@
         <nav class="navbar navbar-static-top">
           <div class="container">
             <div class="navbar-header">
-              <a href="../../index2.html" class="navbar-brand"><b>S</b>O<b>S</b></a>
+              <a href="#" class="navbar-brand"><b>TANGGAP BENCANA</b></a>
               <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
                 <i class="fa fa-bars"></i>
               </button>
@@ -38,7 +38,7 @@
 
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse pull-left" id="navbar-collapse">
-              <ul class="nav navbar-nav">
+              <!--<ul class="nav navbar-nav">
                 <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
                 <li><a href="#">Link</a></li>
                 <li class="dropdown">
@@ -53,7 +53,7 @@
                     <li><a href="#">One more separated link</a></li>
                   </ul>
                 </li>
-              </ul>
+              </ul>-->
                 <form class="navbar-form navbar-left" action="<?php echo base_url(); ?>user/search" method="GET">
                 <div class="form-group">
                   <input type="text" class="form-control" id="navbar-search-input" placeholder="Search" name="sch">
@@ -70,24 +70,26 @@
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                       <!-- The user image in the navbar-->
                       <!-- hidden-xs hides the username on small devices so only the image appears. -->
-                      <span class="hidden-xs">Alexander Pierce</span>
+                      <?php //foreach($data_header as $data){ ?>
+                      <span class="hidden-xs"><?php echo $nama; ?></span>
                     </a>
                     <ul class="dropdown-menu">
                       <!-- The user image in the menu -->
                       <li class="user-header">
                         <p>
-                          Alexander Pierce - Web Developer
-                          <small>Member since Nov. 2012</small>
+                          <?php echo $nama ?> - <?php echo $email ?>
+                          <small><?php echo $alamat ?></small>
                         </p>
                       </li>
                       <!-- Menu Body -->
                       <!-- Menu Footer-->
                       <li class="user-footer">
                         <div class="pull-right">
-                          <a href="#" class="btn btn-default btn-flat">Sign out</a>
+                            <a href="<?php echo base_url() ?>auth/logout" class="btn btn-default btn-flat">Sign out</a>
                         </div>
                       </li>
                     </ul>
+                      <?php //} ?>
                   </li>
                 </ul>
               </div><!-- /.navbar-custom-menu -->

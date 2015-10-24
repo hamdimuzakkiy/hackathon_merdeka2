@@ -77,7 +77,13 @@ class auth extends CI_Controller {
     	$data['password'] = md5($_POST['password']);
     	$data['role'] = 'user';
     	$data['alamat'] = $_POST['alamat'];
-        $this->user->insert($data);
+
+    	move_uploaded_file($_FILES["pfile"]["tmp_name"], "./assets/img/".$_FILES["pfile"]["name"]);
+		
+		if (isset($_FILES["pfile"]["name"]) and $_FILES["pfile"]["name"] != '')
+		$data['url_img'] = "./assets/img/" .$_FILES["pfile"]["name"];		
+
+        $this->users->insert($data);
         redirect(base_url().'main');
     }
     

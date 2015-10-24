@@ -32,7 +32,7 @@ class user extends MY_Controller {
 	}
 
 	public function tambah_bencana(){
-                $this->get_header();
+        $this->get_header();
 		$this->load->view('user/tambah_bancana');
 	}
 
@@ -43,11 +43,12 @@ class user extends MY_Controller {
 		$data['tanggal_berakhir'] = $_POST['tanggal_berakhir'];
 		$data['id_user'] = $this->get_session()['id'];
 
+		
 		//
-		move_uploaded_file($_FILES["pfile"]["tmp_name"], "./files/".$_FILES["pfile"]["name"]);
+		move_uploaded_file($_FILES["pfile"]["tmp_name"], "./assets/img/".$_FILES["pfile"]["name"]);
 		
 		if (isset($_FILES["pfile"]["name"]) and $_FILES["pfile"]["name"] != '')
-		$data['imagePertanyaan'] = "./files/" .$_FILES["pfile"]["name"];		
+		$data['url_img'] = "./assets/img/" .$_FILES["pfile"]["name"];		
 		//
 
 
@@ -57,8 +58,10 @@ class user extends MY_Controller {
 			for ($i=0; $i < sizeof($_POST['nama']) ; $i++) { 					
 		        array_push($datas, array('nama' => $_POST['nama'][$i], 'jumlah' => $_POST['jumlah'][$i], 'id_bencana' => $id));
 		    }
-		}		
+		}
+		if (sizeof($datas)!=0)
 		$this->kebutuhan->insert_batch($datas);		
+		redirect(base_url().'user/list_bencana');
 	}
 
 	public function list_bencana(){

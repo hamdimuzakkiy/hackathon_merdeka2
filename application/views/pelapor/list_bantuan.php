@@ -16,7 +16,7 @@
       <small>Bantuan yang direquest</small>
       
     <div class="pull-right">
-      <a href="<?php print base_url() ?>pelapor/register/permintaan"><button type="button" class="btn btn-block btn-success btn-flat"><i class="fa fa-plus "></i> Tambah Data Permintaan</button></a>
+      <a href="<?php print base_url() ?>pelapor/register"><button type="button" class="btn btn-block btn-success btn-flat"><i class="fa fa-plus "></i> Tambah Data Permintaan</button></a>
     </div>
     </h1>
 </section>
@@ -33,8 +33,9 @@
                       <tr>
                         <th>No</th>
                         <th>Nama Barang</th>
-                        <th>Total</th>
-                        <th>Status</th>
+                        <th>Total Permintaan</th>
+                        <th>Total Stok</th>
+                        <th>Tanggal Input</th>
                         <th>Action</th>
                       </tr>
                     </thead>
@@ -43,9 +44,10 @@
                       <?php foreach ($bantuan_list as $c_key) { ?>
                         <tr>
                           <td><?php echo $no++; ?></td>
-                          <td><?php echo $c_key->jenis_kebutuhan; ?> </td>
-                          <td><?php echo $c_key->jumlah; ?></td>
-                          <td><?php echo $c_key->status; ?></td>
+                          <td><?php echo $c_key->nama_barang; ?> </td>
+                          <td><?php echo $c_key->total_permintaan; ?></td>
+                          <td><?php echo $c_key->total_stok; ?></td>
+                          <td><?php echo $c_key->tgl_input; ?></td>
                           <td align="center">
                               <!--<a href="#" onClick="show_confirm('edit',<?php echo $c_key->id;?>)"><i style="font-size: 28px" class="fa fa-pencil-square-o "></i></a>-->
                               <a href="#" onClick="show_confirm('delete',<?php echo $c_key->id;?>)"><i style="font-size: 28px" class="fa fa-trash-o "></i></a>

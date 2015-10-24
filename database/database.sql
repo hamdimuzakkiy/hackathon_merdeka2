@@ -12,6 +12,10 @@ MySQL - 5.6.14 : Database - monitoring_bencana
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+CREATE DATABASE /*!32312 IF NOT EXISTS*/`monitoring_bencana` /*!40100 DEFAULT CHARACTER SET latin1 */;
+
+USE `monitoring_bencana`;
+
 /*Table structure for table `pasokan` */
 
 CREATE TABLE `pasokan` (
@@ -39,14 +43,35 @@ CREATE TABLE `permintaan` (
   `jumlah` int(11) DEFAULT NULL,
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `tgl_input` timestamp NULL DEFAULT NULL,
+  `id_user` int(11) DEFAULT NULL,
+  `status` varchar(55) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
 
 /*Data for the table `permintaan` */
 
 LOCK TABLES `permintaan` WRITE;
 
-insert  into `permintaan`(`id_kecamatan`,`jenis_kebutuhan`,`jumlah`,`id`,`tgl_input`) values (1,'masker',550,2,NULL),(1,'makanan balita',100,3,NULL),(1,'obat',1100,4,NULL),(1,'tabung oksigen',50,5,NULL),(1,'air minum',200,6,NULL),(2,'masker',500,7,NULL),(2,'makanan balita',400,8,NULL),(3,'tabung oksigen',1000,9,NULL);
+insert  into `permintaan`(`id_kecamatan`,`jenis_kebutuhan`,`jumlah`,`id`,`tgl_input`,`id_user`,`status`) values (1,'masker',550,2,NULL,1,'request'),(1,'makanan balita',100,3,NULL,1,'request'),(1,'obat',1100,4,NULL,1,'request'),(1,'tabung oksigen',50,5,NULL,1,'request'),(1,'air minum',200,6,NULL,1,'request'),(2,'masker',500,7,NULL,1,'request'),(2,'makanan balita',400,8,NULL,1,'request'),(3,'tabung oksigen',1000,9,NULL,1,'request');
+
+UNLOCK TABLES;
+
+/*Table structure for table `user` */
+
+CREATE TABLE `user` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nama` varchar(111) DEFAULT NULL,
+  `username` varchar(111) DEFAULT NULL,
+  `password` varchar(111) DEFAULT NULL,
+  `role` varchar(22) DEFAULT NULL,
+  `email` varchar(111) DEFAULT NULL,
+  `tlp` varchar(33) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+/*Data for the table `user` */
+
+LOCK TABLES `user` WRITE;
 
 UNLOCK TABLES;
 

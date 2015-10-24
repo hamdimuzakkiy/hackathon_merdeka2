@@ -51,8 +51,11 @@
                               </p>
                               <h4><label>Batas Pengumpulan: </label> <?php print $bencana->tanggal_berakhir; ?></h4>
                               <br>
-          
+                              <?php if ($bencana->id_user != $id_user) { ?>
                               <button class="btn btn-lg btn-primary" onclick="window.location='<?php echo base_url()."user/detail_bencana/".$bencana->id; ?>';">Sumbang</button>
+                              <?php } else { ?>
+                              <button class="btn btn-lg btn-success" onclick="window.location='<?php echo base_url()."user/detail_my_bencana/".$bencana->id; ?>';">Kelola</button>
+                              <?php } ?>
                             </div><!-- /.col -->
                            
                           </div><!-- /.row -->

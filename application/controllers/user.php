@@ -75,6 +75,7 @@ class user extends MY_Controller {
 		$config['suffix'] = '';
 		$configs = $this->pagination($config);
 		$data['list'] = $this->bencana->get_lim($configs);
+		$data['id_user'] = $this->get_session()['id'];
 		$this->load->view('user/list_bencana',$data);
 	}
 	public function list_my_bencana(){
@@ -89,7 +90,8 @@ class user extends MY_Controller {
 		 $config['suffix'] = '';
 		$configs = $this->pagination($config);
 		$data['list'] = $this->bencana->get_where_lim($configs,$cnfg);
-		$this->load->view('user/my_bencana',$data);
+		$data['id_user'] = $cnfg['id_user'];
+		$this->load->view('user/list_bencana',$data);
 
 	}
 
@@ -107,7 +109,7 @@ class user extends MY_Controller {
 		$config['base_url'] = base_url().'user/list_bencana';
 		$config['suffix'] = '?sch='.$config['suffix'];		
 		$configs = $this->pagination($config);
-                
+        $data['id_user'] = $this->get_session()['id'];
                 $data['list'] = $this->bencana->get_by_name_lim($sch,$configs);
                 $this->load->view('user/list_bencana',$data);
     }

@@ -145,14 +145,19 @@ class user extends MY_Controller {
 		$param2['id'] = $param['id_kebutuhan'];
 		$data['detail_kebutuhan'] = $this->kebutuhan->get_where($param2);
 		$data['id_kebutuhan'] = $id_kebutuhan;
+                
+                foreach($data['detail_kebutuhan'] as $temp)$temp2['id']=$temp->id_bencana;      //Get detail bencana
+                $data['detail_bencana'] = $this->bencana->get_where($temp2);
+                
 		$this->load->view('user/sumbang_bencana',$data);
 	}
 
-	public function do_sumbang_bencana(){
+	public function do_sumbang_bencana($id_bencana){
     	$data['id_kebutuhan'] = $_POST['id_kebutuhan'];
     	$data['jumlah'] = $_POST['jumlah'];
     	$data['status'] = 0;
     	$this->sumbang->insert($data);
+        $this->detail_bencana($id_bencana);
 	}
         
 	private function pagination($data){

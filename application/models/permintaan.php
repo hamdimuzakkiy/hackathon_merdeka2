@@ -12,6 +12,15 @@
 			$this->db->insert('permintaan',$data);
 			return;
 		}
+                function get_data_permintaan($id_wilayah){
+                    $this->db->select('*');
+                    $this->db->from('permintaan');
+                    $this->db->where('permintaan.id_kecamatan',$id_wilayah);
+                    $query = $this->db->get();
+                
+                    return $query->result();
+                }
+                
 		
 	}
 

@@ -84,17 +84,21 @@ class user extends MY_Controller {
     }
 
     public function detail_bencana($id_bencana=0){
-        $this->get_header();
+       $this->get_header();
         $param['id']=$id_bencana;
         $data['detail_bencana'] = $this->bencana->get_where($param);
         foreach ($data['detail_bencana'] as $temp)
         	$id_koor['id'] = $temp->id_user;
         $data['detail_koor'] = $this->users->get_where($id_koor);
-        $data['detail_kebutuhan'] = $this->kebutuhan->get_where($param);
-        $this->load->view('user/detail_bencana',$data);
+        $params['id_bencana'] = $id_bencana;
+        $data['detail_kebutuhan'] = $this->kebutuhan->get_where($params);
+       // print $this->db->last_query();
+       // print sizeof($data['detail_kebutuhan']);
+       $this->load->view('user/detail_bencana',$data);
     }
 
-    public function sumbang_bencana($id_kebutuhan=0){    	
+    public function sumbang_bencana($id_kebutuhan=0){ 
+    	$this->get_header();   	
     	$param['id_kebutuhan'] = $id_kebutuhan;
     	$param['status'] = 1;
 		$data['list_penyumbang'] = $this->sumbang->get_where($param);

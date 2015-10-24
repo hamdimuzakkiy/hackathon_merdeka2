@@ -16,6 +16,11 @@
 			$q = $this->db->get_where('kebutuhan',$data);
 			return $q->result();
 		}
+
+		function update($where,$data){
+			$this->db->where($where);
+			$this->db->update('kebutuhan', $data); 
+		}
 		
 	}
 

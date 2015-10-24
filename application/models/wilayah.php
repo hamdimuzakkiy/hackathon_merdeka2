@@ -10,10 +10,8 @@
 		function insert($data)
 		{
 			$this->db->insert('wilayah',$data);
-			return;
+			
 		}
-<<<<<<< HEAD
-
 		function get(){
 			$q = $this->db->get('wilayah');
 			return $q->result();
@@ -23,13 +21,6 @@
 			$q = $this->db->get_where('wilayah',$data);
 			return $q->result();
 		}
-=======
-                function get_data_wilayah($id_wilayah){
-                    $this->db->where('permintaan.id_kecamatan',$id_wilayah);
-                    $query = $this->db->get();
-                    return $query->result();
-                }
->>>>>>> develop
 		
 	}
 

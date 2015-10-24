@@ -142,7 +142,7 @@
                  <div class="form-group">
                  <label>Masukan List Kebutuhan</label>
                  <span class = 'adds'>
-                     <td><a class = "btn btn-block btn-sm btn-success" id = "button">Tambah</a></td>
+                     <td><a class = "btn btn-block btn-sm btn-success" id = "button">Tambah Kebutuhan</a></td>
 <span hidden id = 'lengthData'><?php print 0; ?></span>
                  </div>
                 </div><!-- /.box-body -->
@@ -165,31 +165,12 @@
 
       <!-- Control Sidebar -->
     </div><!-- ./wrapper -->
-
-
-
-
-<?php $options = array(
-                  'small'  => 'Small Shirt',
-                  'med'    => 'Medium Shirt',
-                  'large'   => 'Large Shirt',
-                  'xlarge' => 'Extra Large Shirt',
-                );
-    $option1 = array(
-                'name' => 'asd',
-
-        );
-?>
-<span  hidden><td id='dpd'><?php echo form_dropdown($option1, $options); ?></td></span>
 <script src="<?php echo base_url(); ?>../assets/bootsrap/plugins/jQuery/jQuery-2.1.4.min.js"></script>
 <script>
 
   $('#button').click(function(){                
-
-        alert("<pph");
-        alert($( "#dpd" ).html());
-        $('.adds').append('<tr><td><input type="Text" name="namas[]"></td>        <td><input  type="Text" name="jumlah[]"></td>   <td><input  type="Text" name="satuan[]"></td>   <td><a  class = "remove" style = "display:inline; text-decoration:none; cursor:pointer; color: red;"><i class="fa fa-times"></i>Hapus</a></td></tr><tr></tr>');              
-        // $('.adds').append($( "#dpd" ).html());
+        $('.adds').append('<tr><td><select name="nama[]"><option value="Obat-Obatan">Obat-Obatan</option><option value="Dokter">Dokter</option><option value="Paramedis">Paramedis</option><option value="Masker">Masker</option><option value="Pakaian Dewasa">Pakaian Dewasa</option><option value="Pakaian Anak">Pakaian Anak</option><option value="Makanan Instan">Makanan Instan</option><option value="Mie Instan">Mie Instan</option><option value="Sabun dan Shampo">Sabun dan Shampo</option></select></td>        <td><input  type="Text" name="jumlah[]"></td>           <td><a  class = "remove" style = "display:inline; text-decoration:none; cursor:pointer; color: red;"><i class="fa fa-times"></i>Hapus</a></td></tr><tr></tr>');              
+        //$('.adds').append($( "#dpd" ).html());
         $('.remove').click(function () {
             $(this).parents().eq(1).remove();            
         });                                            
@@ -200,3 +181,5 @@
         $(this).parents().eq(1).remove();                                    
     });
 </script>
+
+

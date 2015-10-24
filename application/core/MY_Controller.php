@@ -40,13 +40,16 @@ class MY_Controller extends CI_Controller {
 	}	
 
 	 protected function get_header(){
-	 	//$res = $this->get_session();		
-	 	//$role = $res['role'];		
+                $role = $data['id']=$this->get_session()['role'];
                 $data['id']=$this->get_session()['id'];
                 $data['nama']=$this->get_session()['nama'];
                 $data['email']=$this->get_session()['email'];
                 $data['alamat']=$this->get_session()['alamat'];
-	 	return $this->load->view('layout/header.php',$data);
+                if($role=='user'){
+                    $this->load->view('layout/header.php',$data);    
+                }
+                else
+                    $this->load->view('layout/guest_header.php',$data);
 	 }
 	 protected function get_footer(){		
 	 	return $this->load->view('layout/footer.php');

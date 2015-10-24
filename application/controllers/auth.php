@@ -32,20 +32,31 @@ class auth extends CI_Controller {
 	}
 
 	#ok
-	public function do_login(){
-		$data['email'] = $_POST['email'];
+	public function do_login($role = 'user'){
+            if($role == 'user'){
+                $data['email'] = $_POST['email'];
 		$data['password'] = md5($_POST['password']);			
 		$result = $this->users->get_where($data);
 		
-		foreach ($result as $row) {			
-			$this->session->set_userdata(array(
-                    'role' => $row->role,
-                    'id' => $row->id,
-                    'nama' =>$row->nama,
-                    'alamat' =>$row->alamat,
-                    'email' => $row->email                                                                          
-            ));	
-		}		
+                    foreach ($result as $row) {			
+                        $this->session->set_userdata(array(
+                            'role' => 'user',
+                            'id' => $row->id,
+                            'nama' =>$row->nama,
+                            'alamat' =>$row->alamat,
+                            'email' => $row->email                                                                          
+                        ));	
+                    }
+            }
+            else{
+                $this->session->set_userdata(array(
+                            'role' => 'guest',
+                            'id' => 'guest',
+                            'nama' => 'guest',
+                            'alamat' => 'guest',
+                            'email' => 'guest'                                                                          
+                        ));
+            }
 		redirect(base_url().'/user/list_bencana');
     }
 

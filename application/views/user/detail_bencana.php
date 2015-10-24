@@ -70,6 +70,7 @@
                     <div class="post clearfix">
                      <?php foreach ($detail_kebutuhan as $row) {?>
                       <form class='form-horizontal'>
+<<<<<<< HEAD
                         <div class='form-group'>
                         <div class="col-lg-9 progress-group">
                         <h4><span class="progress-text"><?php print $row->nama ?></span>
@@ -89,8 +90,9 @@
                           <div class='col-sm-3'>
                              <a class="btn btn-lg btn-primary" href='<?php echo base_url()."user/sumbang_bencana"."/".$row->id; ?>'>Commit Menyumbang</a>
                           </div> 
-                                                 
-                        </div>                        
+                              <?php //if($id!='guest')
+                                //echo  '<button class="btn btn-danger pull-right btn-block btn-sm">Sumbang</button>';
+                              ?>
                       </form>
                       <?php } ?> 
                     <?php } ?>

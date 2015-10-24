@@ -48,7 +48,7 @@
                    <label>Masukan Gambar Bencana</label>
                     <div class="btn btn-default btn-file">
                       <i class="fa fa-image"></i> Image
-                      <input type="file" name="attachment">
+                      <input type="file" name="pfile">
                     </div>
                     <p class="help-block">Hanya Bisa Satu Gambar</p>
                  </div>

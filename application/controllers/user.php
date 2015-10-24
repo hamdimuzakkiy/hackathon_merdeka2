@@ -42,6 +42,15 @@ class user extends MY_Controller {
 		$data['deskripsi'] = $_POST['deskripsi'];
 		$data['tanggal_berakhir'] = $_POST['tanggal_berakhir'];
 		$data['id_user'] = $this->get_session()['id'];
+
+		//
+		move_uploaded_file($_FILES["pfile"]["tmp_name"], "./files/".$_FILES["pfile"]["name"]);
+		
+		if (isset($_FILES["pfile"]["name"]) and $_FILES["pfile"]["name"] != '')
+		$data['imagePertanyaan'] = "./files/" .$_FILES["pfile"]["name"];		
+		//
+
+
 		$id	= $this->bencana->insert($data);
 		$datas = array();		
 		if(!empty($_POST['nama'])) {		    

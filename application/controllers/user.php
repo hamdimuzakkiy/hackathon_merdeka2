@@ -37,17 +37,23 @@ class user extends MY_Controller {
 		$this->kebutuhan->insert_batch($datas);		
 	}
 
-	public function list_bencana(){
-		$this->pagination();
+	public function list_bencana(){		
+		// print $_GET['kategori'];
+		$config['total_rows'] = sizeof($this->bencana->get());
+		$config['base_url'] = base_url().'user/list_bencana';
+		// $config['suffix'] = '?src=hamdi';
+		$config['suffix'] = '';
+		$configs = $this->pagination($config);
+		$data['list'] = $this->bencana->get_lim($configs);
 		$this->load->view('user/list_bencana');
-
 	}
 
-	private function pagination(){
-		$config['base_url'] = 'http://localhost/busanaqueenzee/index.php/umum/kategori';
-		$config['first_url'] = $config['base_url'];
-		$config['total_rows'] = $this->db->get('bencana')->num_rows();
-		$config['per_page'] = 2; 
+	private function pagination($data){
+		$config['base_url'] = $data['base_url'];
+		$config['suffix'] = $data['suffix'];
+		$config['first_url'] = $config['base_url'].$data['suffix'];
+		$config['total_rows'] = $data['total_rows'];
+		$config['per_page'] = 1;
 		$config['num_links'] = 20;		
 		$config['full_tag_open'] = "<ul class='pagination'>";
 		$config['full_tag_close'] ="</ul>";
@@ -64,6 +70,7 @@ class user extends MY_Controller {
 		$config['last_tag_open'] = "<li>";
 		$config['last_tagl_close'] = "</li>";
 		$this->pagination->initialize($config); 
+		return $config;
 	}
 
 }

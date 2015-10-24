@@ -7,6 +7,7 @@ class auth extends CI_Controller {
 		parent::__construct();
 		$this->no_cache();		
 		$this->load->model('user');
+		$this->load->model('wilayah');
 	}
 
 	#ok
@@ -48,14 +49,38 @@ class auth extends CI_Controller {
 		redirect(base_url());
     }
 
+    public function signup(){
+    	if ($this->cek_session())
+			redirect(base_url());
+
+		$list_wilayah = $this->wilayah->get();
+		$list = array();
+		foreach ($list_wilayah as $row) {			
+			$list[$row->id] = $row->nama;
+		}
+		$data['list_wilayah'] = $list;
+    	$this->load->view('auth/signup.php',$data);
+    }
+
+    public function do_signup(){
+    	$data['email'] = $_POST['email'];
+    	$data['nama'] = $_POST['nama'];
+    	$data['password'] = md5($_POST['password']);
+    	$data['role'] = 'pelapor';
+    	$data['tlp'] = $_POST['tlp'];
+    	$data['id_wilayah'] = $_POST['id_wilayah'];
+    	$this->user->insert($data);
+    	redirect(base_url().'main');
+    }
+
     #ok
     public function logout(){
     	$this->session->unset_userdata('role');
     	$this->session->unset_userdata('id');    
     	redirect(base_url());
     }
-
-    function testMD5($data){
+    
+    function md5($data){
     	print md5($data);
     }
 }

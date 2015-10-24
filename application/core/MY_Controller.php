@@ -14,14 +14,11 @@ class MY_Controller extends CI_Controller {
 	}
 
 	private function check_action(){
-		$act = $this->uri->segment(1);		
-		// $act = '/grov';
-		// redirect(base_url().$act);
-		if ($this->session->userdata('role') != $act){
-			print $this->session->userdata('role').' - '.$act;
-		}
-		
-		
+		$act = $this->uri->segment(1);
+		$role = $this->session->userdata('role');
+		if ($role != $act){			
+			redirect(base_url().$role);
+		}				
 	}
 
 	private function no_cache(){
@@ -45,28 +42,28 @@ class MY_Controller extends CI_Controller {
 		return $res;
 	}
 
-	protected function get_header($data){
-		$res = $this->get_session();		
-		$role = $res['role'];		
-		return $this->load->view('layout/'.$role.'_header.php',$data);
-	}
+	// protected function get_header($data){
+	// 	$res = $this->get_session();		
+	// 	$role = $res['role'];		
+	// 	return $this->load->view('layout/'.$role.'_header.php',$data);
+	// }
 
-	protected function get_footer(){
-		$res = $this->get_session();
-		$role = $res['role'];
-		return $this->load->view('layout/'.$role.'_footer.php');
-	}
+	// protected function get_footer(){
+	// 	$res = $this->get_session();
+	// 	$role = $res['role'];
+	// 	return $this->load->view('layout/'.$role.'_footer.php');
+	// }
 
-	protected function get_periode(){
-		$res = $this->periode->get();
-		foreach ($res as $row) {
-			return $param['periode'] = $row->tahun;
-		}
+	// protected function get_periode(){
+	// 	$res = $this->periode->get();
+	// 	foreach ($res as $row) {
+	// 		return $param['periode'] = $row->tahun;
+	// 	}
 		
-	}
+	// }
 
-	protected function get_guru($data){
-		$this->guru->getWhere($data);
-		return ;
-	}
+	// protected function get_guru($data){
+	// 	$this->guru->getWhere($data);
+	// 	return ;
+	// }
 }

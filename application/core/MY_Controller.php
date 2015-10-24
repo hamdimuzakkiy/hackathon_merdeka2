@@ -43,11 +43,11 @@ class MY_Controller extends CI_Controller {
                 return $res;
 	}
 
-	// protected function get_header($data){
-	// 	$res = $this->get_session();		
-	// 	$role = $res['role'];		
-	// 	return $this->load->view('layout/'.$role.'_header.php',$data);
-	// }
+	 protected function get_header($data){
+	 	$res = $this->get_session();		
+	 	$role = $res['role'];		
+	 	return $this->load->view('layout/'.$role.'_header.php',$data);
+	 }
 
 	// protected function get_footer(){
 	// 	$res = $this->get_session();

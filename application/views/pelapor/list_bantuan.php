@@ -6,13 +6,13 @@
         else
             var r=confirm("Do you really want to delete ?");
         
-        if (r==true)window.location="<?php echo base_url();?>pelapor/"+act+"/pelajaran/"+gotoid;
+        if (r==true)window.location="<?php echo base_url();?>pelapor/"+act+"/"+gotoid;
     }
 </script>
 
 <section class="content-header">
     <h1>
-      List Bantuan Wilayah <?php echo $wilayah_ket->nama; ?>
+        List Bantuan Wilayah <?php foreach ($wilayah_ket as $ket)echo $ket->nama; ?>
       <small>Bantuan yang direquest</small>
       
     <div class="pull-right">
@@ -39,10 +39,10 @@
                       </tr>
                     </thead>
                      <tbody>
-                      <?php $no=0; ?>
+                      <?php $no=1; ?>
                       <?php foreach ($bantuan_list as $c_key) { ?>
                         <tr>
-                          <td><?php echo $no; ?></td>
+                          <td><?php echo $no++; ?></td>
                           <td><?php echo $c_key->jenis_kebutuhan; ?> </td>
                           <td><?php echo $c_key->jumlah; ?></td>
                           <td><?php echo $c_key->status; ?></td>

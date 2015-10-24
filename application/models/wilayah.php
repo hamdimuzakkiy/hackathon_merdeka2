@@ -18,9 +18,11 @@
 		}
 
 		function get_where($data){
-			$q = $this->db->get_where('wilayah',$data);
+                        $this->db->select('*');
+                        $this->db->from('wilayah');
+                        $this->db->where('id',$data);
+			$q = $this->db->get();
 			return $q->result();
 		}
-		
-	}
+        }
 

@@ -3,9 +3,9 @@
         <section class="content-header">
           <h1>
             Sumbang
-            <?php foreach ($detail_kebutuhan as $kebutuhan) {?>
+            <?php foreach ($detail_bencana as $bencana) {?>
              <div class= "pull-right">
-          <a href="<?php echo base_url(); ?>user/detail_bencana/<?php echo $kebutuhan->id_bencana; ?>" class="btn btn-primary btn-block"><b>Kembali Permintaan Bantuan</b></a>
+          <a href="<?php echo base_url(); ?>user/detail_bencana/<?php echo $bencana->id; ?>" class="btn btn-primary btn-block"><b>Kembali Permintaan Bantuan</b></a>
           </div>
           </h1>
 
@@ -21,8 +21,10 @@
                 <div class="box-body box-profile">
                 	
                 
-                  <img class="profile-user-img img-responsive img-circle" src="../../dist/img/user4-128x128.jpg" alt="User profile picture">
-                  <h3 class="profile-username text-center">Nama Bencana</h3>
+                    <img class="profile-user-img img-responsive img-circle" src="<?php echo base_url().'../'.$bencana->url_img; ?>" alt="User profile picture">
+                  <h3 class="profile-username text-center"><?php echo $bencana->nama;?></h3>
+                    <?php } ?>
+                  <?php foreach ($detail_kebutuhan as $kebutuhan) {?>
                   <p class="text-muted text-center"><?php print $kebutuhan->nama;?></p>
 
                   <ul class="list-group list-group-unbordered">
@@ -49,26 +51,34 @@
               <div class="nav-tabs-custom">
                 
                <div class="tab-pane" id="settings">
-               <form action="<?php print base_url() ?>user/do_sumbang_bencana" class="form-horizontal" method = 'post'>
-      
-                      <div class="form-group">
-                        <label for="inputName" class="col-sm-2 control-label">Jumlah</label>
-                        <div class="col-sm-10">
-                          <input type="email" class="form-control" name="jumlah" placeholder="Jumlah">
-                        </div>
-                      </div>
-                      <div class="form-group">
-                        <label for="inputEmail" class="col-sm-2 control-label">Bukti</label>
-                        <div class="col-sm-10">
-                          <input type="email" class="form-control" name="bukti" placeholder="Bukti">
-                        </div>
-                      </div>
+               <form action="<?php print base_url() ?>user/do_sumbang_bencana/<?php echo $bencana->id ?>" class="form-horizontal" method = 'post'>
+                   <div class="row"  style="padding-left: 10px;">
+                       <div class="col-md-9">
+                           <h1>Form Commit Bantuan</h1>
+                       </div>
+                       <div class="col-md-9">
+                           <div class="form-group">
+                                <label for="inputName" class="col-sm-2 control-label">Jumlah</label>
+                                <div class="col-sm-10">
+                                    <input type="number" class="form-control" name="jumlah" placeholder="Jumlah">
+                                </div>
+                            </div>
+                       </div>
+                       <div class="col-md-9">
+                           <div class="form-group">
+                                <label for="inputEmail" class="col-sm-2 control-label">Bukti</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" name="bukti" placeholder="Bukti">
+                                </div>
+                            </div>
+                       </div>
                       <input type="hidden" name = "id_kebutuhan" value = "<?php print $id_kebutuhan; ?>">
                       <div class="form-group">
                         <div class="col-sm-offset-2 col-sm-10">
                           <button type="submit" class="btn btn-primary">Submit</button>
                         </div>
                       </div>
+                   </div>
                     </form>
                   </div><!-- /.tab-pane -->
               </div><!-- /.nav-tabs-custom -->

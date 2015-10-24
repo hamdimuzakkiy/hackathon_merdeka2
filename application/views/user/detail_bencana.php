@@ -68,23 +68,22 @@
                       </div><!-- /.row -->
                     </div><!-- /.post -->
                     <div class="post clearfix">
-                     <?php foreach ($detail_kebutuhan as $row) {?>
                       <form class='form-horizontal'>
-<<<<<<< HEAD
                         <div class='form-group'>
-                        <div class="col-lg-9 progress-group">
-                        <h4><span class="progress-text"><?php print $row->nama ?></span>
-                        <span class="progress-number"><b>Diterima: <?php print $row->terpenuhi ?></b>/ Dibutuhkan :<?php print $row->jumlah ?></span></h4>
-                        <div class="progress sm">
-                        <?php 
-                        $a = $row->terpenuhi;
-                        $b = $row->jumlah;
-                        $hasil = ($a/$b)*100;
-                        ?>
-                        
-                          <div class="progress-bar progress-bar-green" style="width:<?php print $hasil ?>%"></div>
-                        </div>
-                      </div>
+                        <?php foreach ($detail_kebutuhan as $row) {?>
+                            <div class="col-lg-9 progress-group">
+                                <h4><span class="progress-text"><?php print $row->nama ?></span>
+                            <span class="progress-number"><b>Diterima: <?php print $row->terpenuhi ?></b>/ Dibutuhkan :<?php print $row->jumlah ?></span></h4>
+                                <div class="progress sm">
+                                    <?php 
+                                    $a = $row->terpenuhi;
+                                    $b = $row->jumlah;
+                                    $hasil = ($a/$b)*100;
+                                    ?>
+
+                                    <div class="progress-bar progress-bar-green" style="width:<?php print $hasil ?>%"></div>
+                                </div>
+                            </div>
                           
                                                   
                           <div class='col-sm-3'>

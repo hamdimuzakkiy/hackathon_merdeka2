@@ -19,7 +19,7 @@ class user extends MY_Controller {
 
 	}
 
-	public function tambah_bancana(){
+	public function tambah_bencana(){
 		$this->load->view('user/tambah_bancana');
 	}
 
@@ -40,6 +40,7 @@ class user extends MY_Controller {
 	}
 
 	public function list_bencana(){
+		$data['session'] = $this->get_session()['nama'];
 		$cnfg['soft_delete'] = 0;
 		$this->bencana->get_where($cnfg);
 		$config['total_rows'] = sizeof($this->bencana->get_where($cnfg));			
@@ -99,7 +100,7 @@ class user extends MY_Controller {
 		$config['suffix'] = $data['suffix'];
 		$config['first_url'] = $config['base_url'].$data['suffix'];
 		$config['total_rows'] = $data['total_rows'];
-		$config['per_page'] = 2;
+		$config['per_page'] = 5;
 		$config['num_links'] = 20;		
 		$config['full_tag_open'] = "<ul class='pagination'>";
 		$config['full_tag_close'] ="</ul>";

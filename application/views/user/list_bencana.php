@@ -1,7 +1,4 @@
-<?php 
 
-      echo $this->pagination->create_links(); 
-?>
 <!DOCTYPE html>
 <html>
   <head>
@@ -127,9 +124,6 @@
             <div class="col-md-9">
             <?php foreach ($list as $bencana) { ?>
               <div class="nav-tabs-custom">
-                
-                	
-                
                 <div class="tab-content">
                     <!-- Post -->
                     <div class="post">
@@ -144,6 +138,7 @@
                                <p>
                                   <?php echo $bencana->deskripsi; ?>
                               </p>
+                              <h4><label>Batas Pengumpulan: </label> <?php print $bencana->tanggal_berakhir; ?></h4>
                               <br>
           
                               <button class="btn btn-lg btn-primary" onclick="window.location='<?php echo base_url()."user/detail_bencana/".$bencana->id; ?>';">Sumbang</button>
@@ -156,6 +151,10 @@
                   </div><!-- /.tab-pane -->
                 </div><!-- /.tab-content -->
                 <?php } ?>	
+                <?php 
+
+      echo $this->pagination->create_links(); 
+?>
               </div><!-- /.nav-tabs-custom -->
               	
             </div><!-- /.col -->

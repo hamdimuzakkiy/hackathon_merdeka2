@@ -36,16 +36,16 @@ class user extends MY_Controller {
 	}
 
 	public function do_tambah_bencana (){
-		$data['nama'] = $_POST['nama'];
+		$data['nama'] = $_POST['namas'];
 		$data['lokasi'] = $_POST['lokasi'];
 		$data['deskripsi'] = $_POST['deskripsi'];
 		$data['tanggal_berakhir'] = $_POST['tanggal_berakhir'];
 		$data['id_user'] = $this->get_session()['id'];
 		$id	= $this->bencana->insert($data);
 		$datas = array();		
-		if(!empty($_POST['namas'])) {		    
-			for ($i=0; $i < sizeof($_POST['namas']) ; $i++) { 					
-		        array_push($datas, array('nama' => $_POST['namas'][$i], 'jumlah' => $_POST['jumlah'][$i], 'id_bencana' => $id));
+		if(!empty($_POST['nama'])) {		    
+			for ($i=0; $i < sizeof($_POST['nama']) ; $i++) { 					
+		        array_push($datas, array('nama' => $_POST['nama'][$i], 'jumlah' => $_POST['jumlah'][$i], 'id_bencana' => $id));
 		    }
 		}		
 		$this->kebutuhan->insert_batch($datas);		

@@ -7,7 +7,7 @@
           <h1>
             User Profile
              <div class= "pull-right">
-          <a href="#" class="btn btn-primary btn-block"><b>Kembali ke Menu Utama</b></a>
+                 <a href="<?php echo base_url(); ?>user/list_bencana" class="btn btn-primary btn-block"><b>Kembali ke List</b></a>
           </div>
           </h1>
 

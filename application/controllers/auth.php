@@ -6,7 +6,7 @@ class auth extends CI_Controller {
 	public function __construct(){		
 		parent::__construct();
 		$this->no_cache();		
-		$this->load->model('user');		
+		$this->load->model('users');		
 
 	}
 
@@ -20,8 +20,8 @@ class auth extends CI_Controller {
 	#ok
 	private function no_cache(){
 		header("Cache-Control: no-cache, no-store, must-revalidate"); // HTTP 1.1.
-        header("Pragma: no-cache"); // HTTP 1.0.
-        header("Expires: 0"); // Proxies.
+                header("Pragma: no-cache"); // HTTP 1.0.
+                header("Expires: 0"); // Proxies.
 	}
 
 	#ok

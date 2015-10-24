@@ -52,17 +52,7 @@ class user extends MY_Controller {
 		$data['list'] = $this->bencana->get_lim($configs);
 		$this->load->view('user/list_bencana',$data);
 	}
-
-        public function detail_bencana($id_bencana){
-                $this->get_header();
-                $temp['id']=$id_bencana;
-                $data['detail_bencana'] = $this->bencana->get_where($temp);
-                foreach ($data['detail_bencana'] as $temp) $id_koor['id'] = $temp->id_user;
-                $data['detail_koor'] = $this->users->get_where($id_koor);
-                
-                $this->load->view('user/detail_bencana',$data);
-        }
-
+        
 	public function search(){
 		if (!isset($_GET['sch']))
 			$config['suffix'] = '';
@@ -77,6 +67,18 @@ class user extends MY_Controller {
 		$config['suffix'] = '?sch='.$config['suffix'];		
 		$configs = $this->pagination($config);
     }
+
+        public function detail_bencana($id_bencana){
+                //$data['data_header'] = $this->get_session();
+                $this->get_header();
+                $temp['id']=$id_bencana;
+                $data['detail_bencana'] = $this->bencana->get_where($temp);
+                foreach ($data['detail_bencana'] as $temp) $id_koor['id'] = $temp->id_user;
+                $data['detail_koor'] = $this->users->get_where($id_koor);
+                
+                $this->load->view('user/detail_bencana',$data);
+        }
+        
 
 	private function pagination($data){
 		$config['base_url'] = $data['base_url'];

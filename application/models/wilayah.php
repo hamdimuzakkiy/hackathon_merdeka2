@@ -12,24 +12,17 @@
 			$this->db->insert('wilayah',$data);
 			return;
 		}
-<<<<<<< HEAD
-
 		function get(){
 			$q = $this->db->get('wilayah');
 			return $q->result();
 		}
 
 		function get_where($data){
-			$q = $this->db->get_where('wilayah',$data);
+                        $this->db->select('*');
+                        $this->db->from('wilayah');
+                        $this->db->where('id',$data);
+			$q = $this->db->get();
 			return $q->result();
 		}
-=======
-                function get_data_wilayah($id_wilayah){
-                    $this->db->where('permintaan.id_kecamatan',$id_wilayah);
-                    $query = $this->db->get();
-                    return $query->result();
-                }
->>>>>>> develop
-		
-	}
+}
 

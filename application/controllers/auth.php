@@ -42,6 +42,7 @@ class auth extends CI_Controller {
                     'role' => $row->role,
                     'id' => $row->id,
                     'nama' =>$row->nama,
+                    'id_wilayah' =>$row->id_wilayah,
                     'email' => $row->email                                                                          
             ));	
 		}

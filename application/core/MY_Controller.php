@@ -15,10 +15,10 @@ class MY_Controller extends CI_Controller {
 	private function no_cache(){
 
 		header("Cache-Control: no-cache, no-store, must-revalidate"); // HTTP 1.1.
-        header("Pragma: no-cache"); // HTTP 1.0.
-        header("Expires: 0"); // Proxies.
+                header("Pragma: no-cache"); // HTTP 1.0.
+                header("Expires: 0"); // Proxies.
 	}
-
+        
 	protected function cek_session(){
 		if ($this->session->userdata('id') == '')
 		return false;
@@ -29,7 +29,6 @@ class MY_Controller extends CI_Controller {
 		$res['role'] = $this->session->userdata('role');
 		$res['id'] = $this->session->userdata('id');
 		$res['nama']= $this->session->userdata('nama');
-		$res['email']= $this->session->userdata('email');
 		return $res;
 	}
 
@@ -46,15 +45,7 @@ class MY_Controller extends CI_Controller {
 	}
 
 	protected function get_periode(){
-		$res = $this->periode->get();
-		foreach ($res as $row) {
-			return $param['periode'] = $row->tahun;
-		}
-		
+		return $this->periode->get();
 	}
-
-	protected function get_guru($data){
-		$this->guru->getWhere($data);
-		return ;
-	}
+        
 }

@@ -24,8 +24,8 @@ class MY_Controller extends CI_Controller {
 	private function no_cache(){
 
 		header("Cache-Control: no-cache, no-store, must-revalidate"); // HTTP 1.1.
-        header("Pragma: no-cache"); // HTTP 1.0.
-        header("Expires: 0"); // Proxies.
+                header("Pragma: no-cache"); // HTTP 1.0.
+                header("Expires: 0"); // Proxies.
 	}
 
 	protected function check_session(){
@@ -38,8 +38,9 @@ class MY_Controller extends CI_Controller {
 		$res['role'] = $this->session->userdata('role');
 		$res['id'] = $this->session->userdata('id');
 		$res['nama']= $this->session->userdata('nama');
-		$res['email']= $this->session->userdata('email');
-		return $res;
+                $res['email']= $this->session->userdata('email');
+                $res['id_wilayah']= $this->session->userdata('id_wilayah');
+                return $res;
 	}
 
 	// protected function get_header($data){

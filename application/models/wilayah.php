@@ -10,9 +10,8 @@
 		function insert($data)
 		{
 			$this->db->insert('wilayah',$data);
-			return;
+			
 		}
-
 		function get(){
 			$q = $this->db->get('wilayah');
 			return $q->result();

@@ -24,7 +24,7 @@
   </div>
   <div class="register-box-body">
         <p class="login-box-msg">Daftar Anggota Baru</p>
-            <form action="<?php print base_url()?>auth/do_signup" method = "post">
+            <form action="<?php print base_url()?>auth/do_signup" method = "post" enctype="multipart/form-data">
           <div class="form-group has-feedback">
             <input type="text" name = "nama" class="form-control" placeholder = "Nama">
             <span class="glyphicon glyphicon-user form-control-feedback"></span>
@@ -41,6 +41,14 @@
             <input type="text" class="form-control" name = "alamat" placeholder = "Alamat">
             <span class="glyphicon glyphicon-road form-control-feedback"></span>
           </div>
+          <div class="form-group">
+             <label>Avatar</label>
+              <div class="btn btn-default btn-file">
+                <i class="fa fa-image"></i> Image
+                <input type="file" name = "pfile" id = "pfiles"  accept="image/gif, image/jpeg, image/png">
+              </div>
+              <p class="help-block">Hanya Bisa Satu Gambar</p>
+           </div>
           <div class="row">
             <div class="col-xs-4">
               <button type="submit" class="btn btn-primary btn-block btn-flat">Register</button>

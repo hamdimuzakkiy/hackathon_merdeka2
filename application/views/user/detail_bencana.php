@@ -5,7 +5,7 @@
         <!-- Content Header (Page header) -->
         <section class="content-header">
           <h1>
-            User Profile
+            Permohonan Bantuan
              <div class= "pull-right">
                  <a href="<?php echo base_url(); ?>user/list_bencana" class="btn btn-primary btn-block"><b>Kembali ke List</b></a>
           </div>
@@ -68,16 +68,31 @@
                       </div><!-- /.row -->
                     </div><!-- /.post -->
                     <div class="post clearfix">
+                     <?php foreach ($detail_kebutuhan as $row) {?>
                       <form class='form-horizontal'>
-                        <div class='form-group margin-bottom-none'>
-                          <div class='col-sm-9'>
-                            <input class="form-control input-sm" placeholder="Response">
-                          </div>                          
+                        <div class='form-group'>
+                        <div class="col-lg-9 progress-group">
+                        <h4><span class="progress-text"><?php print $row->nama ?></span>
+                        <span class="progress-number"><b>Diterima: <?php print $row->terpenuhi ?></b>/ Dibutuhkan :<?php print $row->jumlah ?></span></h4>
+                        <div class="progress sm">
+                        <?php 
+                        $a = $row->terpenuhi;
+                        $b = $row->jumlah;
+                        $hasil = ($a/$b)*100;
+                        ?>
+                        
+                          <div class="progress-bar progress-bar-green" style="width:<?php print $hasil ?>%"></div>
+                        </div>
+                      </div>
+                          
+                                                  
                           <div class='col-sm-3'>
-                            <button class='btn btn-danger pull-right btn-block btn-sm'>Sumbang</button>
-                          </div>                          
+                             <a class="btn btn-lg btn-primary" href='<?php echo base_url()."user/sumbang_bencana"."/".$row->id; ?>'>Commit Menyumbang</a>
+                          </div> 
+                                                 
                         </div>                        
                       </form>
+                      <?php } ?> 
                     <?php } ?>
                     </div><!-- /.post -->
                   </div><!-- /.tab-pane -->

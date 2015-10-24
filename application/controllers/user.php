@@ -37,9 +37,13 @@ class user extends MY_Controller {
 		$this->kebutuhan->insert_batch($datas);		
 	}
 
-	public function list_bencana(){		
-		// print $_GET['kategori'];
-		$config['total_rows'] = sizeof($this->bencana->get());
+	public function list_bencana(){
+		$cnfg['soft_delete'] = 0;
+		$this->bencana->get_where($cnfg);
+		$config['total_rows'] = sizeof($this->bencana->get_where($cnfg));		
+
+		$this->db->last_query();		
+
 		$config['base_url'] = base_url().'user/list_bencana';
 		// $config['suffix'] = '?src=hamdi';
 		$config['suffix'] = '';
@@ -48,12 +52,27 @@ class user extends MY_Controller {
 		$this->load->view('user/list_bencana');
 	}
 
+	public function search(){
+		if (!isset($_GET['sch']))
+			$config['suffix'] = '';
+		else
+			$config['suffix'] = $_GET['sch'];
+
+		$sch = $config['suffix'];
+
+		$config['total_rows'] = sizeof($this->bencana->get_by_name(strtolower($sch)));
+		
+		$config['base_url'] = base_url().'user/list_bencana';
+		$config['suffix'] = '?sch='.$config['suffix'];		
+		$configs = $this->pagination($config);
+    }
+
 	private function pagination($data){
 		$config['base_url'] = $data['base_url'];
 		$config['suffix'] = $data['suffix'];
 		$config['first_url'] = $config['base_url'].$data['suffix'];
 		$config['total_rows'] = $data['total_rows'];
-		$config['per_page'] = 1;
+		$config['per_page'] = 2;
 		$config['num_links'] = 20;		
 		$config['full_tag_open'] = "<ul class='pagination'>";
 		$config['full_tag_close'] ="</ul>";

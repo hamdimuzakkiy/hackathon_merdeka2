@@ -35,7 +35,7 @@ class auth extends CI_Controller {
 	public function do_login(){
 		$data['email'] = $_POST['email'];
 		$data['password'] = md5($_POST['password']);			
-		$result = $this->user->get_where($data);
+		$result = $this->users->get_where($data);
 		
 		foreach ($result as $row) {			
 			$this->session->set_userdata(array(
@@ -45,7 +45,7 @@ class auth extends CI_Controller {
                     'email' => $row->email                                                                          
             ));	
 		}		
-		redirect(base_url());
+		redirect(base_url().'/user/list_bencana');
     }
 
     #ok

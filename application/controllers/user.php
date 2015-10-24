@@ -40,6 +40,7 @@ class user extends MY_Controller {
 	}
 
 	public function list_bencana(){
+                $this->get_header();
 		$data['session'] = $this->get_session()['nama'];
 		$cnfg['soft_delete'] = 0;
 		$this->bencana->get_where($cnfg);
@@ -53,17 +54,21 @@ class user extends MY_Controller {
 	}
         
 	public function search(){
+                $this->get_header();
 		if (!isset($_GET['sch']))
 			$config['suffix'] = '';
 		else
 			$config['suffix'] = $_GET['sch'];
 
 		$sch = $config['suffix'];
-
+                
 		$config['total_rows'] = sizeof($this->bencana->get_by_name(strtolower($sch)));		
 		$config['base_url'] = base_url().'user/list_bencana';
 		$config['suffix'] = '?sch='.$config['suffix'];		
 		$configs = $this->pagination($config);
+                
+                $data['list'] = $this->bencana->get_by_name_lim($sch,$configs);
+                $this->load->view('user/list_bencana',$data);
     }
 
     public function detail_bencana($id_bencana=0){

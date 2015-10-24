@@ -50,7 +50,7 @@ class user extends MY_Controller {
 		$config['suffix'] = '';
 		$configs = $this->pagination($config);
 		$data['list'] = $this->bencana->get_lim($configs);
-		$this->load->view('user/list_bencana');
+		$this->load->view('user/list_bencana',$data);
 	}
 
 	public function search(){
@@ -67,7 +67,7 @@ class user extends MY_Controller {
 		$config['suffix'] = '?sch='.$config['suffix'];		
 		$configs = $this->pagination($config);
     }
-        
+
         public function detail_bencana($id_bencana){
                 $this->get_header();
                 $temp['id']=$id_bencana;
@@ -78,11 +78,13 @@ class user extends MY_Controller {
                 $this->load->view('user/detail_bencana',$data);
         }
         
-	private function pagination(){
-		$config['base_url'] = 'http://localhost/busanaqueenzee/index.php/umum/kategori';
-		$config['first_url'] = $config['base_url'];
-		$config['total_rows'] = $this->db->get('bencana')->num_rows();
-		$config['per_page'] = 2; 
+
+	private function pagination($data){
+		$config['base_url'] = $data['base_url'];
+		$config['suffix'] = $data['suffix'];
+		$config['first_url'] = $config['base_url'].$data['suffix'];
+		$config['total_rows'] = $data['total_rows'];
+		$config['per_page'] = 4;
 		$config['num_links'] = 20;		
 		$config['full_tag_open'] = "<ul class='pagination'>";
 		$config['full_tag_close'] ="</ul>";

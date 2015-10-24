@@ -49,7 +49,7 @@ class user extends MY_Controller {
 		$config['suffix'] = '';
 		$configs = $this->pagination($config);
 		$data['list'] = $this->bencana->get_lim($configs);
-		$this->load->view('user/list_bencana');
+		$this->load->view('user/list_bencana',$data);
 	}
         
 	public function search(){

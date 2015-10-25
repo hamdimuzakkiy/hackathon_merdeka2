@@ -40,16 +40,17 @@
                    <div class="row"  style="padding-left: 10px;">
                        <div class="col-md-9">
                            <h1>Tambah Kebutuhan</h1>
-                       </div>
+                       
                        
 
                        <span class = 'adds'>
                      <td><a class = "btn btn-block btn-sm btn-success" id = "button">Tambah Kebutuhan</a></td>
                  </div>
+                 </div>
                       <input type="hidden" name = 'id' value="<?php print $id; ?>">
                       <div class="form-group">
                         <div class="col-sm-offset-2 col-sm-10">
-                          <button type="submit" class="btn btn-primary">Submit</button>
+                          <button type="submit" class="btn btn-primary" style="margin-top:10px">Submit</button>
                         </div>
                       </div>
                    </div>

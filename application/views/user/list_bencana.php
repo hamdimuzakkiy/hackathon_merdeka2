@@ -50,10 +50,12 @@
                                <p>
                                   <?php echo $bencana->deskripsi; ?>
                               </p>
-                              <h4><label>Batas Pengumpulan: </label> <?php print $bencana->tanggal_berakhir; ?></h4>
+                              <h4><label>Tanggal : </label> <?php print $bencana->tanggal_berakhir; ?></h4>
+                              <br>
+                              <h4><label>Lokasi Posko : </label> <?php print $bencana->lokasi_titik; ?></h4>
                               <br>
                               <?php if ($bencana->id_user != $id_user) { ?>
-                              <button class="btn btn-lg btn-primary" onclick="window.location='<?php echo base_url()."user/detail_bencana/".$bencana->id; ?>';">Sumbang</button>
+                              <button class="btn btn-lg btn-primary" onclick="window.location='<?php echo base_url()."user/detail_bencana/".$bencana->id; ?>';">Detail</button>
                               <?php } else { ?>
                               <button class="btn btn-lg btn-success" onclick="window.location='<?php echo base_url()."user/detail_my_bencana/".$bencana->id; ?>';">Kelola</button>
                               <?php } ?>

@@ -38,6 +38,7 @@
 		}
 
 		function get_lim($config){
+			$this->db->where("soft_delete",0);
 			$query = $this->db->get('bencana',$config['per_page'],$this->uri->segment(3));	
 			return $query->result();
 		}

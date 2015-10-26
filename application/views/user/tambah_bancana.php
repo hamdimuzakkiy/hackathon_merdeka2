@@ -30,15 +30,62 @@
                 <div class="box-body">
                 <form action="<?php print base_url()?>user/do_tambah_bencana" method = "post" enctype="multipart/form-data"> 
                   <div class="form-group">
+                    <label>Nama Bencana</label>
                    <input type="text" class="form-control" placeholder="Nama Bencana" name="namas">
                   </div>
                   <div class="form-group">
+                  <label>Lokasi Bencana</label>
                   <input type="text" class="form-control" placeholder="Lokasi Bencana" name="lokasi">
                   </div>
                   <div class="form-group">
-                  <label>Batas Pengumpulan</label>
-                  <input type="date" class="form-control"   name="tanggal_berakhir">
+                  <label>Lokasi Titik Posko</label>
+                  <input type="text" class="form-control" placeholder="Lokasi Titik Posko" name="lokasi_titik">
                   </div>
+
+                  <div class="form-group">
+                  <label>Jarak Posko Ke Titik Bencana ( dalam Km )</label>
+                  <input type="number" class="form-control" placeholder="Jarak Titik Posko" name="jarak">
+                  </div>
+
+                  <span class="form-group col-md-12">
+                  <div class="form-group col-md-6">
+                  <label>Pengungsi Balita</label>
+                    <input type="number" class=" form-control" placeholder="Balita" name="balita">
+                  </div>                  
+                  </span>
+
+                  <span class="form-group col-md-12">
+                    <div class="form-group col-md-6">
+                    <label>Pengungsi Anak Laki - Laki</label>
+                      <input type="number" class=" form-control" placeholder="Anak Laki - Laki" name="a_laki">
+                    </div>                  
+                    <div class="form-group col-md-6">
+                    <label>Pengungsi Anak Perempuan</label>
+                      <input type="number" class=" form-control" placeholder="Anak Perempuan" name="a_perempuan">
+                    </div>                  
+                  </span>
+
+                  <span class="form-group col-md-12">
+                    <div class="form-group col-md-6">
+                    <label>Pengungsi Dewasa Laki - Laki</label>
+                      <input type="number" class=" form-control" placeholder="Dewasa Laki - Laki" name="d_laki">
+                    </div>                  
+                    <div class="form-group col-md-6">
+                    <label>Pengungsi Dewasa Perempuan</label>
+                      <input type="number" class=" form-control" placeholder="Dewasa Perempuan" name="d_perempuan">
+                    </div>                  
+                  </span>
+
+                  <span class="form-group col-md-12">
+                    <div class="form-group col-md-6">
+                    <label>Pengungsi Lansia Laki - Laki</label>
+                      <input type="number" class=" form-control" placeholder="Lansia Laki - Laki" name="l_laki">
+                    </div>                  
+                    <div class="form-group col-md-6">
+                    <label>Pengungsi Lansia Perempuan</label>
+                      <input type="number" class=" form-control" placeholder="Lansia Perempuan" name="l_perempuan">
+                    </div>                  
+                  </span>
 
                   <div class="form-group">
                   <label>Deskripsi Bencana</label>

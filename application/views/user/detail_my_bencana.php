@@ -61,9 +61,70 @@
                                   <?php echo $bencana->deskripsi; ?>
                               </p>
                               <br>
-                            </div><!-- /.col -->
-                           
+                            </div><!-- /.col -->                           
                           </div><!-- /.row -->
+
+                          <div class='row'>
+                            <div class='col-sm-12'>
+                            <h4><b>Titik Lokasi Posko </b> : <?php echo $bencana->lokasi_titik; ?></h4>                                                             
+                            </div><!-- /.col -->                           
+                          </div><!-- /.row -->
+
+                          <div class='row'>
+                            <div class='col-sm-12'>
+                            <h4><b>Jarak Posko Ke Titik Bencana </b> : <?php echo $bencana->jarak; ?> Km</h4>                                                             
+                            </div><!-- /.col -->                           
+                          </div><!-- /.row -->
+
+                          <div class='row'>
+                            <div class='col-sm-12'>
+                            <h4><b>Pengungsi </b> : </h4>                                                             
+                            <div class='col-sm-4'>
+                              Balita  
+                            </div>
+                            <div class='col-sm-8'>
+                              : <?php print $bencana->balita; ?> 
+                            </div>
+                            <div class='col-sm-4'>
+                              Anak Laki - Laki
+                            </div>
+                            <div class='col-sm-8'>
+                              : <?php print $bencana->a_laki; ?> 
+                            </div>
+                            <div class='col-sm-4'>
+                              Anak Perempuan :                              
+                            </div>
+                            <div class='col-sm-8'>
+                              : <?php print $bencana->a_perempuan; ?> 
+                            </div>
+                            <div class='col-sm-4'>
+                              Dewasa Laki - Laki :
+                            </div>
+                            <div class='col-sm-8'>
+                              : <?php print $bencana->d_laki; ?> 
+                            </div>
+                            <div class='col-sm-4'>
+                              Dewasa Perempuan :
+                            </div>
+                            <div class='col-sm-8'>
+                              : <?php print $bencana->d_perempuan; ?> 
+                            </div>
+                            <div class='col-sm-4'>
+                              Lansia Laki - Laki :
+                            </div>
+                            <div class='col-sm-8'>
+                              : <?php print $bencana->l_laki; ?> 
+                            </div>
+                            <div class='col-sm-4'>
+                              Lansia Perempuan :
+                            </div>
+                            <div class='col-sm-8'>
+                              : <?php print $bencana->l_perempuan; ?> 
+                            </div>
+                            </div><!-- /.col -->                           
+                          </div><!-- /.row -->
+
+
                         </div><!-- /.col -->
                       </div><!-- /.row -->
                     </div><!-- /.post -->

@@ -81,10 +81,18 @@ class user extends MY_Controller {
 		$data['nama'] = $_POST['namas'];
 		$data['lokasi'] = $_POST['lokasi'];
 		$data['deskripsi'] = $_POST['deskripsi'];
-		$data['tanggal_berakhir'] = $_POST['tanggal_berakhir'];
+		$data['tanggal_berakhir'] = date("Y-m-d");
 		$data['id_user'] = $this->get_session()['id'];
-
 		
+		$data['balita'] = $_POST['balita'];
+		$data['a_laki'] = $_POST['a_laki'];
+		$data['a_perempuan'] = $_POST['a_perempuan'];
+		$data['d_laki'] = $_POST['d_laki'];
+		$data['d_perempuan'] = $_POST['d_perempuan'];
+		$data['l_laki'] = $_POST['l_laki'];
+		$data['l_perempuan'] = $_POST['l_perempuan'];
+		$data['lokasi_titik'] = $_POST['lokasi_titik'];
+		$data['jarak'] = $_POST['jarak'];
 		//
 		move_uploaded_file($_FILES["pfile"]["tmp_name"], "./assets/img/".$_FILES["pfile"]["name"]);
 		
@@ -105,8 +113,8 @@ class user extends MY_Controller {
 		redirect(base_url().'user/list_bencana');
 	}
 
-	public function list_bencana(){
-                $this->get_header();
+	public function list_bencana(){		
+        $this->get_header();
 		$data['session'] = $this->get_session()['nama'];
 		$cnfg['soft_delete'] = 0;
 		$this->bencana->get_where($cnfg);
@@ -116,7 +124,8 @@ class user extends MY_Controller {
 		$config['suffix'] = '';
 		$configs = $this->pagination($config);
 		$data['list'] = $this->bencana->get_lim($configs);
-		$data['id_user'] = $this->get_session()['id'];
+		// print $this->db->last_query().'---';
+		$data['id_user'] = $this->get_session()['id'];		
 		$this->load->view('user/list_bencana',$data);
 	}
 	public function list_my_bencana(){

@@ -5,7 +5,7 @@
         <!-- Content Header (Page header) -->
         <section class="content-header">
           <h1>
-            Permohonan Bantuan
+            Data Posko
              <div class= "pull-right">
                  <a href="<?php echo base_url(); ?>user/list_bencana" class="btn btn-primary btn-block"><b>Kembali ke List</b></a>
           </div>
@@ -83,7 +83,7 @@
                               Balita  
                             </div>
                             <div class='col-sm-8'>
-                              : <?php print $bencana->balita; ?> 
+                                :<b> <?php print $bencana->balita; ?> </b>
                             </div>
                             <div class='col-sm-4'>
                               Anak Laki - Laki
@@ -148,7 +148,7 @@
                           
                                                   
                           <div class='col-sm-3'>
-                             <a class="btn btn-lg btn-success" href='<?php echo base_url()."user/tambah_sumbangan"."/".$row->id; ?>'>Tambah Penerima</a>
+                             <a class="btn btn-lg btn-success" href='<?php echo base_url()."user/tambah_sumbangan"."/".$row->id; ?>'>Update Data</a>
                           </div> 
                               <?php //if($id!='guest')
                                 //echo  '<button class="btn btn-danger pull-right btn-block btn-sm">Sumbang</button>';

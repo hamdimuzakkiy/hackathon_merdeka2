@@ -27,6 +27,16 @@ CREATE TABLE `bencana` (
   `tanggal_berakhir` date DEFAULT NULL,
   `url_img` varchar(222) DEFAULT NULL,
   `soft_delete` int(11) NOT NULL DEFAULT '0',
+  `balita` varchar(111) DEFAULT NULL,
+  `a_perempuan` varchar(111) DEFAULT NULL,
+  `a_laki` varchar(111) DEFAULT NULL,
+  `d_perempuan` varchar(111) DEFAULT NULL,
+  `d_laki` varchar(111) DEFAULT NULL,
+  `l_perempuan` varchar(111) DEFAULT NULL,
+  `l_laki` varchar(111) DEFAULT NULL,
+  `jarak` int(11) DEFAULT NULL,
+  `jenis_bencana` varchar(111) DEFAULT NULL,
+  `lokasi_titik` varchar(111) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
 
@@ -34,7 +44,7 @@ CREATE TABLE `bencana` (
 
 LOCK TABLES `bencana` WRITE;
 
-insert  into `bencana`(`id`,`nama`,`lokasi`,`deskripsi`,`id_user`,`tanggal_berakhir`,`url_img`,`soft_delete`) values (1,'Gunung Merapi Meletus','Yogyakarta','Hingga pukul 15.30 WIB, jumlah korban meninggal akibat erupsi Gunung Merapi sudah mencapai 205 orang. Jumlah  itu termasuk korban pada erupsi pertama pada Selasa 26 Okobober 2010.Korban meninggal di daerah Jogyakarta mencapai 171 orang, dengan korban luka bakar 149 orang dan non luka bakar 22 orang. Sementara korban meninggal di daerah Jawa Tengah sudah 34 orang, dan korban luka bakar delapan orang dan luka non bakar 26 orang',1,NULL,'assets/img/Gunung Merapi Meletus.jpg',0),(2,'Tsunami Aceh','Aceh','Gempa yang mengakibatkan tsunami menyebabkan sekitar 230.000 orang tewas di 8 negara. Ombak tsunami setinggi 9 meter. Bencana ini merupakan kematian terbesar sepanjang sejarah. Indonesia, Sri Lanka, India, dan Thailand merupakan negara dengan jumlah kematian terbesar. Kekuatan gempa pada awalnya dilaporkan mencapai magnitude 9.0. Pada Februari 2005 dilaporkan gempa berkekuatan magnitude 9.3. Meskipun Pacific Tsunami Warning Center telah menyetujui angka tersebut. Namun, United States Geological Survey menetapkan magnitude 9.2. atau bila menggunakan satuan seismik momen (Mw) sebesar 9.3.',2,NULL,'assets/img/Tsunami Aceh.jpg',0),(3,'Kabut Asap Kalimantan Timur','Kalimantan Timur','Saya berharap bahwa foto-foto ini membuat orang merasakan apa yang saya rasakan ketika memotretnya. Kehancuran, kesedihan, dan harapan. Saya harap sejumlah gambar ini bisa meningkatkan kesadaran dan mungkin bisa membuat orang tergerak - sama seperti foto-foto ini menggerakan saya - sehingga ini tak lagi terjadi',1,NULL,'assets/img/Kabut Asap Kalimantan Timur.jpg',0),(5,'Gempa Aceh Darussalam','Aceh','Gempa di Aceh ini juga mempunyai kedalam dengan titik 48 kilometer (KM) dan berada pada koordinat 1.97 derajat Lintang selatan, 138.38 bujur Timur dan dengan jarak lokasi sekitar 42 km (kilometer).',3,NULL,'assets/img/Gempa Aceh Darussalam.jpg',0),(9,'Banjir Bandang Irian','Papua','Gempa dengan skala 4.6 Ricther',2,'2015-10-29','assets/img/Banjir Bandang Irian.jpg',0),(10,'Tanah Longsor Banjarnegara','Jawa Tengah','Seperti diberitakan sebelumnya, puluhan rumah yang dihuni 300 jiwa di Dusun Jemblung RT 05 RW 01, Desa Sampang, Kecamatan Karangkobar, tertimbun tanah longsor yang terjadi pada Jumat, 12 Desember 2014, pukul 17.30 WIB. Berdasarkan data sementara Posko Induk Badan Penanggulangan Bencana Daerah (BPBD) Banjarnegara, jumlah korban tewas yang telah ditemukan sebanyak 12 orang dan ada 15 orang luka-luka',3,'2015-10-22','assets/img/Tanah Longsor Banjarnegara.jpg',0);
+insert  into `bencana`(`id`,`nama`,`lokasi`,`deskripsi`,`id_user`,`tanggal_berakhir`,`url_img`,`soft_delete`,`balita`,`a_perempuan`,`a_laki`,`d_perempuan`,`d_laki`,`l_perempuan`,`l_laki`,`jarak`,`jenis_bencana`,`lokasi_titik`) values (1,'Kabut Asap Kalimantan TImur','Temindung, Samarinda','Titik Kumpul Pasokan suplai bantuan Gedung kecamatan Merbabu, Balikpapan Kalimantan Timur',1,'2015-12-29','assets/img/Kabut-Asap-1.jpg',0,'35','99','22','69','83','32','82',32,NULL,'Kecamatan Bangkal'),(2,'Sinabung Medan','Sinabung, Medan','Pos Pengungsian PMI kaki gunung Sinabung, Medan',2,'2015-11-29','assets/img/Sinabung Medan.jpg',1,'48','81','82','57','5','81','65',21,NULL,'Kecamatan Podosugih'),(3,'Kabut Asap Kalimantan TImur','Berau, Teluk Bayur','Titik kumpul gedung sekolah SMA 2 N Kudus, Jawa Tengah',1,NULL,'assets/img/Kabut Asap Kalimantan Timur.jpg',0,'95','32','7','82','59','78','82',12,NULL,'Kecamatan Angkring'),(5,'Gempa Aceh Darussalam','Aceh','Gempa di Aceh ini juga mempunyai kedalam dengan titik 48 kilometer (KM) dan berada pada koordinat 1.97 derajat Lintang selatan, 138.38 bujur Timur dan dengan jarak lokasi sekitar 42 km (kilometer).',3,NULL,'assets/img/Gempa Aceh Darussalam.jpg',1,'78','32','15','65','45','8','9',23,NULL,'Kecamatan Rambar'),(9,'Banjir Bandang Irian','Papua','Gempa dengan skala 4.6 Ricther',2,'2015-10-29','assets/img/Banjir Bandang Irian.jpg',1,'56','39','85','97','52','11','12',45,NULL,'Kecamatan Bekantan'),(10,'Tanah Longsor Banjarnegara','Jawa Tengah','Seperti diberitakan sebelumnya, puluhan rumah yang dihuni 300 jiwa di Dusun Jemblung RT 05 RW 01, Desa Sampang, Kecamatan Karangkobar, tertimbun tanah longsor yang terjadi pada Jumat, 12 Desember 2014, pukul 17.30 WIB. Berdasarkan data sementara Posko Induk Badan Penanggulangan Bencana Daerah (BPBD) Banjarnegara, jumlah korban tewas yang telah ditemukan sebanyak 12 orang dan ada 15 orang luka-luka',3,'2015-10-22','assets/img/Tanah Longsor Banjarnegara.jpg',1,'54','87','35','110','45','65','25',5,NULL,'Kecamatan Langgar');
 
 UNLOCK TABLES;
 
@@ -48,13 +58,50 @@ CREATE TABLE `kebutuhan` (
   `terpenuhi` int(11) DEFAULT '0',
   `satuan` varchar(22) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=latin1;
 
 /*Data for the table `kebutuhan` */
 
 LOCK TABLES `kebutuhan` WRITE;
 
-insert  into `kebutuhan`(`id`,`nama`,`jumlah`,`id_bencana`,`terpenuhi`,`satuan`) values (1,'Pakaian Anak','400',9,0,NULL),(2,'Paramedis','5',9,0,NULL),(3,'Pakaian Dewasa','100',10,0,NULL),(4,'Paramedis','5',10,0,NULL),(5,'Mie Instan','500',10,0,NULL),(6,'Mie Instan','750',1,0,NULL),(7,'Pakaian Dewasa','410',1,0,NULL),(8,'Pakaian Dewasa','441',2,0,NULL),(9,'Pakaian Anak','741',2,0,NULL),(10,'Paramedis','20',3,0,NULL),(11,'Pakaian Anak','120',3,0,NULL),(12,'Obat-obatan','500',3,0,NULL),(13,'Obat-obatan','600',5,0,NULL),(14,'Paramedis','30',5,0,NULL),(15,'Pakaian Anak','40',5,0,NULL),(16,'Mie Instan','1000',5,0,NULL);
+insert  into `kebutuhan`(`id`,`nama`,`jumlah`,`id_bencana`,`terpenuhi`,`satuan`) values (1,'Pakaian Anak','400',9,0,NULL),(2,'Paramedis','5',9,0,NULL),(3,'Pakaian Dewasa','100',10,0,NULL),(4,'Paramedis','5',10,0,NULL),(5,'Mie Instan','500',10,0,NULL),(6,'Mie Instan','773',1,400,NULL),(7,'Pakaian Dewasa','410',1,30,NULL),(8,'Pakaian Dewasa','441',2,0,NULL),(9,'Pakaian Anak','741',2,0,NULL),(10,'Paramedis','20',3,0,NULL),(11,'Pakaian Anak','120',3,0,NULL),(12,'Obat-obatan','500',3,0,NULL),(13,'Obat-obatan','600',5,0,NULL),(14,'Paramedis','30',5,0,NULL),(15,'Pakaian Anak','40',5,0,NULL),(16,'Mie Instan','1000',5,0,NULL),(17,'Obat-Obatan','10',1,12,NULL),(19,'Masker','10',1,10,NULL);
+
+UNLOCK TABLES;
+
+/*Table structure for table `organisasi` */
+
+CREATE TABLE `organisasi` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nama` varchar(111) DEFAULT NULL,
+  `lokasi` varchar(111) DEFAULT NULL,
+  `telpon` varchar(111) DEFAULT NULL,
+  `url_img` varchar(222) DEFAULT NULL,
+  `Kota` varchar(111) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
+
+/*Data for the table `organisasi` */
+
+LOCK TABLES `organisasi` WRITE;
+
+insert  into `organisasi`(`id`,`nama`,`lokasi`,`telpon`,`url_img`,`Kota`) values (1,'PMI','Kalimantan Tengah','025487564321','assets/logo/PMI.jpg','Palangkaraya'),(2,'Dompet Dhuafa','Kalimantan Timur','031456852963','assets/logo/dompet_dhuafa.jpg','Samarinda');
+
+UNLOCK TABLES;
+
+/*Table structure for table `organisasi_bencana` */
+
+CREATE TABLE `organisasi_bencana` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id_bencana` int(11) DEFAULT NULL,
+  `id_organisasi` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+
+/*Data for the table `organisasi_bencana` */
+
+LOCK TABLES `organisasi_bencana` WRITE;
+
+insert  into `organisasi_bencana`(`id`,`id_bencana`,`id_organisasi`) values (1,1,1),(2,3,2);
 
 UNLOCK TABLES;
 

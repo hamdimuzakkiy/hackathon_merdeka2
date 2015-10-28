@@ -17,7 +17,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | environments.
 |
 */
-$config['base_url'] = 'http://localhost/hackathon_merdeka2/index.php';
+$config['base_url'] = 'http://192.168.1.11/hackathon_merdeka2/index.php';
 
 /*
 |--------------------------------------------------------------------------

@@ -189,7 +189,7 @@ class user extends MY_Controller {
         $params['id_bencana'] = $id_bencana;
         $data['detail_kebutuhan'] = $this->kebutuhan->get_where($params);
         
-        //$id_organisasi['list_id_'] = $this->organisasi->get_id_organisasi($params['id_bencana']);
+        $data['list_organisasi'] = $this->organisasi->get_organisasi($params['id_bencana']);
         //$data['list_organisasi'] = $this->organisasi->get_where($id_organisasi);   
        // print $this->db->last_query();
        // print sizeof($data['detail_kebutuhan']);

@@ -158,13 +158,33 @@
                     
                     </div><!-- /.post -->
                     <a class="btn btn-lg btn-primary pull-right" href='<?php echo base_url()."user/tambah_kebutuhan"."/".$bencana->id; ?>'>Tambah Kebutuhan</a>      
-                    <?php } ?>                    
+                    <?php } ?>               
                   </div><!-- /.tab-pane -->
+                                      <div class="post">
+                      <div class='row margin-bottom'>
+                        <?php foreach ($list_organisasi as $organisasi){ ?>
+                        <div class='col-sm-6 pull-left'>
+                          <div class='row'>
+                            <div class='col-sm-12'>
+                            <h2><?php echo $organisasi->nama; ?></h2>
+                               <p><?php echo $organisasi->lokasi; ?>
+                               <h4><b>Hubungi </b> : <?php echo $organisasi->telpon; ?></h4>
+                              <br>
+                            </div><!-- /.col -->                           
+                          </div><!-- /.row -->
+                        </div><!-- /.col -->
+                        <div class='col-sm-2 pull-right'>
+                            <br>
+                            <img class='img-responsive img-rounded img-push' src='<?php echo base_url().'../'.$organisasi->url_img; ?>' alt='Photo' width="100%" height="100%">
+                        </div><!-- /.col -->
+                        <?php } ?>
+                      </div><!-- /.row -->
+                    </div><!-- /.post -->
                 </div><!-- /.tab-content -->
               </div><!-- /.nav-tabs-custom -->
             </div><!-- /.col -->
           </div><!-- /.row -->
-
+          
         </section><!-- /.content -->
       </div><!-- /.content-wrapper -->
       <footer class="main-footer">

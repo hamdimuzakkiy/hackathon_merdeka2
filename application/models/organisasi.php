@@ -16,21 +16,20 @@
                 return $query->result();
             }
 
-            function get_by_name_lim($data,$config){
-                $this->db->select('*');
-                $this->db->from('organisasi');
-                $this->db->like('lower(nama)',$data);
-                $this->db->where('organisasi.soft_delete',0);
-                $this->db->limit($config['per_page'],$this->uri->segment(3));
-                $query = $this->db->get();
-                return $query->result();
-            }		
-		
-
 		function get(){
 			$q = $this->db->get('organisasi');
 			return $q->result();
 		}
+                
+                function get_organisasi($id){
+                        $this->db->select('organisasi.nama as nama,organisasi.lokasi as lokasi,organisasi.telpon as telpon,'
+                                . 'organisasi.url_img as url_img,organisasi.kota as kota');
+                        $this->db->from('organisasi_bencana');
+                        $this->db->where('organisasi_bencana.id_bencana',$id);
+                        $this->db->join('organisasi','organisasi.id=organisasi_bencana.id_organisasi','left');
+                        $query = $this->db->get();
+                        return $query->result();
+                }
                 
                 function get_id_organisasi($id_organisasi){
                         $this->db->from('organisasi_bencana');

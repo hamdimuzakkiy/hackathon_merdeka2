@@ -1,172 +1,133 @@
-      
+
       <!-- Left side column. contains the logo and sidebar -->
       <!-- Content Wrapper. Contains page content -->
-      <div class="content-wrapper">
-        <!-- Content Header (Page header) -->
-        <section class="content-header">
-          <h1>
-            Data Posko
-             <div class= "pull-right">
-                 <a href="<?php echo base_url(); ?>user/list_bencana" class="btn btn-primary btn-block"><b>Kembali ke List</b></a>
-          </div>
-          </h1>
-
-        </section>
-
-        <!-- Main content -->
-        <section class="content">
-          <div class="row">
-           <?php foreach ($detail_koor as $koor){ ?>
-            <div class="col-md-3">
-              <!-- Profile Image -->
-              <div class="box box-primary">
-                <div class="box-body box-profile">
-                    <img class="profile-user-img img-responsive img-circle" src="<?php echo base_url().'../'.$koor->url_img; ?>" alt="User profile picture" width="128px" height="128px">
-                  <h3 class="profile-username text-center"><?php echo $koor->nama; ?></h3>
-                  <p class="text-muted text-center"><?php echo $koor->email; ?></p>
-
-                  <ul class="list-group list-group-unbordered">
-                    <li class="list-group-item">
-                      <b>Email </b> <a class="pull-right"><?php echo $koor->email; ?></a>
-                    </li>
-                    <li class="list-group-item">
-                      <b>Alamat</b> <a class="pull-right"><?php echo $koor->alamat; ?></a>
-                    </li>
-                  </ul>
-                </div><!-- /.box-body -->
-
-              </div><!-- /.box -->
-
-              <!-- About Me Box -->
-              
-            </div><!-- /.col -->
-          <?php } ?>
-            <div class="col-md-9">
-              <div class="nav-tabs-custom">
-                
-                <div class="tab-content">
-                 
+<div class="content-wrapper">      <!-- Content Header (Page header) -->
+  <section class="content-header">
+    <h1>
+      Data Posko
+    <div class= "pull-right">
+      <a href="<?php echo base_url(); ?>user/list_bencana" class="btn btn-primary btn-block"><b>Kembali ke List</b></a>
+    </div>
+    </h1>
+  </section>
+  <section class="content">
+    <div class="row">
+      <?php foreach ($detail_koor as $koor){ ?>
+        <div class="col-md-3">
+          <div class="box box-primary">
+            <div class="box-body box-profile">
+              <img class="profile-user-img img-responsive img-circle" src="<?php echo base_url().'../'.$koor->url_img; ?>" alt="User profile picture" width="128px" height="128px">
+              <h3 class="profile-username text-center"><?php echo $koor->nama; ?></h3>
+              <p class="text-muted text-center"><?php echo $koor->email; ?></p>
+              <ul class="list-group list-group-unbordered">
+              <li class="list-group-item">
+                <b>Email </b> <a class="pull-right"><?php echo $koor->email; ?></a>
+              </li>
+              <li class="list-group-item">
+                <b>Alamat</b> <a class="pull-right"><?php echo $koor->alamat; ?></a>
+              </li>
+              </ul>
+            </div><!-- /.box-body -->
+          </div><!-- /.box -->
+        </div><!-- /.col -->
+      <?php } ?>
+      <div class="col-md-9">
+        <div class="nav-tabs-custom"> 
+          <div class="tab-content">
                     <!-- Post -->
-                    <?php foreach ($detail_bencana as $bencana){ ?>
-                    <div class="post">
-                      <div class='row margin-bottom'>
-                        <div class='col-sm-6'>
-                            <img class='img-responsive' src='<?php echo base_url().'../'.$bencana->url_img; ?>' alt='Photo'>
-                            <br>
+            <?php foreach ($detail_bencana as $bencana){ ?>
+              <div class="post">
+                <div class='row margin-bottom'>
+                  <div class='col-sm-6'>
+                    <img class='img-responsive' src='<?php echo base_url().'../'.$bencana->url_img; ?>' alt='Photo'>
+                      <br>
                             <!-- <div class= "pull-right"> -->
-                                <a href="<?php echo base_url(); ?>user/selesai/<?php print $id_bencana ?>" class="btn btn-warning btn-block"><b>Selesai</b></a>
+                      <a href="<?php echo base_url(); ?>user/selesai/<?php print $id_bencana ?>" class="btn btn-warning btn-block"><b>Selesai</b></a>
                             <!-- </div> -->
-                        </div><!-- /.col -->                        
-                        <div class='col-sm-6'>
-                          <div class='row'>
-                            <div class='col-sm-12'>
-                            <h2><?php echo $bencana->nama; ?></h2>
-                               <p>
-                                  <?php echo $bencana->deskripsi; ?>
-                              </p>
-                              <br>
+                  </div><!-- /.col -->                        
+                  <div class='col-sm-6'>
+                    <div class='row'>
+                      <div class='col-sm-12'>
+                        <h2><?php echo $bencana->nama; ?></h2>
+                          <p>
+                            <?php echo $bencana->deskripsi; ?>
+                          </p>
+                          <br>
                             </div><!-- /.col -->                           
                           </div><!-- /.row -->
 
                           <div class='row'>
                             <div class='col-sm-12'>
                             <h4><b>Titik Lokasi Posko </b> : <?php echo $bencana->lokasi_titik; ?></h4>                                                             
-                            </div><!-- /.col -->                           
+                            </div><!-- /.col --> 
                           </div><!-- /.row -->
 
                           <div class='row'>
                             <div class='col-sm-12'>
-                            <h4><b>Jarak Posko Ke Titik Bencana </b> : <?php echo $bencana->jarak; ?> Km</h4>                                                             
+                              <h4><b>Jarak Posko Ke Titik Bencana </b> : <?php echo $bencana->jarak; ?> Km</h4>                                                             
                             </div><!-- /.col -->                           
                           </div><!-- /.row -->   
                           </div><!-- /.row -->
                         </div><!-- /.col -->
-                        
-                        <form action='<?php echo base_url()."user/update_pengungsi"."/".$bencana->id; ?>' method="get">
+                        <form action='<?php echo base_url()."user/update_pengungsi"."/".$bencana->id; ?>' method="post" class="form-horizontal">
+                          <h4><b>Pengungsi </b> : </h4> 
+                          <div class="col-lg-12">
                             <div class="row">
-                            <div class="col-md-6">
-                            <div class='row'>
-                            <div class='col-sm-12'>
-                            <h4><b>Pengungsi </b> : </h4>  
-                            
-                            <div class="col-sm-12">
-                                <div class='btn col-md-4'>
-                                    Balita  
+                              <div class="col-md-6">
+                                <div class="form-group">
+                                  <label for="inputEmail3" class="col-sm-4 control-label">Balita</label>
+                                  <div class="col-sm-8">
+                                    <input type="number" value="<?php print $bencana->balita; ?>" name="balita" style="text-align: center">
+                                  </div>
                                 </div>
-                                <div class='btn col-md-3'>
-                                    :<input type="number" value="<?php print $bencana->balita; ?>" name="balita" style="text-align: center">
+                                <div class="form-group">
+                                  <label for="inputEmail3" class="col-sm-4 control-label">Anak Laki-laki</label>
+                                  <div class="col-sm-8">
+                                    <input type="number" value="<?php print $bencana->a_laki; ?>" name="a_laki" style="text-align: center"> 
+                                  </div>
+                                </div> 
+                                <div class="form-group">
+                                  <label for="inputEmail3" class="col-sm-4 control-label">Anak Perempuan</label>
+                                  <div class="col-sm-8">
+                                    <input type="number" value="<?php print $bencana->a_perempuan; ?>" name="a_perempuan" style="text-align: center">
+                                  </div>
                                 </div>
-                            </div>
-                            
-                            
-                            <div class="col-sm-12" style="margin-top: 2%;">
-                                <div class='btn col-md-4'>
-                                    Anak Laki - Laki
+                              </div><!-- /.col -->
+                              <div class="col-md-6">
+                                <div class="form-group">
+                                  <label for="inputEmail3" class="col-sm-4 control-label">Dewasa Laki-Laki</label>
+                                  <div class="col-sm-8">
+                                    <input type="number" value="<?php print $bencana->d_laki; ?>" name="d_laki" style="text-align: center"> 
+                                  </div>
                                 </div>
-                                <div class='btn col-sm-3'>
-                                    : <input type="number" value="<?php print $bencana->a_laki; ?>" name="a_laki" style="text-align: center"> 
+                                <div class="form-group">
+                                  <label for="inputEmail3" class="col-sm-4 control-label">Dewasa Perempuan</label>
+                                  <div class="col-sm-8">
+                                    <input type="number" value="<?php print $bencana->d_perempuan; ?>" name="d_perempuan" style="text-align: center"> 
+                                  </div>
                                 </div>
-                            </div>
-                            
-                            <div class="col-sm-12" style="margin-top: 2%;">
-                                <div class='btn col-md-4'>
-                                  Anak Perempuan :                              
+                                <div class="form-group">
+                                  <label for="inputEmail3" class="col-sm-4 control-label">Lansia Laki-laki</label>
+                                  <div class="col-sm-8">
+                                   <input type="number" value="<?php print $bencana->l_laki; ?>" name="l_laki" style="text-align: center"> 
+                                  </div>
                                 </div>
-                                <div class='btn col-md-3'>
-                                    : <input type="number" value="<?php print $bencana->a_perempuan; ?>" name="a_perempuan" style="text-align: center"> 
+                                <div class="form-group">
+                                  <label for="inputEmail3" class="col-sm-4 control-label">Lansia Perempuan</label>
+                                  <div class="col-sm-8">
+                                    <input type="number" value="<?php print $bencana->l_perempuan; ?>" name="l_perempuan" style="text-align: center"> 
+                                  </div>
                                 </div>
-                            </div>
-                            
-                            <div class="col-sm-12" style="margin-top: 2%;">
-                                <div class='btn col-md-4'>
-                                  Dewasa Laki - Laki :
-                                </div>
-                                <div class='btn col-md-3'>
-                                    : <input type="number" value="<?php print $bencana->d_laki; ?>" name="d_laki" style="text-align: center"> 
-                                </div>
-                            </div> 
-                            </div>
-                            </div>
-                            </div>
-                            <div class="col-md-6">
-                                <h4> </h4>
-                                <div class="col-sm-12" style="margin-top: 2%;">
-                                    <div class='btn col-md-4'>
-                                      Dewasa Perempuan :
-                                    </div>
-                                    <div class='btn col-md-3'>
-                                        : <input type="number" value="<?php print $bencana->d_perempuan; ?>" name="d_perempuan" style="text-align: center"> 
-                                    </div>
-                                </div>
-
-                                <div class="col-sm-12" style="margin-top: 2%;">
-                                    <div class='btn col-md-4'>
-                                      Lansia Laki - Laki :
-                                    </div>
-                                    <div class='btn col-md-3'>
-                                        : <input type="number" value="<?php print $bencana->l_laki; ?>" name="l_laki" style="text-align: center"> 
-                                    </div>
-                                </div>
-
-                                <div class="col-sm-12"  style="margin-top: 2%;">
-                                    <div class='btn col-md-4'>
-                                        Lansia Perempuan :
-                                    </div>
-                                    <div class='btn col-md-3'>
-                                        : <input type="number" value="<?php print $bencana->l_perempuan; ?>" name="l_perempuan" style="text-align: center"> 
-                                    </div>
-                                </div>
-                            </div>
+                              </div><!-- /.col -->
+                            </div><!-- /.row -->
+                          <div class="col-lg-8">
+                          </div>
+                          <div class="col-sm-4">
+                                <button type="submit" class="btn btn-lg btn-primary pull-right" style="width: 25%;" >Update</button>
+                          </div>
+                        </form>
                         </div>
-
-                        <div class="row">  
-                            <div class='col-md-12'>
-                                <button type="submit" class="btn btn-microsoft" style="width: 100%;">Update pengungsi</button>
-                            </div>
-                        </div>   
-                        </form>                     
-                        </div>  
-                      </div><!-- /.row -->
+                        </div>
                     </div><!-- /.post -->
                     <div class="post clearfix">
                       <form class='form-horizontal'>
@@ -174,7 +135,7 @@
                         <?php foreach ($detail_kebutuhan as $row) {?>
                             <div class="col-lg-9 progress-group">
                                 <h4><span class="progress-text"><?php print $row->nama ?></span>
-                            <span class="progress-number"><b>Diterima: <?php print $row->terpenuhi ?></b>/ Dibutuhkan :<?php print $row->jumlah ?></span></h4>
+                            <span class="progress-number"><b>Tersedia: <?php print $row->terpenuhi ?></b>/ Dibutuhkan :<?php print $row->jumlah ?></span></h4>
                                 <div class="progress sm">
                                     <?php 
                                     $a = $row->terpenuhi;
@@ -199,8 +160,8 @@
                     </div><!-- /.post -->
                     <a class="btn btn-lg btn-primary pull-right" href='<?php echo base_url()."user/tambah_kebutuhan"."/".$bencana->id; ?>'>Tambah Kebutuhan</a>      
                     <?php } ?>               
-                  </div><!-- /.tab-pane -->
-                                      <div class="post">
+                </div><!-- /.tab-pane -->
+                 <div class="post">
                       <div class='row margin-bottom'>
                         <?php foreach ($list_organisasi as $organisasi){ ?>
                         <div class='col-sm-6 pull-left'>

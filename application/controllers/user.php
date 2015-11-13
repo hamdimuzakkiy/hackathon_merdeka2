@@ -253,14 +253,13 @@ class user extends MY_Controller {
         
         function update_pengungsi($id=0){
             $where['id'] = $id;
-            $data['balita']=$_GET['balita'];
-            $data['a_perempuan']=$_GET['a_perempuan'];
-            $data['a_laki']=$_GET['a_laki'];
-            $data['d_perempuan']=$_GET['d_perempuan'];
-            $data['d_laki']=$_GET['d_laki'];
-            $data['l_perempuan']=$_GET['l_perempuan'];
-            $data['l_laki']=$_GET['l_laki'];
-            
+            $data['balita']=$_POST['balita'];
+            $data['a_perempuan']=$_POST['a_perempuan'];
+            $data['a_laki']=$_POST['a_laki'];
+            $data['d_perempuan']=$_POST['d_perempuan'];
+            $data['d_laki']=$_POST['d_laki'];
+            $data['l_perempuan']=$_POST['l_perempuan'];
+            $data['l_laki']=$_POST['l_laki'];
             $this->bencana->update_pengungsi($where,$data);
             $this->detail_my_bencana($id);
         }

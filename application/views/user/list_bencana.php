@@ -50,8 +50,7 @@
                                <p>
                                   <?php echo $bencana->deskripsi; ?>
                               </p>
-                              <h4><label>Tanggal : </label> <?php print $bencana->tanggal_berakhir; ?></h4>
-                              <br>
+                              <h4><label>Tanggal : </label> <?php print $bencana->tanggal_berakhir; ?></h4>                              
                               <h4><label>Lokasi Posko : </label> <?php print $bencana->lokasi_titik; ?></h4>
                               <br>
                               <?php if ($bencana->id_user != $id_user) { ?>

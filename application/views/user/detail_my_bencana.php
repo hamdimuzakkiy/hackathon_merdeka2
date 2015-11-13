@@ -52,7 +52,11 @@
                       <div class='row margin-bottom'>
                         <div class='col-sm-6'>
                             <img class='img-responsive' src='<?php echo base_url().'../'.$bencana->url_img; ?>' alt='Photo'>
-                        </div><!-- /.col -->
+                            <br>
+                            <!-- <div class= "pull-right"> -->
+                                <a href="<?php echo base_url(); ?>user/selesai/<?php print $id_bencana ?>" class="btn btn-warning btn-block"><b>Selesai</b></a>
+                            <!-- </div> -->
+                        </div><!-- /.col -->                        
                         <div class='col-sm-6'>
                           <div class='row'>
                             <div class='col-sm-12'>

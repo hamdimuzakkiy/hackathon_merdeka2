@@ -8,6 +8,7 @@ class user extends MY_Controller {
 		$this->load->model('bencana');
 		$this->load->model('kebutuhan');
 		$this->load->model('sumbang');
+                $this->load->model('organisasi');
         $this->load->model('users');
 	}
 
@@ -183,10 +184,13 @@ class user extends MY_Controller {
         $param['id']=$id_bencana;
         $data['detail_bencana'] = $this->bencana->get_where($param);
         foreach ($data['detail_bencana'] as $temp)
-        	$id_koor['id'] = $temp->id_user;
+        $id_koor['id'] = $temp->id_user;
         $data['detail_koor'] = $this->users->get_where($id_koor);
         $params['id_bencana'] = $id_bencana;
         $data['detail_kebutuhan'] = $this->kebutuhan->get_where($params);
+        
+        $data['list_organisasi'] = $this->organisasi->get_organisasi($params['id_bencana']);
+        //$data['list_organisasi'] = $this->organisasi->get_where($id_organisasi);   
        // print $this->db->last_query();
        // print sizeof($data['detail_kebutuhan']);
        $this->load->view('user/detail_my_bencana',$data);

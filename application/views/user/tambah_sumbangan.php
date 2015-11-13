@@ -81,8 +81,8 @@
                        </span>
                       <input type="hidden" name = "id" value = "<?php print $id_kebutuhan; ?>">
                       <div class="form-group">
-                        <div class="col-sm-offset-2 col-sm-10">
-                          <button type="submit" class="btn btn-primary">Submit</button>
+                        <div class="col-sm-offset-2 col-sm-9 form control">
+                            <button type="submit" class="btn btn-primary">Submit</button>
                         </div>
                       </div>
                    </div>

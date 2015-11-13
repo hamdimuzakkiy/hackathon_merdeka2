@@ -5,7 +5,7 @@
         <!-- Content Header (Page header) -->
         <section class="content-header">
           <h1>
-            Permohonan Bantuan
+            Data Posko
              <div class= "pull-right">
                  <a href="<?php echo base_url(); ?>user/list_bencana" class="btn btn-primary btn-block"><b>Kembali ke List</b></a>
           </div>
@@ -83,7 +83,7 @@
                               Balita  
                             </div>
                             <div class='col-sm-8'>
-                              : <?php print $bencana->balita; ?> 
+                                :<b> <?php print $bencana->balita; ?> </b>
                             </div>
                             <div class='col-sm-4'>
                               Anak Laki - Laki
@@ -148,7 +148,7 @@
                           
                                                   
                           <div class='col-sm-3'>
-                             <a class="btn btn-lg btn-success" href='<?php echo base_url()."user/tambah_sumbangan"."/".$row->id; ?>'>Tambah Penerima</a>
+                             <a class="btn btn-lg btn-success" href='<?php echo base_url()."user/tambah_sumbangan"."/".$row->id; ?>'>Update Data</a>
                           </div> 
                               <?php //if($id!='guest')
                                 //echo  '<button class="btn btn-danger pull-right btn-block btn-sm">Sumbang</button>';
@@ -158,13 +158,33 @@
                     
                     </div><!-- /.post -->
                     <a class="btn btn-lg btn-primary pull-right" href='<?php echo base_url()."user/tambah_kebutuhan"."/".$bencana->id; ?>'>Tambah Kebutuhan</a>      
-                    <?php } ?>                    
+                    <?php } ?>               
                   </div><!-- /.tab-pane -->
+                                      <div class="post">
+                      <div class='row margin-bottom'>
+                        <?php foreach ($list_organisasi as $organisasi){ ?>
+                        <div class='col-sm-6 pull-left'>
+                          <div class='row'>
+                            <div class='col-sm-12'>
+                            <h2><?php echo $organisasi->nama; ?></h2>
+                               <p><?php echo $organisasi->lokasi; ?>
+                               <h4><b>Hubungi </b> : <?php echo $organisasi->telpon; ?></h4>
+                              <br>
+                            </div><!-- /.col -->                           
+                          </div><!-- /.row -->
+                        </div><!-- /.col -->
+                        <div class='col-sm-2 pull-right'>
+                            <br>
+                            <img class='img-responsive img-rounded img-push' src='<?php echo base_url().'../'.$organisasi->url_img; ?>' alt='Photo' width="100%" height="100%">
+                        </div><!-- /.col -->
+                        <?php } ?>
+                      </div><!-- /.row -->
+                    </div><!-- /.post -->
                 </div><!-- /.tab-content -->
               </div><!-- /.nav-tabs-custom -->
             </div><!-- /.col -->
           </div><!-- /.row -->
-
+          
         </section><!-- /.content -->
       </div><!-- /.content-wrapper -->
       <footer class="main-footer">

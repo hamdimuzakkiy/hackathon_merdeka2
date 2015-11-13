@@ -131,6 +131,7 @@
                     <div class="post clearfix">
                       <form class='form-horizontal'>
                         <div class='form-group'>
+                        <span class="col-lg-12"><h4>Kebutuhan</h4></span>
                         <?php foreach ($detail_kebutuhan as $row) {?>
                             <div class="col-lg-9 progress-group">
                                 <h4><span class="progress-text"><?php print $row->nama ?></span>
@@ -154,9 +155,28 @@
                                 //echo  '<button class="btn btn-danger pull-right btn-block btn-sm">Sumbang</button>';
                               ?>
                       </form>
-                      <?php } ?> 
-                    <?php } ?>
+                      <?php } ?>                     
                     </div><!-- /.post -->
+                    <div class="post clearfix">
+                      <form class='form-horizontal'>
+                        <div class='form-group'>
+                        <span class="col-lg-12"><h4>Layanan</h4></span>
+                        <?php foreach ($detail_layanan as $row) {?>
+                            <div class="col-lg-9 progress-group">
+                                <h4><span class="progress-text"><?php print $row->nama_layanan ?></span>                                                            
+                            </div>
+                          
+                                                  
+                          <div class='col-sm-3'>
+                             <!-- <a class="btn btn-lg btn-primary" href='<?php echo base_url()."user/sumbang_bencana"."/".$row->id; ?>'>Commit Menyumbang</a> -->
+                          </div> 
+                              <?php //if($id!='guest')
+                                //echo  '<button class="btn btn-danger pull-right btn-block btn-sm">Sumbang</button>';
+                              ?>
+                      </form>
+                      <?php } ?>                     
+                    </div><!-- /.post -->
+                    <?php } ?>
                   </div><!-- /.tab-pane -->
                 </div><!-- /.tab-content -->
               </div><!-- /.nav-tabs-custom -->

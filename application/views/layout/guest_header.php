@@ -30,7 +30,7 @@
         <nav class="navbar navbar-static-top">
           <div class="container">
             <div class="navbar-header">
-              <a href="#" class="navbar-brand"><b>TANGGAP BENCANA</b></a>
+              <a href="<?php echo base_url(); ?>publics" class="navbar-brand"><b>TANGGAP BENCANA</b></a>
               <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
                 <i class="fa fa-bars"></i>
               </button>
@@ -67,7 +67,7 @@
                   <!-- User Account Menu -->
                   <li class="dropdown user user-menu">
                     <!-- Menu Toggle Button -->
-                    <a href="<?php echo base_url() ?>auth/logout" class="dropdown-toggle">
+                    <a href="<?php echo base_url() ?>auth/login" class="dropdown-toggle">
                       <span class="hidden-xs"><?php echo "LOGIN"; ?></span>
                     </a>
                       <?php //} ?>

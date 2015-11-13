@@ -12,7 +12,7 @@ class auth extends CI_Controller {
 
 	#ok
 	private function cek_session(){
-		if ($this->session->userdata('id') == '')
+		if ($this->session->userdata('id') == '' or $this->session->userdata('id') == 'guest')
 		return false;
 		return true;
 	}
@@ -20,8 +20,8 @@ class auth extends CI_Controller {
 	#ok
 	private function no_cache(){
 		header("Cache-Control: no-cache, no-store, must-revalidate"); // HTTP 1.1.
-                header("Pragma: no-cache"); // HTTP 1.0.
-                header("Expires: 0"); // Proxies.
+        header("Pragma: no-cache"); // HTTP 1.0.
+        header("Expires: 0"); // Proxies.
 	}
 
 	#ok
@@ -36,8 +36,7 @@ class auth extends CI_Controller {
             if($role == 'user'){
                 $data['email'] = $_POST['email'];
 		$data['password'] = md5($_POST['password']);			
-		$result = $this->users->get_where($data);
-		
+		$result = $this->users->get_where($data);		
                     foreach ($result as $row) {			
                         $this->session->set_userdata(array(
                             'role' => 'user',

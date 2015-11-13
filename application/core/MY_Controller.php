@@ -8,7 +8,7 @@ class MY_Controller extends CI_Controller {
 		$this->no_cache();
 
 		if (!$this->check_session())
-			redirect(base_url().'auth/login');		
+			redirect(base_url().'publics/index');
 	}
 
 	private function check_action(){				
@@ -34,22 +34,22 @@ class MY_Controller extends CI_Controller {
 		$res['role'] = $this->session->userdata('role');
 		$res['id'] = $this->session->userdata('id');
 		$res['nama']= $this->session->userdata('nama');
-                $res['email']= $this->session->userdata('email');   
-                $res['alamat']= $this->session->userdata('alamat');  
+		$res['email']= $this->session->userdata('email');   
+        $res['alamat']= $this->session->userdata('alamat');  
                 return $res;
 	}	
 
 	 protected function get_header(){
-                $role = $data['id']=$this->get_session()['role'];
-                $data['id']=$this->get_session()['id'];
-                $data['nama']=$this->get_session()['nama'];
-                $data['email']=$this->get_session()['email'];
-                $data['alamat']=$this->get_session()['alamat'];
-                if($role=='user'){
-                    $this->load->view('layout/header.php',$data);    
-                }
-                else
-                    $this->load->view('layout/guest_header.php',$data);
+        $role = $data['id']=$this->get_session()['role'];
+        $data['id']=$this->get_session()['id'];
+        $data['nama']=$this->get_session()['nama'];
+        $data['email']=$this->get_session()['email'];
+        $data['alamat']=$this->get_session()['alamat'];
+        if($role=='user'){
+            $this->load->view('layout/header.php',$data);    
+        }
+        else
+            $this->load->view('layout/guest_header.php',$data);
 	 }
 	 protected function get_footer(){		
 	 	return $this->load->view('layout/footer.php');

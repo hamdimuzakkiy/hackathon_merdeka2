@@ -11,11 +11,15 @@ class user extends MY_Controller {
         $this->load->model('organisasi');
         $this->load->model('users');
         $this->load->model('layanan');
+
+        // if ($this->session->role == 'guest'){
+        // 	redirect(base_url().'publics');
+        // }
+
 	}
 
 	public function index(){	
-		$this->get_header();	
-		$this->load->view('user/landing');
+		redirect(base_url().'user/list_bencana');
 	}
 
 	public function tambah_sumbangan($id_kebutuhan = 0){
@@ -191,6 +195,7 @@ class user extends MY_Controller {
         $data['detail_koor'] = $this->users->get_where($id_koor);
         $params['id_bencana'] = $id_bencana;
         $data['detail_kebutuhan'] = $this->kebutuhan->get_where($params);
+        $data['detail_layanan'] = $this->layanan->get_where($params);
        // print $this->db->last_query();
        // print sizeof($data['detail_kebutuhan']);
        $this->load->view('user/detail_bencana',$data);
@@ -205,10 +210,12 @@ class user extends MY_Controller {
         $data['detail_koor'] = $this->users->get_where($id_koor);
         $params['id_bencana'] = $id_bencana;
         $data['detail_kebutuhan'] = $this->kebutuhan->get_where($params);
-        
+        $data['detail_layanan'] = $this->layanan->get_where($params);
         $data['list_organisasi'] = $this->organisasi->get_organisasi($params['id_bencana']);
+        $data['list_organisasi'] = [];
 
         $data['id_bencana'] = $id_bencana;
+
         //$data['list_organisasi'] = $this->organisasi->get_where($id_organisasi);   
        // print $this->db->last_query();
        // print sizeof($data['detail_kebutuhan']);
@@ -221,7 +228,8 @@ class user extends MY_Controller {
     	$param['status'] = 1;
 		$data['list_penyumbang'] = $this->sumbang->get_where($param);
 		$param2['id'] = $param['id_kebutuhan'];
-		$data['detail_kebutuhan'] = $this->kebutuhan->get_where($param2);
+		$data['detail_kebutuhan'] = $this->kebutuhan->get_where($param2);		
+		
 		$data['id_kebutuhan'] = $id_kebutuhan;                
                 foreach($data['detail_kebutuhan'] as $temp)$temp2['id']=$temp->id_bencana;      //Get detail bencana
                 $data['detail_bencana'] = $this->bencana->get_where($temp2);

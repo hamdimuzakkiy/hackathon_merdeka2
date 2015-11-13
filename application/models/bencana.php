@@ -68,5 +68,10 @@
                         return $query->result();
                 }
                 
+                function update_pengungsi($where,$data){
+                    $this->db->where($where);
+                    $this->db->update('bencana',$data);
+                }
+                
 	}
 

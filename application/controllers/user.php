@@ -242,5 +242,19 @@ class user extends MY_Controller {
 		$this->pagination->initialize($config); 
 		return $config;
 	}
+        
+        function update_pengungsi($id=0){
+            $where['id'] = $id;
+            $data['balita']=$_GET['balita'];
+            $data['a_perempuan']=$_GET['a_perempuan'];
+            $data['a_laki']=$_GET['a_laki'];
+            $data['d_perempuan']=$_GET['d_perempuan'];
+            $data['d_laki']=$_GET['d_laki'];
+            $data['l_perempuan']=$_GET['l_perempuan'];
+            $data['l_laki']=$_GET['l_laki'];
+            
+            $this->bencana->update_pengungsi($where,$data);
+            $this->detail_my_bencana($id);
+        }
 
 }

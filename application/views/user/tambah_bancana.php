@@ -155,11 +155,17 @@
                     </div>
                     <p class="help-block">Hanya Bisa Satu Gambar</p>
                  </div>                 
-                 <div class="form-group">
+                 <div class="form-group col-md-6">
                  <label>Masukan List Kebutuhan</label>
                  <span class = 'adds'>
                      <td><a class = "btn btn-block btn-sm btn-success" id = "button">Tambah Kebutuhan</a></td>
-<span hidden id = 'lengthData'><?php print 0; ?></span>
+                      <span hidden id = 'lengthData'><?php print 0; ?></span>
+                 </div>
+                 <div class="form-group col-md-6">
+                 <label>Masukan List Layanan</label>
+                 <span class = 'adds2'>
+                     <td><a class = "btn btn-block btn-sm btn-success" id = "button2">Tambah Kebutuhan</a></td>
+                      <span hidden id = 'lengthData2'><?php print 0; ?></span>
                  </div>
                 </div><!-- /.box-body -->                
                 <div class="box-footer">                
@@ -205,6 +211,19 @@
 
     // remove laporan KIT 
     $('.removes').click(function () {
+        $(this).parents().eq(1).remove();                                    
+    });
+
+    $('#button2').click(function(){                
+        $('.adds2').append('<tr><td class="pull-right" style="padding-right:10px;padding-top:10px;"><select class="form-control" name="nama2[]"><option value="Kesehatan">Kesehatan</option><option value="Dapur Umum">Dapur Umum</option><option value="Peristirahatan">Peristirahatan</option></select></td>           <td><a  class = "remove2" style = "display:inline; text-decoration:none; cursor:pointer; color: red;padding-left:7px;">Hapus</a></td></tr><tr></tr>');              
+        //$('.adds').append($( "#dpd" ).html());
+        $('.remove2').click(function () {
+            $(this).parents().eq(1).remove();            
+        });                                            
+    });
+
+    // remove laporan KIT 
+    $('.removes2').click(function () {
         $(this).parents().eq(1).remove();                                    
     });
 </script>

@@ -9,7 +9,7 @@ class main extends MY_Controller {
 	}
 
 	public function index(){		
-		redirect(base_url().'user');
+		//redirect(base_url().'user');
 	}
               
     public function delete_bencana($id_bencana){

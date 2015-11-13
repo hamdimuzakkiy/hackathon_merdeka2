@@ -74,58 +74,94 @@
                             <div class='col-sm-12'>
                             <h4><b>Jarak Posko Ke Titik Bencana </b> : <?php echo $bencana->jarak; ?> Km</h4>                                                             
                             </div><!-- /.col -->                           
+                          </div><!-- /.row -->   
                           </div><!-- /.row -->
-
-                          <div class='row'>
-                            <div class='col-sm-12'>
-                            <h4><b>Pengungsi </b> : </h4>                                                             
-                            <div class='col-sm-4'>
-                              Balita  
-                            </div>
-                            <div class='col-sm-8'>
-                                :<b> <?php print $bencana->balita; ?> </b>
-                            </div>
-                            <div class='col-sm-4'>
-                              Anak Laki - Laki
-                            </div>
-                            <div class='col-sm-8'>
-                              : <?php print $bencana->a_laki; ?> 
-                            </div>
-                            <div class='col-sm-4'>
-                              Anak Perempuan :                              
-                            </div>
-                            <div class='col-sm-8'>
-                              : <?php print $bencana->a_perempuan; ?> 
-                            </div>
-                            <div class='col-sm-4'>
-                              Dewasa Laki - Laki :
-                            </div>
-                            <div class='col-sm-8'>
-                              : <?php print $bencana->d_laki; ?> 
-                            </div>
-                            <div class='col-sm-4'>
-                              Dewasa Perempuan :
-                            </div>
-                            <div class='col-sm-8'>
-                              : <?php print $bencana->d_perempuan; ?> 
-                            </div>
-                            <div class='col-sm-4'>
-                              Lansia Laki - Laki :
-                            </div>
-                            <div class='col-sm-8'>
-                              : <?php print $bencana->l_laki; ?> 
-                            </div>
-                            <div class='col-sm-4'>
-                              Lansia Perempuan :
-                            </div>
-                            <div class='col-sm-8'>
-                              : <?php print $bencana->l_perempuan; ?> 
-                            </div>
-                            </div><!-- /.col -->                           
-                          </div><!-- /.row -->
-
-
                         </div><!-- /.col -->
+                        
+                        <form action='<?php echo base_url()."user/update_pengungsi"."/".$bencana->id; ?>' method="get">
+                            <div class="row">
+                            <div class="col-md-6">
+                            <div class='row'>
+                            <div class='col-sm-12'>
+                            <h4><b>Pengungsi </b> : </h4>  
+                            
+                            <div class="col-sm-12">
+                                <div class='btn col-md-4'>
+                                    Balita  
+                                </div>
+                                <div class='btn col-md-3'>
+                                    :<input type="number" value="<?php print $bencana->balita; ?>" name="balita" style="text-align: center">
+                                </div>
+                            </div>
+                            
+                            
+                            <div class="col-sm-12" style="margin-top: 2%;">
+                                <div class='btn col-md-4'>
+                                    Anak Laki - Laki
+                                </div>
+                                <div class='btn col-sm-3'>
+                                    : <input type="number" value="<?php print $bencana->a_laki; ?>" name="a_laki" style="text-align: center"> 
+                                </div>
+                            </div>
+                            
+                            <div class="col-sm-12" style="margin-top: 2%;">
+                                <div class='btn col-md-4'>
+                                  Anak Perempuan :                              
+                                </div>
+                                <div class='btn col-md-3'>
+                                    : <input type="number" value="<?php print $bencana->a_perempuan; ?>" name="a_perempuan" style="text-align: center"> 
+                                </div>
+                            </div>
+                            
+                            <div class="col-sm-12" style="margin-top: 2%;">
+                                <div class='btn col-md-4'>
+                                  Dewasa Laki - Laki :
+                                </div>
+                                <div class='btn col-md-3'>
+                                    : <input type="number" value="<?php print $bencana->d_laki; ?>" name="d_laki" style="text-align: center"> 
+                                </div>
+                            </div> 
+                            </div>
+                            </div>
+                            </div>
+                            <div class="col-md-6">
+                                <h4> </h4>
+                                <div class="col-sm-12" style="margin-top: 2%;">
+                                    <div class='btn col-md-4'>
+                                      Dewasa Perempuan :
+                                    </div>
+                                    <div class='btn col-md-3'>
+                                        : <input type="number" value="<?php print $bencana->d_perempuan; ?>" name="d_perempuan" style="text-align: center"> 
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-12" style="margin-top: 2%;">
+                                    <div class='btn col-md-4'>
+                                      Lansia Laki - Laki :
+                                    </div>
+                                    <div class='btn col-md-3'>
+                                        : <input type="number" value="<?php print $bencana->l_laki; ?>" name="l_laki" style="text-align: center"> 
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-12"  style="margin-top: 2%;">
+                                    <div class='btn col-md-4'>
+                                        Lansia Perempuan :
+                                    </div>
+                                    <div class='btn col-md-3'>
+                                        : <input type="number" value="<?php print $bencana->l_perempuan; ?>" name="l_perempuan" style="text-align: center"> 
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">  
+                            <div class='col-md-12'>
+                                <button type="submit" class="btn btn-microsoft" style="width: 100%;">Update pengungsi</button>
+                            </div>
+                        </div>   
+                        </form>                     
+                        </div>  
                       </div><!-- /.row -->
                     </div><!-- /.post -->
                     <div class="post clearfix">

@@ -98,10 +98,6 @@ class user extends MY_Controller {
 		$data['jarak'] = $_POST['jarak'];
 		$data['lat'] = $_POST['lat'];
 		$data['lng'] = $_POST['lng'];
-
-		print $data['lng'];
-		print $data['lat'];
-		return;
 		//$data['lat'] = $_POST['lat'];
 		//$data['lang'] = $_POST['lang'];
 		//

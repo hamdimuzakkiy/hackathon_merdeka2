@@ -8,7 +8,7 @@ class user extends MY_Controller {
 		$this->load->model('bencana');
 		$this->load->model('kebutuhan');
 		$this->load->model('sumbang');
-                $this->load->model('organisasi');
+        $this->load->model('organisasi');
         $this->load->model('users');
 	}
 
@@ -75,6 +75,7 @@ class user extends MY_Controller {
 
 	public function tambah_bencana(){
         $this->get_header();
+        // $this->load->view('user/input_maps');
 		$this->load->view('user/tambah_bancana');
 	}
 
@@ -94,6 +95,12 @@ class user extends MY_Controller {
 		$data['l_perempuan'] = $_POST['l_perempuan'];
 		$data['lokasi_titik'] = $_POST['lokasi_titik'];
 		$data['jarak'] = $_POST['jarak'];
+		$data['lat'] = $_POST['lat'];
+		$data['lng'] = $_POST['lng'];
+
+		print $data['lng'];
+		print $data['lat'];
+		return;
 		//
 		move_uploaded_file($_FILES["pfile"]["tmp_name"], "./assets/img/".$_FILES["pfile"]["name"]);
 		
@@ -181,7 +188,7 @@ class user extends MY_Controller {
 
     public function detail_my_bencana($id_bencana=0){
        $this->get_header();
-        $param['id']=$id_bencana;
+        $param['id']=$id_bencana;        
         $data['detail_bencana'] = $this->bencana->get_where($param);
         foreach ($data['detail_bencana'] as $temp)
         $id_koor['id'] = $temp->id_user;
@@ -190,6 +197,8 @@ class user extends MY_Controller {
         $data['detail_kebutuhan'] = $this->kebutuhan->get_where($params);
         
         $data['list_organisasi'] = $this->organisasi->get_organisasi($params['id_bencana']);
+
+        $data['id_bencana'] = $id_bencana;
         //$data['list_organisasi'] = $this->organisasi->get_where($id_organisasi);   
        // print $this->db->last_query();
        // print sizeof($data['detail_kebutuhan']);
@@ -241,6 +250,16 @@ class user extends MY_Controller {
 		$config['last_tagl_close'] = "</li>";
 		$this->pagination->initialize($config); 
 		return $config;
+	}
+
+	public function	selesai($id = 0){
+			$where['id'] = $id;
+			$data['soft_delete'] = 1;
+			$this->bencana->update($where,$data);
+	}
+
+	public function test(){
+		$this->load->view('user/input_maps');
 	}
 
 }

@@ -1,3 +1,51 @@
+<style type="text/css">
+    
+    #map {
+        height: 100%;
+      }
+.controls {
+  margin-top: 10px;
+  border: 1px solid transparent;
+  border-radius: 2px 0 0 2px;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  height: 32px;
+  outline: none;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+#pac-input {
+  background-color: #fff;
+  font-family: Roboto;
+  font-size: 15px;
+  font-weight: 300;
+  margin-left: 12px;
+  padding: 0 11px 0 13px;
+  text-overflow: ellipsis;
+  width: 300px;
+}
+
+#pac-input:focus {
+  border-color: #4d90fe;
+}
+
+.pac-container {
+  font-family: Roboto;
+}
+
+#type-selector {
+  color: #fff;
+  background-color: #4d90fe;
+  padding: 5px 11px 0px 11px;
+}
+
+#type-selector label {
+  font-family: Roboto;
+  font-size: 13px;
+  font-weight: 300;
+}
+
+</style>
       <div class="content-wrapper">
         <!-- Content Header (Page header) -->
         <section class="content-header">
@@ -43,9 +91,16 @@
                   </div>
 
                   <div class="form-group">
+                    <input id="pac-input" class="controls" type="text" placeholder="Search Box">
+                    <div style="width:100%; height:400px;" id="map"></div>
+                    <input type="hidden" name="lat" id = "lat">
+                    <input type="hidden" name="lng" id = "lng">
+                  </div>
+
+                  <div class="form-group">
                   <label>Jarak Posko Ke Titik Bencana ( dalam Km )</label>
                   <input type="number" class="form-control" placeholder="Jarak Titik Posko" name="jarak">
-                  </div>
+                  </div>                  
 
                   <span class="form-group col-md-12">
                   <div class="form-group col-md-6">
@@ -99,17 +154,17 @@
                       <input type="file" name = "pfile" id = "pfiles"  accept="image/gif, image/jpeg, image/png">
                     </div>
                     <p class="help-block">Hanya Bisa Satu Gambar</p>
-                 </div>
+                 </div>                 
                  <div class="form-group">
                  <label>Masukan List Kebutuhan</label>
                  <span class = 'adds'>
                      <td><a class = "btn btn-block btn-sm btn-success" id = "button">Tambah Kebutuhan</a></td>
 <span hidden id = 'lengthData'><?php print 0; ?></span>
                  </div>
-                </div><!-- /.box-body -->
-                <div class="box-footer">
+                </div><!-- /.box-body -->                
+                <div class="box-footer">                
                   <div class="pull-right">
-                    <button type="submit" class="btn btn-lg btn-primary">Submit</button>
+                    <button  type="submit" class="btn btn-lg btn-primary">Submit</button>
                   </div>
                 </div><!-- /.box-footer -->
               </div><!-- /. box -->
@@ -137,7 +192,7 @@
     <!-- AdminLTE App -->
     <script src="<?php echo base_url(); ?>../assets/bootsrap/dist/js/app.min.js"></script>
     <!-- AdminLTE for demo purposes -->
-    <script src="<?php echo base_url(); ?>../assets/bootsrap/dist/js/demo.js"></script>
+    <script src="<?php echo base_url(); ?>../assets/bootsrap/dist/js/demo.js"></script>    
 <script>
 
   $('#button').click(function(){                
@@ -153,5 +208,128 @@
         $(this).parents().eq(1).remove();                                    
     });
 </script>
+<script>
+// This example adds a search box to a map, using the Google Place Autocomplete
+// feature. People can enter geographical searches. The search box will return a
+// pick list containing a mix of places and predicted search terms.
+
+function initAutocomplete() {
+
+
+
+  var map = new google.maps.Map(document.getElementById('map'), {
+    center: {lat: -33.8688, lng: 151.2195},
+    zoom: 13,
+    mapTypeId: google.maps.MapTypeId.ROADMAP
+  });
+
+  // Create the search box and link it to the UI element.
+  var input = document.getElementById('pac-input');
+  var searchBox = new google.maps.places.SearchBox(input);
+  map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
+
+  // Bias the SearchBox results towards current map's viewport.
+  map.addListener('bounds_changed', function() {
+    searchBox.setBounds(map.getBounds());
+  });
+
+  var markers = [];
+  // [START region_getplaces]
+  // Listen for the event fired when the user selects a prediction and retrieve
+  // more details for that place.
+  searchBox.addListener('places_changed', function() {
+    var places = searchBox.getPlaces();
+
+    if (places.length == 0) {
+      return;
+    }
+
+    // Clear out the old markers.
+    // markers.forEach(function(marker) {
+    //   marker.setMap(null);
+    // });
+    // markers = [];
+    marker = null;
+
+    // For each place, get the icon, name and location.
+    var bounds = new google.maps.LatLngBounds();
+    places.forEach(function(place) {
+
+      var icon = {
+        url: place.icon,
+        size: new google.maps.Size(71, 71),
+        origin: new google.maps.Point(0, 0),
+        anchor: new google.maps.Point(17, 34),
+        scaledSize: new google.maps.Size(25, 25)
+      };
+
+      // Create a marker for each place.
+      lat = (place.geometry.location.lat());
+      lng = (place.geometry.location.lng());
+      document.getElementById('lat').value = lat
+      document.getElementById('lng').value = lng
+      // markers.push(new google.maps.Marker({        
+      //   map: map,
+      //   draggable: true,
+      //   icon: icon,
+      //   title: place.name,
+      //   position: place.geometry.location        
+      // }));
+
+      marker = new google.maps.Marker({        
+        map: map,
+        draggable: true,
+        icon: icon,
+        title: place.name,
+        animation: google.maps.Animation.DROP,
+        position: place.geometry.location        
+      });      
+
+        google.maps.event.addListener(marker, 'dragend', function() 
+      {          
+          lat = (marker.getPosition().lat());
+          lng = (marker.getPosition().lng());
+
+          document.getElementById('lat').value = lat
+          document.getElementById('lng').value = lng          
+      });
+
+      if (place.geometry.viewport) {
+        // Only geocodes have viewport.
+        bounds.union(place.geometry.viewport);
+      } else {
+        bounds.extend(place.geometry.location);
+      }
+    });
+    map.fitBounds(bounds);
+  });
+  // [END region_getplaces]
+} 
+  function geocodePosition(pos) 
+  {
+     geocoder = new google.maps.Geocoder();
+     geocoder.geocode
+      ({
+          latLng: pos
+      }, 
+          function(results, status) 
+          {
+              if (status == google.maps.GeocoderStatus.OK) 
+              {
+                  $("#mapSearchInput").val(results[0].formatted_address);
+                  $("#mapErrorMsg").hide(100);
+              } 
+              else 
+              {
+                  $("#mapErrorMsg").html('Cannot determine address at this location.'+status).show(100);
+              }
+          }
+      );
+  }
+      
+    
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?libraries=places&callback=initAutocomplete"
+         async defer></script>
 
 

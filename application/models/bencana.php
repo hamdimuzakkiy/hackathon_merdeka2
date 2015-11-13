@@ -25,7 +25,11 @@
 			$query = $this->db->get();
             return $query->result();
 		}		
-		
+			
+		function update($where,$data){
+			$this->db->where($where);
+			$this->db->update('bencana',$data);
+		}
 
 		function get(){
 			$q = $this->db->get('bencana');

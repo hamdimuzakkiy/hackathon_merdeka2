@@ -10,6 +10,7 @@ class user extends MY_Controller {
 		$this->load->model('sumbang');
         $this->load->model('organisasi');
         $this->load->model('users');
+        $this->load->model('layanan');
 	}
 
 	public function index(){	
@@ -38,6 +39,7 @@ class user extends MY_Controller {
 		        array_push($datas, array('nama' => $_POST['nama'][$i], 'jumlah' => $_POST['jumlah'][$i], 'id_bencana' => $id));
 		    }
 		}
+
 		if (sizeof($datas)!=0)
 		$this->kebutuhan->insert_batch($datas);		
 		redirect(base_url().'user/detail_my_bencana/'.$_POST['id']);
@@ -98,10 +100,7 @@ class user extends MY_Controller {
 		$data['jarak'] = $_POST['jarak'];
 		$data['lat'] = $_POST['lat'];
 		$data['lng'] = $_POST['lng'];
-
-		print $data['lng'];
-		print $data['lat'];
-		return;
+		
 		//$data['lat'] = $_POST['lat'];
 		//$data['lang'] = $_POST['lang'];
 		//
@@ -119,8 +118,16 @@ class user extends MY_Controller {
 		        array_push($datas, array('nama' => $_POST['nama'][$i], 'jumlah' => $_POST['jumlah'][$i], 'id_bencana' => $id));
 		    }
 		}
+		$datas2 = array();		
+		if(!empty($_POST['nama2'])) {		    
+			for ($i=0; $i < sizeof($_POST['nama2']) ; $i++) { 					
+		        array_push($datas2, array('nama_layanan' => $_POST['nama2'][$i], 'id_bencana' => $id));		        		        
+		    }
+		}		
 		if (sizeof($datas)!=0)
 		$this->kebutuhan->insert_batch($datas);		
+		if (sizeof($datas2)!=0)
+		$this->layanan->insert_batch($datas2);		
 		redirect(base_url().'user/list_bencana');
 	}
 
@@ -257,13 +264,13 @@ class user extends MY_Controller {
         
         function update_pengungsi($id=0){
             $where['id'] = $id;
-            $data['balita']=$_GET['balita'];
-            $data['a_perempuan']=$_GET['a_perempuan'];
+            $data['balita']=$_POST['balita'];
+            $data['a_perempuan']=$_POST['a_perempuan'];
             $data['a_laki']=$_GET['a_laki'];
-            $data['d_perempuan']=$_GET['d_perempuan'];
+            $data['d_perempuan']=$_POST['d_perempuan'];
             $data['d_laki']=$_GET['d_laki'];
-            $data['l_perempuan']=$_GET['l_perempuan'];
-            $data['l_laki']=$_GET['l_laki'];
+            $data['l_perempuan']=$_POST['l_perempuan'];
+            $data['l_laki']=$_POST['l_laki'];
             
             $this->bencana->update_pengungsi($where,$data);
             $this->detail_my_bencana($id);

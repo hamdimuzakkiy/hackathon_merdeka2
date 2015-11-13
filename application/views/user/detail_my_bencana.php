@@ -82,7 +82,7 @@
                           </div><!-- /.row -->
                         </div><!-- /.col -->
                         
-                        <form action='<?php echo base_url()."user/update_pengungsi"."/".$bencana->id; ?>' method="get">
+                        <form action='<?php echo base_url()."user/update_pengungsi"."/".$bencana->id; ?>' method="post">
                             <div class="row">
                             <div class="col-md-6">
                             <div class='row'>

@@ -12,8 +12,9 @@ class user extends MY_Controller {
         $this->load->model('users');
 	}
 
-	public function index(){		
-		
+	public function index(){	
+		$this->get_header();	
+		$this->load->view('user/landing');
 	}
 
 	public function tambah_sumbangan($id_kebutuhan = 0){
@@ -101,6 +102,8 @@ class user extends MY_Controller {
 		print $data['lng'];
 		print $data['lat'];
 		return;
+		//$data['lat'] = $_POST['lat'];
+		//$data['lang'] = $_POST['lang'];
 		//
 		move_uploaded_file($_FILES["pfile"]["tmp_name"], "./assets/img/".$_FILES["pfile"]["name"]);
 		

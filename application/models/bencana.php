@@ -36,8 +36,10 @@
 			return $q->result();
 		}
 
-		function get_where($data){			
+		function get_where($data){				
+			
 			$q = $this->db->get_where('bencana',$data);
+			$this->db->order_by('id','desc');
 			return $q->result();
 		}
 

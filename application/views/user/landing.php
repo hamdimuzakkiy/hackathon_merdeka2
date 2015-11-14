@@ -7,19 +7,94 @@
       </div>
       <div class="col-md-3 col-sm-4"style="padding-right:0px;padding-left:0px;">
         <div class="pad box-pane-right bg-green" style="min-height: 420px ">
-        <?php 
-          foreach ($list_nama as $row) {
-            print $row;
-          }
-        ?>
-        ------------
-        <?php 
-          foreach ($list_lokasi as $row) {
-            print $row;
-          }
-        ?>
+          <div class="col-md-6 col-sm-4">
+            <div class="pad box-pane-right bg-green" style="min-height: 280px">
+
+              <div class="description-block margin-bottom">
+                <h2 class="description-text"><?php print $len;?></h2>
+                <span class="description-text">Jumlah Posko</span>
+              </div><!-- /.description-block -->
+              <div class="description-block margin-bottom">
+                <h2 class="description-text"><?php 
+                $jumlah = 0;
+                          foreach ($list_nama as $row) {
+                            $jumlah++;
+                          }
+                          print $jumlah;
+                        ?>
+                        </h2>
+                <span class="description-text">Bencana Alam</span>
+              </div><!-- /.description-block -->
+              <div class="description-block">
+                <h4 class="description-header"></h4>
+                <span class="description-text">
+                <a href="http://localhost/hackathon_merdeka2/index.php/user/list_bencana" class="btn btn-success pull-right">Lihat List</a>
+              </div><!-- /.description-block -->
+            </div>
+          </div><!-- /.col -->
         </div>
       </div><!-- /.col -->
+    </div>
+    <div class="row">
+    <section class="invoice">
+          <!-- title row -->
+          <!-- info row -->
+          <div class="row invoice-info">
+            <div class="col-sm-4 invoice-col">
+            </div><!-- /.col -->
+            <div class="col-sm-4 invoice-col">
+                <center><h2><strong>SOS</strong></h2><br>
+                <h3>"Aplikasi pencatatan titik kumpul secara real time, mencatat kebutuhan,layanan dan juga lokasi titik kumpul"</h3></center>
+            </div><!-- /.col -->
+            <div class="col-sm-4 invoice-col">
+            </div><!-- /.col -->
+          </div><!-- /.row -->
+          <div class="row invoice-info">
+            <div class="col-sm-3 invoice-col">
+            </div><!-- /.col -->
+            <div class="col-sm-6 invoice-col">
+            <div class="col-sm-4 invoice-col">
+                <center><h2><strong>Relawan</strong></h2><br>
+                <h4>Dapat mencatat lokasi posko,layanan yang diberikan dan juga kebutuhan yang diperlukan secara realtime</h4></center>
+            </div>
+            <div class="col-sm-4 invoice-col">
+              <center><h2><strong>Korban </strong></h2><br>
+                <h4>Mencari Lokasi titik kumpul, dan juga melihat layanan titik kumpul</h4></center>
+            </div>
+            <div class="col-sm-4 invoice-col">
+              <center><h2><strong>Donatur</strong></h2><br>
+                <h4>Dapat melihat kebutuhan tiap posko secara realtime sehingga dapat menentukan sumbangan apa yang dibutuhkan</h4></center>
+            </div>
+            </div><!-- /.col -->
+            <div class="col-sm-3 invoice-col">
+            </div><!-- /.col -->
+          </div><!-- /.row -->
+
+          <!-- Table row -->
+          <div class="row">
+            <div class="col-xs-12 table-responsive">
+            </div><!-- /.col -->
+          </div><!-- /.row -->
+
+          <div class="row">
+            <!-- accepted payments column -->
+            <div class="col-xs-6">
+             
+            
+            </div><!-- /.col -->
+            <div class="col-xs-6">
+            </div><!-- /.col -->
+          </div><!-- /.row -->
+
+          <!-- this row will not appear when printing -->
+          <div class="row no-print">
+            <div class="col-xs-12">
+              
+              
+              <!-- <a href="" class="btn btn-primary pull-right" style="margin-right: 5px;"><i class="fa fa-download"></i>Masuk sebagai relawan</a> -->
+            </div>
+          </div>
+        </section><!-- /.content -->
     </div>
   </div>
   <footer class="main-footer">
@@ -57,8 +132,8 @@
         
 
     var map = new google.maps.Map(document.getElementById('map'), {
-      zoom: 10,
-      center: new google.maps.LatLng(-33.92, 151.25),
+      zoom: 5,
+      center: new google.maps.LatLng(-1.3608034433484952, 116.685791015625),
       mapTypeId: google.maps.MapTypeId.ROADMAP
     });
 

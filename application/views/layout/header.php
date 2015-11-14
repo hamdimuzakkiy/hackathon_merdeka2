@@ -30,7 +30,7 @@
         <nav class="navbar navbar-static-top">
           <div class="container">
             <div class="navbar-header">
-              <a href="#" class="navbar-brand"><b>TANGGAP BENCANA</b></a>
+              <a href="http://localhost/hackathon_merdeka2/index.php/publics" class="navbar-brand"><b>TANGGAP BENCANA</b></a>
               <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
                 <i class="fa fa-bars"></i>
               </button>

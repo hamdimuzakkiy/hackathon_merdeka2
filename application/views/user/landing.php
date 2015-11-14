@@ -62,7 +62,7 @@
                 <h4>Mencari Lokasi titik kumpul, dan juga melihat layanan titik kumpul</h4></center>
             </div>
             <div class="col-sm-4 invoice-col">
-              <center><h2><strong>Donatur</strong></h2><br>
+              <center><h2><strong>Calon Donatur</strong></h2><br>
                 <h4>Dapat melihat kebutuhan tiap posko secara realtime sehingga dapat menentukan sumbangan apa yang dibutuhkan</h4></center>
             </div>
             </div><!-- /.col -->

@@ -68,12 +68,12 @@
                             </div><!-- /.col -->                           
                           </div><!-- /.row -->   
                           </div><!-- /.row -->
-                        </div><!-- /.col -->
+                       
 
                                                 
-
+                          <div class='row'></div>
                         <form action='<?php echo base_url()."user/update_pengungsi"."/".$bencana->id; ?>' method="post" class="form-horizontal">
-                          <h4><b>Pengungsi </b> : </h4> 
+                          <div class='col-md-12'><h4>Pengungsi </h4> </div>
                           <div class="col-lg-12">
 
                             <div class="row">
@@ -128,15 +128,13 @@
                           </div>
                           <div class="col-sm-4">
                                 <button type="submit" class="btn btn-lg btn-primary pull-right" style="width: 25%;" >Update</button>
-                          </div>
                         </form>
-                        </div>
-                        </div>
                     </div><!-- /.post -->
+                    <div class="col-md-12">
                     <div class="post clearfix">
                       <form class='form-horizontal'>
                         <div class='form-group'>
-                        <h3>Kebutuhan</h3>
+                        <h4>Kebutuhan</h4>
                         <?php foreach ($detail_kebutuhan as $row) {?>
                             <div class="col-lg-9 progress-group">
                                 <h4><span class="progress-text"><?php print $row->nama ?></span>
@@ -154,7 +152,7 @@
                           
                                                   
                           <div class='col-sm-3'>
-                             <a class="btn btn-lg btn-success" href='<?php echo base_url()."user/tambah_sumbangan"."/".$row->id; ?>'>Update Data</a>
+                             <a class="btn btn-lg btn-success pull-right" href='<?php echo base_url()."user/tambah_sumbangan"."/".$row->id; ?>'>Update Data</a>
                           </div> 
                               <?php //if($id!='guest')
                                 //echo  '<button class="btn btn-danger pull-right btn-block btn-sm">Sumbang</button>';
@@ -162,7 +160,8 @@
                       </form>
                       <?php } ?> 
                     
-                    </div><!-- /.post -->                    
+                    </div><!-- /.post -->    
+                    </div>                
                     <a class="btn btn-lg btn-primary pull-right" href='<?php echo base_url()."user/tambah_kebutuhan"."/".$bencana->id; ?>'>Tambah Kebutuhan</a>      
                     <div class="post clearfix">
                       <form class='form-horizontal'>

@@ -28,7 +28,7 @@
               <div class="description-block">
                 <h4 class="description-header"></h4>
                 <span class="description-text">
-                <a href="http://localhost/hackathon_merdeka2/index.php/user/list_bencana" class="btn btn-success pull-right">Lihat List</a>
+                <a href="http://localhost/hackathon_merdeka2/index.php/user/list_bencana" class="btn btn-success">Lihat List</a>
               </div><!-- /.description-block -->
             </div>
           </div><!-- /.col -->

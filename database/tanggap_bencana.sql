@@ -3,9 +3,9 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 13 Nov 2015 pada 20.56
--- Versi Server: 5.5.36
--- PHP Version: 5.4.27
+-- Generation Time: Nov 14, 2015 at 07:31 AM
+-- Server version: 5.6.16
+-- PHP Version: 5.5.11
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -23,7 +23,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `bencana`
+-- Table structure for table `bencana`
 --
 
 CREATE TABLE IF NOT EXISTS `bencana` (
@@ -48,25 +48,22 @@ CREATE TABLE IF NOT EXISTS `bencana` (
   `lat` double NOT NULL,
   `lng` double NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=22 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=26 ;
 
 --
--- Dumping data untuk tabel `bencana`
+-- Dumping data for table `bencana`
 --
 
 INSERT INTO `bencana` (`id`, `nama`, `lokasi`, `deskripsi`, `id_user`, `tanggal_berakhir`, `url_img`, `soft_delete`, `balita`, `a_perempuan`, `a_laki`, `d_perempuan`, `d_laki`, `l_perempuan`, `l_laki`, `jarak`, `jenis_bencana`, `lokasi_titik`, `lat`, `lng`) VALUES
-(1, 'Kabut Asap Kalimantan TImur', 'Temindung, Samarinda', 'Titik Kumpul Pasokan suplai bantuan Gedung kecamatan Merbabu, Balikpapan Kalimantan Timur', 1, '2015-12-29', 'assets/img/Kabut-Asap-1.jpg', 0, '35', '99', '22', '69', '83', '32', '82', 32, NULL, 'Kecamatan Bangkal', 0, 0),
-(2, 'Sinabung Medan', 'Sinabung, Medan', 'Pos Pengungsian PMI kaki gunung Sinabung, Medan', 2, '2015-11-29', 'assets/img/Sinabung Medan.jpg', 0, '48', '81', '82', '57', '5', '81', '65', 21, NULL, 'Kecamatan Podosugih', 0, 0),
-(3, 'Kabut Asap Kalimantan TImur', 'Berau, Teluk Bayur', 'Titik kumpul gedung sekolah SMA 2 N Kudus, Jawa Tengah', 1, NULL, 'assets/img/Kabut Asap Kalimantan Timur.jpg', 0, '95', '32', '7', '82', '59', '78', '82', 12, NULL, 'Kecamatan Angkring', 0, 0),
-(5, 'Gempa Aceh Darussalam', 'Aceh', 'Gempa di Aceh ini juga mempunyai kedalam dengan titik 48 kilometer (KM) dan berada pada koordinat 1.97 derajat Lintang selatan, 138.38 bujur Timur dan dengan jarak lokasi sekitar 42 km (kilometer).', 3, NULL, 'assets/img/Gempa Aceh Darussalam.jpg', 0, '78', '32', '15', '65', '45', '8', '9', 23, NULL, 'Kecamatan Rambar', 0, 0),
-(9, 'Banjir Bandang Irian', 'Papua', 'Gempa dengan skala 4.6 Ricther', 2, '2015-10-29', 'assets/img/Banjir Bandang Irian.jpg', 0, '56', '39', '85', '97', '52', '11', '12', 45, NULL, 'Kecamatan Bekantan', 0, 0),
-(10, 'Tanah Longsor Banjarnegara', 'Jawa Tengah', 'Seperti diberitakan sebelumnya, puluhan rumah yang dihuni 300 jiwa di Dusun Jemblung RT 05 RW 01, Desa Sampang, Kecamatan Karangkobar, tertimbun tanah longsor yang terjadi pada Jumat, 12 Desember 2014, pukul 17.30 WIB. Berdasarkan data sementara Posko Induk Badan Penanggulangan Bencana Daerah (BPBD) Banjarnegara, jumlah korban tewas yang telah ditemukan sebanyak 12 orang dan ada 15 orang luka-luka', 3, '2015-10-22', 'assets/img/Tanah Longsor Banjarnegara.jpg', 0, '54', '87', '35', '110', '45', '65', '25', 5, NULL, 'Kecamatan Langgar', 0, 0),
-(21, 'Kapalan', 'dimana mana', 'terlalu', 1, '2015-11-13', './assets/img/DSCF2008.JPG', 0, '', '', '', '', '', '', '', 5, NULL, 'parah', -3.291016922973772, 102.85757932275396);
+(22, 'Kabut Asap ', 'Kalimantan Timur', 'Posko terletsk di berau dibalai desa', 1, '2015-11-14', './assets/img/gambar1.jpg', 0, '30', '78', '133', '102', '77', '54', '65', 10, NULL, 'Berau', 1.913331041645406, 117.32319545156247),
+(23, 'Kabut Asap', 'Riau', 'Kabut asap sudah berlangsung dari 14 september 2015. Letak posko terletak di gelanggang remaja', 1, '2015-11-14', './assets/img/poko-darurat-asap1.jpg', 0, '67', '32', '44', '22', '32', '43', '12', 20, NULL, 'Pekanbaru', 0.5224695499584096, 101.45696220468744),
+(24, 'Gempa bumi', 'Bantul', 'Gempa bumi bersekala 5.1 scala richter mengguncang bantul pada hari senin 10 november 2015', 1, '2015-11-14', './assets/img/1425394428_11.jpg', 0, '7', '65', '34', '63', '34', '53', '43', 40, NULL, 'Masjid Al Aman', -7.8748176, 110.3255365),
+(25, 'Banjir ', 'Jakarta', 'Banjir yang terjadi karena hujan yang mengguyur jakarta pada tanggal 11 september 2015 - 13 september 2015 mengakibatkan banjir parah', 1, '2015-11-14', './assets/img/banjir bekasi 2014 2.JPG', 0, '55', '42', '34', '52', '42', '22', '52', 6, NULL, 'Masjid Agung Kampung Melayu', -6.23254, 106.86493);
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `kebutuhan`
+-- Table structure for table `kebutuhan`
 --
 
 CREATE TABLE IF NOT EXISTS `kebutuhan` (
@@ -77,10 +74,10 @@ CREATE TABLE IF NOT EXISTS `kebutuhan` (
   `terpenuhi` int(11) DEFAULT '0',
   `satuan` varchar(22) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=24 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=38 ;
 
 --
--- Dumping data untuk tabel `kebutuhan`
+-- Dumping data for table `kebutuhan`
 --
 
 INSERT INTO `kebutuhan` (`id`, `nama`, `jumlah`, `id_bencana`, `terpenuhi`, `satuan`) VALUES
@@ -93,8 +90,8 @@ INSERT INTO `kebutuhan` (`id`, `nama`, `jumlah`, `id_bencana`, `terpenuhi`, `sat
 (7, 'Pakaian Dewasa', '410', 1, 30, NULL),
 (8, 'Pakaian Dewasa', '441', 2, 0, NULL),
 (9, 'Pakaian Anak', '741', 2, 0, NULL),
-(10, 'Paramedis', '20', 3, 0, NULL),
-(11, 'Pakaian Anak', '120', 3, 0, NULL),
+(10, 'Paramedis', '20', 3, 20, NULL),
+(11, 'Pakaian Anak', '120', 3, 25, NULL),
 (12, 'Obat-obatan', '500', 3, 0, NULL),
 (13, 'Obat-obatan', '600', 5, 0, NULL),
 (14, 'Paramedis', '30', 5, 0, NULL),
@@ -105,12 +102,26 @@ INSERT INTO `kebutuhan` (`id`, `nama`, `jumlah`, `id_bencana`, `terpenuhi`, `sat
 (20, 'Pakaian Dewasa', '100', 11, 0, NULL),
 (21, 'Obat-Obatan', '21', 20, 0, NULL),
 (22, 'Paramedis', '3', 21, 0, NULL),
-(23, 'Obat-Obatan', '300', 21, 0, NULL);
+(23, 'Obat-Obatan', '300', 21, 0, NULL),
+(24, 'Masker', '900', 22, 0, NULL),
+(25, 'Dokter', '10', 22, 0, NULL),
+(26, 'Pakaian Dewasa', '80', 22, 0, NULL),
+(27, 'Masker', '500', 23, 0, NULL),
+(28, 'Makanan Instan', '500', 23, 0, NULL),
+(29, 'Paramedis', '30', 23, 0, NULL),
+(30, 'Dokter', '5', 23, 0, NULL),
+(31, 'Pakaian Anak', '46', 24, 0, NULL),
+(32, 'Mie Instan', '78', 24, 0, NULL),
+(33, 'Paramedis', '10', 24, 0, NULL),
+(34, 'Obat-Obatan', '55', 25, 0, NULL),
+(35, 'Makanan Instan', '67', 25, 0, NULL),
+(36, 'Dokter', '7', 25, 0, NULL),
+(37, 'Pakaian Anak', '78', 25, 0, NULL);
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `layanan`
+-- Table structure for table `layanan`
 --
 
 CREATE TABLE IF NOT EXISTS `layanan` (
@@ -118,10 +129,10 @@ CREATE TABLE IF NOT EXISTS `layanan` (
   `id_bencana` int(11) NOT NULL,
   `id` int(11) NOT NULL AUTO_INCREMENT,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=17 ;
 
 --
--- Dumping data untuk tabel `layanan`
+-- Dumping data for table `layanan`
 --
 
 INSERT INTO `layanan` (`nama_layanan`, `id_bencana`, `id`) VALUES
@@ -129,12 +140,23 @@ INSERT INTO `layanan` (`nama_layanan`, `id_bencana`, `id`) VALUES
 ('Peristirahatan', 1, 2),
 ('Dapur Umum', 1, 3),
 ('Dapur Umum', 21, 4),
-('Kesehatan', 21, 5);
+('Kesehatan', 21, 5),
+('Dapur Umum', 22, 6),
+('Peristirahatan', 22, 7),
+('Kesehatan', 23, 8),
+('Dapur Umum', 23, 9),
+('Peristirahatan', 23, 10),
+('Kesehatan', 24, 11),
+('Dapur Umum', 24, 12),
+('Peristirahatan', 24, 13),
+('Kesehatan', 25, 14),
+('Dapur Umum', 25, 15),
+('Peristirahatan', 25, 16);
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `organisasi`
+-- Table structure for table `organisasi`
 --
 
 CREATE TABLE IF NOT EXISTS `organisasi` (
@@ -148,7 +170,7 @@ CREATE TABLE IF NOT EXISTS `organisasi` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
 
 --
--- Dumping data untuk tabel `organisasi`
+-- Dumping data for table `organisasi`
 --
 
 INSERT INTO `organisasi` (`id`, `nama`, `lokasi`, `telpon`, `url_img`, `Kota`) VALUES
@@ -158,7 +180,7 @@ INSERT INTO `organisasi` (`id`, `nama`, `lokasi`, `telpon`, `url_img`, `Kota`) V
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `organisasi_bencana`
+-- Table structure for table `organisasi_bencana`
 --
 
 CREATE TABLE IF NOT EXISTS `organisasi_bencana` (
@@ -169,7 +191,7 @@ CREATE TABLE IF NOT EXISTS `organisasi_bencana` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
 
 --
--- Dumping data untuk tabel `organisasi_bencana`
+-- Dumping data for table `organisasi_bencana`
 --
 
 INSERT INTO `organisasi_bencana` (`id`, `id_bencana`, `id_organisasi`) VALUES
@@ -179,7 +201,7 @@ INSERT INTO `organisasi_bencana` (`id`, `id_bencana`, `id_organisasi`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `sumbang`
+-- Table structure for table `sumbang`
 --
 
 CREATE TABLE IF NOT EXISTS `sumbang` (
@@ -192,7 +214,7 @@ CREATE TABLE IF NOT EXISTS `sumbang` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
 
 --
--- Dumping data untuk tabel `sumbang`
+-- Dumping data for table `sumbang`
 --
 
 INSERT INTO `sumbang` (`id`, `id_kebutuhan`, `jumlah`, `bukti`, `status`) VALUES
@@ -202,7 +224,7 @@ INSERT INTO `sumbang` (`id`, `id_kebutuhan`, `jumlah`, `bukti`, `status`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `user`
+-- Table structure for table `user`
 --
 
 CREATE TABLE IF NOT EXISTS `user` (
@@ -218,7 +240,7 @@ CREATE TABLE IF NOT EXISTS `user` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
 
 --
--- Dumping data untuk tabel `user`
+-- Dumping data for table `user`
 --
 
 INSERT INTO `user` (`id`, `nama`, `email`, `password`, `alamat`, `role`, `status`, `url_img`) VALUES

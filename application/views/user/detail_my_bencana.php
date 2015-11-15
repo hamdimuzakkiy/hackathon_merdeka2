@@ -71,7 +71,7 @@
                        
 
                                                 
-                          <div class='row'></div>
+                    <div class='row'></div>
                         <form action='<?php echo base_url()."user/update_pengungsi"."/".$bencana->id; ?>' method="post" class="form-horizontal">
                           <div class='col-md-12'><h4>Pengungsi </h4> </div>
                           <div class="col-lg-12">
@@ -126,15 +126,18 @@
                             </div><!-- /.row -->
                           <div class="col-lg-8">
                           </div>
-                          <div class="col-sm-4">
-                                <button type="submit" class="btn btn-lg btn-primary pull-right" style="width: 25%;" >Update</button>
+                            <div class="col-lg-4">
+                                <button type="submit" class="btn btn-lg btn-primary pull-right" >Update</button>
+                            </div><!-- /.post -->
                         </form>
-                    </div><!-- /.post -->
+                    </div>
                     <div class="col-md-12">
                     <div class="post clearfix">
                       <form class='form-horizontal'>
                         <div class='form-group'>
-                        <h4>Kebutuhan</h4>
+                        <div class="col-md-12">
+                            <h4>Kebutuhan</h4>
+                        </div>
                         <?php foreach ($detail_kebutuhan as $row) {?>
                             <div class="col-lg-9 progress-group">
                                 <h4><span class="progress-text"><?php print $row->nama ?></span>

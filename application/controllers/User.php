@@ -23,7 +23,7 @@ class User extends MY_Controller {
 	}
 
 	public function tambah_sumbangan($id_kebutuhan = 0){
-		$this->get_header();
+		$this->get_header();		
 		$param['id_kebutuhan'] = $id_kebutuhan;
         $param['status'] = 1;
 		$data['list_penyumbang'] = $this->sumbang->get_where($param);
@@ -39,8 +39,8 @@ class User extends MY_Controller {
 		$id = $_POST['id'];
 		$datas = array();
 		if(!empty($_POST['nama'])) {
-			for ($i=0; $i < sizeof($_POST['nama']) ; $i++) {
-		        array_push($datas, array('nama' => $_POST['nama'][$i], 'jumlah' => $_POST['jumlah'][$i], 'id_bencana' => $id));
+			for ($i=0; $i < sizeof($_POST['nama']) ; $i++) {				
+		        array_push($datas, array('nama' => $_POST['nama'][$i], 'jumlah' => $_POST['jumlah'][$i], 'id_bencana' => $id, 'satuan' => $_POST['urgent'][$i]));
 		    }
 		}
 
@@ -119,13 +119,13 @@ class User extends MY_Controller {
 		$datas = array();
 		if(!empty($_POST['nama'])) {
 			for ($i=0; $i < sizeof($_POST['nama']) ; $i++) {
-		        array_push($datas, array('nama' => $_POST['nama'][$i], 'jumlah' => $_POST['jumlah'][$i], 'id_bencana' => $id));
+		        array_push($datas, array('nama' => $_POST['nama'][$i], 'jumlah' => $_POST['jumlah'][$i], 'id_bencana' => $id, 'satuan' => $_POST['urgent'][$i]));
 		    }
 		}
 		$datas2 = array();
 		if(!empty($_POST['nama2'])) {
 			for ($i=0; $i < sizeof($_POST['nama2']) ; $i++) {
-		        array_push($datas2, array('nama_layanan' => $_POST['nama2'][$i], 'id_bencana' => $id));
+		        array_push($datas2, array('nama_layanan' => $_POST['nama2'][$i], 'id_bencana' => $id, 'satuan' => $_POST['urgent2'][$i]));
 		    }
 		}
 		if (sizeof($datas)!=0)

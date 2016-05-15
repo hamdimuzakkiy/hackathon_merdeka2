@@ -6,7 +6,7 @@
           <h1>
             Daftar Bencana
              <div class= "pull-right">
-         
+
           </div>
           </h1>
 
@@ -31,7 +31,7 @@
                 </div><!-- /.box-body -->
               </div><!-- /. box -->
               <!-- About Me Box -->
-              
+
             </div><!-- /.col -->
             <div class="col-md-9">
             <?php foreach ($list as $bencana) { ?>
@@ -50,8 +50,8 @@
                                <p>
                                   <?php echo $bencana->deskripsi; ?>
                               </p>
-                              <h4><label>Tanggal : </label> <?php print $bencana->tanggal_berakhir; ?></h4>                              
-                              <h4><label>Lokasi Posko : </label> <?php print $bencana->lokasi_titik; ?></h4>
+                              <h4><label>Tanggal</label><br> <?php print $bencana->tanggal_berakhir; ?></h4>
+                              <h4><label>Lokasi Posko</label><br> <?php print $bencana->lokasi_titik; ?></h4>
                               <br>
                               <?php if ($bencana->id_user != $id_user) { ?>
                               <button class="btn btn-lg btn-primary" onclick="window.location='<?php echo base_url()."user/detail_bencana/".$bencana->id; ?>';">Detail</button>
@@ -59,20 +59,20 @@
                               <button class="btn btn-lg btn-success" onclick="window.location='<?php echo base_url()."user/detail_my_bencana/".$bencana->id; ?>';">Kelola</button>
                               <?php } ?>
                             </div><!-- /.col -->
-                           
+
                           </div><!-- /.row -->
                         </div><!-- /.col -->
                       </div><!-- /.row -->
                     </div><!-- /.post -->
                   </div><!-- /.tab-pane -->
                 </div><!-- /.tab-content -->
-                <?php } ?>	
-                <?php 
+                <?php } ?>
+                <?php
 
-      echo $this->pagination->create_links(); 
+      echo $this->pagination->create_links();
 ?>
               </div><!-- /.nav-tabs-custom -->
-              	
+
             </div><!-- /.col -->
           </div><!-- /.row -->
 

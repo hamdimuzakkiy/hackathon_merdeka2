@@ -1,4 +1,4 @@
-      
+
       <!-- Left side column. contains the logo and sidebar -->
       <!-- Content Wrapper. Contains page content -->
       <div class="content-wrapper">
@@ -38,14 +38,14 @@
               </div><!-- /.box -->
 
               <!-- About Me Box -->
-              
+
             </div><!-- /.col -->
           <?php } ?>
             <div class="col-md-9">
               <div class="nav-tabs-custom">
-                
+
                 <div class="tab-content">
-                 
+
                     <!-- Post -->
                     <?php foreach ($detail_bencana as $bencana){ ?>
                     <div class="post">
@@ -61,68 +61,68 @@
                                   <?php echo $bencana->deskripsi; ?>
                               </p>
                               <br>
-                            </div><!-- /.col -->
-                            
+
+
                             <div class='row'>
                             <div class='col-sm-12'>
-                            <h4><b>Titik Lokasi Posko </b> : <?php echo $bencana->lokasi_titik; ?></h4>                                                             
-                            </div><!-- /.col -->                           
+                            <h4><b>Titik Lokasi Posko</b> <br> <?php echo $bencana->lokasi_titik; ?></h4><br>
+                            </div><!-- /.col -->
                           </div><!-- /.row -->
 
                           <div class='row'>
                             <div class='col-sm-12'>
-                            <h4><b>Jarak Posko Ke Titik Bencana </b> : <?php echo $bencana->jarak; ?> Km</h4>                                                             
-                            </div><!-- /.col -->                           
+                            <h4><b>Jarak Posko ke Titik Bencana </b> <br><?php echo $bencana->jarak; ?> Km</h4><br>
+                            </div><!-- /.col -->
                           </div><!-- /.row -->
 
                           <div class='row'>
                             <div class='col-sm-12'>
-                            <h4><b>Pengungsi </b> : </h4>                                                             
+                            <h4><b>Pengungsi </b> </h4>
                             <div class='col-sm-4'>
-                              Balita  
+                              Balita
                             </div>
                             <div class='col-sm-8'>
-                              : <?php print $bencana->balita; ?> 
+                              <?php print $bencana->balita; ?>
                             </div>
                             <div class='col-sm-4'>
                               Anak Laki - Laki
                             </div>
                             <div class='col-sm-8'>
-                              : <?php print $bencana->a_laki; ?> 
+                               <?php print $bencana->a_laki; ?>
                             </div>
                             <div class='col-sm-4'>
-                              Anak Perempuan :                              
+                              Anak Perempuan
                             </div>
                             <div class='col-sm-8'>
-                              : <?php print $bencana->a_perempuan; ?> 
+                               <?php print $bencana->a_perempuan; ?>
                             </div>
                             <div class='col-sm-4'>
-                              Dewasa Laki - Laki :
+                              Dewasa Laki - Laki
                             </div>
                             <div class='col-sm-8'>
-                              : <?php print $bencana->d_laki; ?> 
+                              <?php print $bencana->d_laki; ?>
                             </div>
                             <div class='col-sm-4'>
-                              Dewasa Perempuan :
+                              Dewasa Perempuan
                             </div>
                             <div class='col-sm-8'>
-                              : <?php print $bencana->d_perempuan; ?> 
+                               <?php print $bencana->d_perempuan; ?>
                             </div>
                             <div class='col-sm-4'>
-                              Lansia Laki - Laki :
+                              Lansia Laki - Laki
                             </div>
                             <div class='col-sm-8'>
-                              : <?php print $bencana->l_laki; ?> 
+                              <?php print $bencana->l_laki; ?>
                             </div>
                             <div class='col-sm-4'>
-                              Lansia Perempuan :
+                              Lansia Perempuan
                             </div>
                             <div class='col-sm-8'>
-                              : <?php print $bencana->l_perempuan; ?> 
+                              <?php print $bencana->l_perempuan; ?>
                             </div>
-                            </div><!-- /.col -->                           
+                            </div><!-- /.col -->
                           </div><!-- /.row -->
-                            
+
 
                           </div><!-- /.row -->
                         </div><!-- /.col -->
@@ -131,50 +131,49 @@
                     <div class="post clearfix">
                       <form class='form-horizontal'>
                         <div class='form-group'>
-                        <span class="col-lg-12"><h4>Kebutuhan</h4></span>
+                        <div class="col-lg-12"><h4>Kebutuhan</h4></div>
                         <?php foreach ($detail_kebutuhan as $row) {?>
                             <div class="col-lg-9 progress-group">
-                                <h4><span class="progress-text"><?php print $row->nama ?></span>
-                            <span class="progress-number"><b>Diterima: <?php print $row->terpenuhi ?></b>/ Dibutuhkan :<?php print $row->jumlah ?></span></h4>
+                                <span class="progress-text"><?php print $row->nama ?></span>
+                            <span class="progress-number">Diterima: <?php print $row->terpenuhi ?>/ Dibutuhkan :<?php print $row->jumlah ?></span>
                                 <div class="progress sm">
-                                    <?php 
+                                    <?php
                                     $a = $row->terpenuhi;
                                     $b = $row->jumlah;
                                     $hasil = ($a/$b)*100;
                                     ?>
-
                                     <div class="progress-bar progress-bar-green" style="width:<?php print $hasil ?>%"></div>
                                 </div>
                             </div>
-                          
-                                                  
+
+
                           <div class='col-sm-3'>
                              <!-- <a class="btn btn-lg btn-primary" href='<?php echo base_url()."user/sumbang_bencana"."/".$row->id; ?>'>Commit Menyumbang</a> -->
-                          </div> 
+                          </div>
                               <?php //if($id!='guest')
                                 //echo  '<button class="btn btn-danger pull-right btn-block btn-sm">Sumbang</button>';
                               ?>
                       </form>
-                      <?php } ?>                     
+                      <?php } ?>
                     </div><!-- /.post -->
                     <div class="post clearfix">
                       <form class='form-horizontal'>
                         <div class='form-group'>
-                        <span class="col-lg-12"><h4>Layanan</h4></span>
+                        <div class="col-lg-12"><h4>Layanan</h4></div>
                         <?php foreach ($detail_layanan as $row) {?>
                             <div class="col-lg-9 progress-group">
-                                <h4><span class="progress-text"><?php print $row->nama_layanan ?></span>                                                            
+                                <h5><span class="progress-text"><?php print $row->nama_layanan ?></span>
                             </div>
-                          
-                                                  
+
+
                           <div class='col-sm-3'>
                              <!-- <a class="btn btn-lg btn-primary" href='<?php echo base_url()."user/sumbang_bencana"."/".$row->id; ?>'>Commit Menyumbang</a> -->
-                          </div> 
+                          </div>
                               <?php //if($id!='guest')
                                 //echo  '<button class="btn btn-danger pull-right btn-block btn-sm">Sumbang</button>';
                               ?>
                       </form>
-                      <?php } ?>                     
+                      <?php } ?>
                     </div><!-- /.post -->
                     <?php } ?>
                   </div><!-- /.tab-pane -->

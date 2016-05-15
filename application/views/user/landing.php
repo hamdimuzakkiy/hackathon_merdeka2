@@ -1,4 +1,4 @@
-<!DOCTYPE html>   
+<!DOCTYPE html>
   <script src="http://maps.google.com/maps/api/js?sensor=false"type="text/javascript"></script>
   <div class="content-wrapper">
     <div class="row">
@@ -15,7 +15,7 @@
                 <span class="description-text">Jumlah Posko</span>
               </div><!-- /.description-block -->
               <div class="description-block margin-bottom">
-                <h2 class="description-text"><?php 
+                <h2 class="description-text"><?php
                 $jumlah = 0;
                           foreach ($list_nama as $row) {
                             $jumlah++;
@@ -28,7 +28,7 @@
               <div class="description-block">
                 <h4 class="description-header"></h4>
                 <span class="description-text">
-                <a href="http://localhost/hackathon_merdeka2/index.php/user/list_bencana" class="btn btn-success">Lihat List</a>
+                <a href="<?php echo base_url(); ?>user/list_bencana" class="btn btn-success">Lihat List</a>
               </div><!-- /.description-block -->
             </div>
           </div><!-- /.col -->
@@ -79,8 +79,8 @@
           <div class="row">
             <!-- accepted payments column -->
             <div class="col-xs-6">
-             
-            
+
+
             </div><!-- /.col -->
             <div class="col-xs-6">
             </div><!-- /.col -->
@@ -89,8 +89,8 @@
           <!-- this row will not appear when printing -->
           <div class="row no-print">
             <div class="col-xs-12">
-              
-              
+
+
               <!-- <a href="" class="btn btn-primary pull-right" style="margin-right: 5px;"><i class="fa fa-download"></i>Masuk sebagai relawan</a> -->
             </div>
           </div>
@@ -121,15 +121,15 @@
     //   ['Manly Beach', -33.80010128657071, 151.28747820854187, 2, 'www.google.com'],
     //   ['Maroubra Beach', -33.950198, 151.259302, 1,'www.google.com']
     // ];
-    
+
     var locations = [
-      <?php 
+      <?php
       for ($i=0; $i < $len; $i++) { ?>
-        ['<?php print $bencana[$i]["nama"]; ?>'+'<br>'+'<a href="http://localhost/hackathon_merdeka2/index.php/user/detail_bencana/<?php print $bencana[$i]["id"]; ?>">'+ 'Lihat</a> ',<?php print $bencana[$i]["lat"]; ?>,<?php print $bencana[$i]["lng"]; ?>,<?php print $i+1; ?>,'www.google.com'],    
+        ['<?php print $bencana[$i]["nama"]; ?>'+'<br>'+'<a href=<?php echo base_url(); ?>user/detail_bencana/<?php print $bencana[$i]["id"]; ?>">'+ 'Lihat</a> ',<?php print $bencana[$i]["lat"]; ?>,<?php print $bencana[$i]["lng"]; ?>,<?php print $i+1; ?>,'www.google.com'],
       <?php }
       ?>
     ]
-        
+
 
     var map = new google.maps.Map(document.getElementById('map'), {
       zoom: 5,
@@ -141,7 +141,7 @@
 
     var marker, i;
 
-    for (i = 0; i < locations.length; i++) {  
+    for (i = 0; i < locations.length; i++) {
       marker = new google.maps.Marker({
         position: new google.maps.LatLng(locations[i][1], locations[i][2]),
         url: locations[i][4],
@@ -153,8 +153,7 @@
           infowindow.setContent(locations[i][0]);
           infowindow.open(map, marker);
         }
-        
+
       })(marker, i));
     }
   </script>
-
